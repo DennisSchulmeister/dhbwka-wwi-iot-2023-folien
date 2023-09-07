@@ -316,32 +316,270 @@
 
 <section>
     <h1>Benötigte Hard- und Software</h1>
-    <!-- <article>
+    <article>
         <h2 class="dhbw-lightblue">Hardware</h2>
         
         <lsx-tab-pages>
+            <!-- Arduino Board -->
             <lsx-tab-page title="Arduino Board">
-                ...
+                <lsx-grid-fluid>
+                    <lsx-row class="mb-0">
+                        <lsx-col size="md">
+                            <h3>Prototyping-Plattform: Arduino Uno (oder besser)</h3>
+                            <p>
+                                Single Board Computer mit ATmega 8-Bit Microcontroller
+                            </p>
+                        </lsx-col>
+                    </lsx-row>
+
+                    <lsx-row>
+                        <lsx-col size="md">
+                            <img src="0-intro/arduino-uno.webp" class="img-thumbnail d-block" style="width: 100%; height: 100%;" />
+                        </lsx-col>
+                        <lsx-col size="md">
+                            <!-- <lsx-youtube class="img-thumbnail embed-responsive" video="1ENiVwk8idM"></lsx-youtube> -->
+                            <div class="img-thumbnail embed-responsive" style="width: 100%; height: 100%;">
+                                <iframe class="d-block" style="width: 100%; height: 100%;" src="https://www.youtube-nocookie.com/embed/1ENiVwk8idM?rel=0&amp;showinfo=0" allowfullscreen></iframe>
+                            </div>
+                        </lsx-col>
+                    </lsx-row>
+
+                    <lsx-row>
+                        <lsx-col size="md">
+                            <lsx-ul>
+                                <li>
+                                    Kostengünstig und weit verbreitet, je nach Modell und Hersteller ab ca. 10&nbsp;€
+                                </li>
+                                <li>
+                                    Umfangreiche Community und Anleitungen im Internet verfügbar
+                                </li>
+                                <li>
+                                    Sehr einfache Programmierung mit der Arduino IDE und Arduino-Quellcodebibliothek
+                                </li>
+                                <li>
+                                    Vielfältige Schnittstellen für gängige Hardwarebausteine (Analog, Digital, PWM, Seriell, …)
+                                </li>
+                                <li>
+                                    Normierter GPIO-Header zum Andocken von „Shields” (Zusatzplatinen) für Displays, WiFi, …
+                                </li>
+                            </lsx-ul>
+                        </lsx-col>
+                    </lsx-row>
+                </lsx-grid-fluid>
             </lsx-tab-page>
 
+            <!-- Sensor Kit -->
             <lsx-tab-page title="Sensor Kit">
-                ...
+                <lsx-grid-fluid>
+                    <lsx-row class="mb-0">
+                        <lsx-col size="md">
+                            <h3>Einfachen Sensoren und Aktoren: X50 Sensor Kit</h3>
+                            <p>
+                                Keine hochwertigen Komponenten, dafür aber von allem etwas dabei
+                            </p>
+                        </lsx-col>
+                    </lsx-row>
+
+                    <lsx-row>
+                        <lsx-col size="md">
+                            <img src="0-intro/x50-sensorkit.png" class="img-thumbnail d-block" style="width: 100%; height: 100%;" />
+                        </lsx-col>
+                        <lsx-col size="md">
+                            <!-- <lsx-youtube class="img-thumbnail embed-responsive" video="MJmVVW3huEg"></lsx-youtube> -->
+                            <div class="img-thumbnail embed-responsive" style="width: 100%; height: 100%;">
+                                <iframe class="d-block" style="width: 100%; height: 100%;" src="https://www.youtube-nocookie.com/embed/MJmVVW3huEg?rel=0&amp;showinfo=0" allowfullscreen></iframe>
+                            </div>
+                        </lsx-col>
+                    </lsx-row>
+
+                    <lsx-row>
+                        <lsx-col size="md">
+                            <lsx-ul>
+                                <li>
+                                    Grundstock an allen gängigen Low-Level Sensoren und Aktoren
+                                </li>
+                                <li>
+                                    Einfache Benutzung, da alle Komponenten auf Breadboards steckbar sind
+                                </li>
+                                <li>
+                                    Einigermaßen gute, deutschsprachige Dokumentation des Herstellers
+                                </li>
+                                <li>
+                                    Quellcodebeispiele für Raspberry Pi mit Python und Ardunio auf der Herstellerseite
+                                </li>
+                            </lsx-ul>
+                        </lsx-col>
+                    </lsx-row>
+                </lsx-grid-fluid>
             </lsx-tab-page>
 
+            <!-- Verbrauchsmaterial -->
             <lsx-tab-page title="Verbrauchsmaterial">
-                ...
+                <lsx-grid-fluid>
+                    <lsx-row class="mb-0">
+                        <lsx-col size="md">
+                            <h3>Breadboard, Lochrasterplatine, Kabel, Widerstände, LEDs, …</h3>
+                            <p>
+                                Kleinteile und Verbrauchsmaterial für eigene Hardwareaufbauten
+                            </p>
+                        </lsx-col>
+                    </lsx-row>
+
+                    <lsx-row>
+                        <lsx-col size="md">
+                            <img src="0-intro/kleinteile1.jpg" class="img-thumbnail d-block" style="width: 100%; height: 100%;" />
+                        </lsx-col>
+                        <lsx-col size="md">
+                            <img src="0-intro/kleinteile2.jpg" class="img-thumbnail d-block" style="width: 100%; height: 100%;" />
+                        </lsx-col>
+                    </lsx-row>
+                    <lsx-row>
+                        <lsx-col size="md">
+                            <img src="0-intro/kleinteile3.jpg" class="img-thumbnail d-block" style="width: 100%; height: 100%;" />
+                        </lsx-col>
+                    </lsx-row>
+                </lsx-grid-fluid>
             </lsx-tab-page>
 
+            <!-- ATmega328P-PU -->
             <lsx-tab-page title="ATmega328P-PU">
-                ...
+                <lsx-grid-fluid>
+                    <lsx-row class="mb-0">
+                        <lsx-col size="md">
+                            <h3>Herzstück des Arduino Uno: ATmega328P</h3>
+                            <p>
+                                Leistungsfähiger 8-Bit Microcontroller
+                            </p>
+                        </lsx-col>
+                    </lsx-row>
+
+                    <lsx-row>
+                        <lsx-col size="md">
+                            <img src="0-intro/ATmega328P.jpg" class="img-thumbnail d-block" style="width: 100%; height: 100%;" />
+                        </lsx-col>
+                        <lsx-col size="md">
+                            <!-- <lsx-youtube class="img-thumbnail embed-responsive" video="J3DYgzRvLT8"></lsx-youtube> -->
+                            <div class="img-thumbnail embed-responsive" style="width: 100%; height: 100%;">
+                                <iframe class="d-block" style="width: 100%; height: 100%;" src="https://www.youtube-nocookie.com/embed/J3DYgzRvLT8?rel=0&amp;showinfo=0" allowfullscreen></iframe>
+                            </div>
+                        </lsx-col>
+                    </lsx-row>
+
+                    <lsx-row>
+                        <lsx-col size="md">
+                            <lsx-ul>
+                                <li>
+                                    Sehr weit verbreitete Microcontroller-Familie (AVR) für eingebettete Systeme
+                                </li>
+                                <li>
+                                    Eingebaute Flash Speicher für Programmcoode und SRAM als Hauptspeicher
+                                </li>
+                                <li>
+                                    Extrem einfache Hardwarebeschaltung mit kaum externen Komponenten
+                                </li>
+                                <li>
+                                    Durch Flashen eines speziellen Bootloarders direkt aus Arduino IDE programmierbar
+                                </li>
+                            </lsx-ul>
+                        </lsx-col>
+                    </lsx-row>
+                </lsx-grid-fluid>
             </lsx-tab-page>
 
+            <!-- ESP32 -->
             <lsx-tab-page title="(ESP32)">
-                ...
+                <lsx-grid-fluid>
+                    <lsx-row class="mb-0">
+                        <lsx-col size="md">
+                            <h3>Kostengünstiger und sehr leistungsfähiger Microcontroller: ESP32</h3>
+                            <p>
+                                Dual Core mit bis zu 240 MHz, WiFi, Bluetooh, Arduino-Kompatibel
+                            </p>
+                        </lsx-col>
+                    </lsx-row>
+
+                    <lsx-row>
+                        <lsx-col size="md">
+                            <img src="0-intro/esp32.jpg" class="img-thumbnail d-block" style="width: 100%; height: 100%;" />
+                        </lsx-col>
+                        <lsx-col size="md">
+                            <!-- <lsx-youtube class="img-thumbnail embed-responsive" video="A5CB4t9sukM"></lsx-youtube> -->
+                            <div class="img-thumbnail embed-responsive" style="width: 100%; height: 100%;">
+                                <iframe class="d-block" style="width: 100%; height: 100%;" src="https://www.youtube-nocookie.com/embed/A5CB4t9sukM?rel=0&amp;showinfo=0" allowfullscreen></iframe>
+                            </div>
+                        </lsx-col>
+                    </lsx-row>
+
+                    <lsx-row>
+                        <lsx-col size="md">
+                            <lsx-ul>
+                                <li>
+                                    Im Vergleich zu typischen Microcontrollern sehr leistungsfähige Hardware
+                                </li>
+                                <li>
+                                    WLAN und Bluetooth direkt im Microchip integriert
+                                </li>
+                                <li>
+                                    Sehr kostengünstig, teilweise schon unter 10 €
+                                </li>
+                                <li>
+                                    Proprietäres SDK auf Basis von FreeRTOS und Ardiono-kompatible Programmierung
+                                </li>
+                                <li>
+                                    Umfangreiche Anleitungen und Materialien online verfügbar
+                                </li>
+                            </lsx-ul>
+                        </lsx-col>
+                    </lsx-row>
+                </lsx-grid-fluid>
             </lsx-tab-page>
 
+            <!-- Raspberry Pi -->
             <lsx-tab-page title="(Raspberry Pi)">
-                ...
+                <lsx-grid-fluid>
+                    <lsx-row class="mb-0">
+                        <lsx-col size="md">
+                            <h3>Mini-PC im Format eines Single Board Computers: Raspberry Pi</h3>
+                            <p>
+                                Mit änderen Desktop-Computern verlgeichbare Leistung
+                            </p>
+                        </lsx-col>
+                    </lsx-row>
+
+                    <lsx-row>
+                        <lsx-col size="md">
+                            <img src="0-intro/raspberrypi.jpg" class="img-thumbnail d-block" style="width: 100%; height: 100%;" />
+                        </lsx-col>
+                        <lsx-col size="md">
+                            <!-- <lsx-youtube class="img-thumbnail embed-responsive" video="eZ74x6dVYes"></lsx-youtube> -->
+                            <div class="img-thumbnail embed-responsive" style="width: 100%; height: 100%;">
+                                <iframe class="d-block" style="width: 100%; height: 100%;" src="https://www.youtube-nocookie.com/embed/eZ74x6dVYes?rel=0&amp;showinfo=0" allowfullscreen></iframe>
+                            </div>
+                        </lsx-col>
+                    </lsx-row>
+
+                    <lsx-row>
+                        <lsx-col size="md">
+                            <lsx-ul>
+                                <li>
+                                    Inzwischen in der großen Version leider nicht mehr so günstig (ab ca. 50 €)
+                                </li>
+                                <li>
+                                    Aber sehr weite Verbreitung mit sehr vielen Anleitungen und Materialien
+                                </li>
+                                <li>
+                                    Sehr gute Unterstützung durch Linux (Standard-Distribution und selbst gebaut)
+                                </li>
+                                <li>
+                                    In jeder beliebigen Programmiersprache programmierbar
+                                </li>
+                                <li>
+                                    Kann auch für rechenintensive Aufgaben wie z.B. als Media Player verwendet werden
+                                </li>
+                            </lsx-ul>
+                        </lsx-col>
+                    </lsx-row>
+                </lsx-grid-fluid>
             </lsx-tab-page>
         </lsx-tab-pages>
 
@@ -357,14 +595,100 @@
         <h2 class="mt-4 dhbw-lightblue">Software</h2>
         
         <lsx-tab-pages>
+            <!-- KiCAD -->
             <lsx-tab-page title="KiCAD">
-                ...
+                <lsx-grid-fluid>
+                    <lsx-row class="mb-0">
+                        <lsx-col size="md">
+                            <h3>Schaltpläne und Leiterplatinen entwerfen: KiCAD</h3>
+                            <p>
+                                Leistungsfähige Open-Source-Software für das Hardwaredesign
+                            </p>
+                        </lsx-col>
+                    </lsx-row>
+
+                    <lsx-row>
+                        <lsx-col size="md">
+                            <img src="0-intro/kicad.webp" class="img-thumbnail d-block" style="width: 100%; height: 100%;" />
+                        </lsx-col>
+                        <lsx-col size="md">
+                            <!-- <lsx-youtube class="img-thumbnail embed-responsive" video="vV-yWVZqQQ8"></lsx-youtube> -->
+                            <div class="img-thumbnail embed-responsive" style="width: 100%; height: 100%;">
+                                <iframe class="d-block" style="width: 100%; height: 100%;" src="https://www.youtube-nocookie.com/embed/vV-yWVZqQQ8?rel=0&amp;showinfo=0" allowfullscreen></iframe>
+                            </div>
+                        </lsx-col>
+                    </lsx-row>
+
+                    <lsx-row>
+                        <lsx-col size="md">
+                            <lsx-ul>
+                                <li>
+                                    Sehr weit verbreitet in der Open-Hardware-Szene
+                                </li>
+                                <li>
+                                    Sehr guter Editor für Schaltplanzeichnungen
+                                </li>
+                                <li>
+                                    Import der Schaltpläne in den PCB-Editor für Leiterplatinen
+                                </li>
+                                <li>
+                                    Große Sammlung an vordefinierten Teilebibliotheken, eigene definierbar
+                                </li>
+                                <li>
+                                    Direkter Export aller Daten für die Produktion der Leiterplatinen
+                                </li>
+                            </lsx-ul>
+                        </lsx-col>
+                    </lsx-row>
+                </lsx-grid-fluid>
             </lsx-tab-page>
 
+            <!-- Arduino IDE -->
             <lsx-tab-page title="Arduino IDE">
-                ...
+                <lsx-grid-fluid>
+                    <lsx-row class="mb-0">
+                        <lsx-col size="md">
+                            <h3>Compiler-Toolkit, Programmierwerkzeug, IDE: Arduino IDE</h3>
+                            <p>
+                                Besonders anfängerfreundlich, beinhaltet alle notwendigen Programme
+                            </p>
+                        </lsx-col>
+                    </lsx-row>
+
+                    <lsx-row>
+                        <lsx-col size="md">
+                            <img src="0-intro/arduino-ide.png" class="img-thumbnail d-block" style="width: 100%; height: 100%;" />
+                        </lsx-col>
+                        <lsx-col size="md">
+                            <!-- <lsx-youtube class="img-thumbnail embed-responsive" video="nbD_V4QtNvY"></lsx-youtube> -->
+                            <div class="img-thumbnail embed-responsive" style="width: 100%; height: 100%;">
+                                <iframe class="d-block" style="width: 100%; height: 100%;" src="https://www.youtube-nocookie.com/embed/nbD_V4QtNvY?rel=0&amp;showinfo=0" allowfullscreen></iframe>
+                            </div>
+                        </lsx-col>
+                    </lsx-row>
+
+                    <lsx-row>
+                        <lsx-col size="md">
+                            <lsx-ul>
+                                <li>
+                                    Besonders auf Anfänger ausgerichtete IDE für die Embedded-Entwicklung
+                                </li>
+                                <li>
+                                    Beinhaltet alle Bibliotheken, Compiler, Werkzeuge für Arduino und AVR-Microcontroller
+                                </li>
+                                <li>
+                                    Direktes Aufspielen und Testen des Codes auf dem Device aus der IDE heraus
+                                </li>
+                                <li>
+                                    Allerdings sehr beschränkte Programmierhilfen (eigentlich nur Syntax-Highlighting)
+                                </li>
+                            </lsx-ul>
+                        </lsx-col>
+                    </lsx-row>
+                </lsx-grid-fluid>
             </lsx-tab-page>
 
+            <!-- Visual Studio Code -->
             <lsx-tab-page title="(Visual Studio Code)">
                 <lsx-grid-fluid>
                     <lsx-row class="mb-0">
@@ -412,7 +736,7 @@
                 </lsx-grid-fluid>
             </lsx-tab-page>
         </lsx-tab-pages>
-    </article> -->
+    </article>
     <aside>
         <p>
             Da es sich um eine sehr praktisch orientierte Vorlesung handelt, die
