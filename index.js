@@ -50,9 +50,7 @@ import LsPluginHighlightJs from "@dschulmeis/ls-plugin-highlight.js";
 // import HLJS_Language_JAVA from 'highlight.js/lib/languages/java';
 import "highlight.js/styles/atom-one-light.css";
 
-window.addEventListener("load", () => {
-    emailLinkJs.enableEmailLinks();
-
+window.addEventListener("load", async () => {
     let player = new SlideshowPlayer({
         labelPrev: "Zurück",
         labelNext: "Weiter",
@@ -94,5 +92,6 @@ window.addEventListener("load", () => {
         }
     });
 
-    player.start();
+    await player.start();
+    emailLinkJs.enableEmailLinks();
 });
