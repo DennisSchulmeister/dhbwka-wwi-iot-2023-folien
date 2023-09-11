@@ -4,15 +4,60 @@
         <h3>Nach Abschluss dieser Einheit kannst du …</h3>
         <ul>
             <li>
-                den Begriff <span class="dhbw-lightblue font-weight-bold">verteiltes System</span>
-                erklären und von ähnlichen Begriffen abgrenzen.
+                Die Begriffe <span class="dhbw-lightblue">Internet of Things</span> und <span class="dhbw-lightblue">Eingebettetes System</span> voneinander abgrenzen.
+            </li>
+            <li>
+                Verschiedene <span class="dhbw-lightblue">Anwendungsfälle des Internet of Things</span> in der heutigen Zeit benennen.
+            </li>
+            <li>
+                Den Umfang, typische Schichten und Komponenten einer <span class="dhbw-lightblue">IoT-Architektur</span> einschätzen.
+            </li>
+            <li>
+                Die wichtigsten Meilensteine von den ersten Digitalrechnern bis zum Internet of Things erklären.
+            </li>
+            <li>
+                Typische <span class="dhbw-lightblue">Leistungsparameter verschiedener Entwicklerboards</span> vergleichen.
+            </li>
+            <li>
+                Den grundlegenden Aufbau eingebetteter <span class="dhbw-lightblue">Rechnerarchitekturen</span> beschreiben.
+            </li>
+            <li>
+                Die Gemeinsamkeiten und Unterschiede von <span class="dhbw-lightblue">CPU</span>, <span class="dhbw-lightblue">Microcontroller</span>
+                und <span class="dhbw-lightblue">System-on-a-Chip</span> erklären.
+            </li>
+            <li>
+                <span class="dhbw-lightblue">Hardwarenahe Programmierung</span> von anderen Arten der Anwendungsentwicklung unterscheiden.
             </li>
         </ul>
         <span style="font-size: 240px; color: white;" class="dhbw-text-shadow" >🏁</span>
     </article>
     <aside>
         <p>
-            …
+            Spätestens seit der breiten Verfügbarkeit immer günstigerer Smart-Home-Komponenten kommt das
+            Internet of Things immer mehr in unserem Alltag an. Smarte Lautsprecher wie Amazon Echo Dot
+            oder Apple HomePod, mit denen sich andere Geräte per Sprachsteuerung bedienen lassen, sowie
+            dazu passende, intelligente Leuchtmittel, Heizungsthermostate usw. werden inzwischen selbst in
+            Baumärkten und großen, schwedischen Möbelhäusern angeboten. Nicht nur unsere Computer, Fernseher
+            und Smartphones sind vernetzt. Unser gesamter Lebensraum wird zunehmend digital. Zwar stecken
+            schon lange in den meisten elektronischen Geräten eingebettete Computersysteme. Doch erst heute
+            sind diese zunehmend über das Internet miteinander verbunden.
+        </p>
+        <p>
+            Ursprünglich stand der Begriff „Internet of Things“ jedoch für eine völlig andere Idee, die heute
+            eher unter dem Begriff „Industrie 4.0” vermarktet wird. Daraus ergibt sich, dass wir zwischen
+            industriellen und nicht-industriellen Anwendungsfällen des IoT unterscheiden. Dieses Kapitel beginnt
+            daher mit einer einfachen, aber präzisen Definition des Begriffs „Internet of Things” sowie darauf
+            aufbauenden Anwendungsbeispielen. Dies dient als Grundlage für die Betrachtung einer typischen
+            IoT-Systemarchitektur, die neben den Geräten selbst auch alle anderen Komponenten zur Realisierung
+            der jeweiligen Anwendung wie zum Beispiel Datenbanken, Message Broker oder Serverdienste umfasst.
+        </p>
+        <p>
+            Den Abschluss bildet ein genauerer Blick auf die Hardware. Hier lernen wir die Besonderheiten
+            eingebetteter Systeme im Vergleich zu größeren Rechnerarchitekturen kennen. Insbesondere werfen
+            wir einen ersten Blick auf Microcontroller und System-on-a-Chip, mit denen eingebettete Systeme
+            heutzutage meistens realisiert werden, mit ihren typischen Schnittstellen und Leistungsparametern.
+            Hier erfahren wir auch, wie sich die hardwarenahe Programmierung eingebetteter Systeme von der
+            weitgehend hardwareneutralen Anwendungsentwicklung für andere Systeme unterscheidet.
         </p>
     </aside>
 </section>
@@ -26,16 +71,597 @@
 
 <section>
     <h1>Ein paar Fragen zum Einstieg</h1>
-    <article>
-        …
+    <article id="iot-einstieg">
+        <style>
+            /* Chat-Prompt am unteren Seitenende platzieren */
+            #iot-einstieg .page-content {
+                flex: 1;
+            }
+
+            /* Chat-Prompt stylen */
+            #iot-einstieg .prompt {
+                padding-top: 1em;
+                position: sticky;
+                bottom: 1em;
+            }
+
+            #iot-einstieg .prompt > div {
+                width: 40em;
+                max-width: 100%;
+                margin: 0 auto;
+
+                background: white;
+                box-shadow: 0px 0px 10px rgba(0,0,0, 0.33);
+                border-radius: 0.25em;
+                padding: 0.5em;
+
+                color: rgb(120, 120, 120);
+            }
+
+            #iot-einstieg .prompt ul {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+            }
+
+            #iot-einstieg .prompt:not(.disabled) li:hover {
+                cursor: pointer;
+                text-decoration: underline;
+            }
+
+            #iot-einstieg .prompt {
+                transition: opacity 1s;
+            }
+
+            #iot-einstieg .prompt.disabled {
+                opacity: 50%;
+            }
+
+            /* Textausgaben des Fake-Chatbot stylen */
+            #iot-einstieg .chatbot {
+                font-size: 90%;
+                border: 1px solid lightgrey;
+                background: rgb(240, 240, 240);
+                border-radius: 0.25rem;
+                overflow: hidden;
+            }
+
+            #iot-einstieg .chatbot > * {
+                padding: 0.5em;
+
+                border: 0px solid lightgrey;
+                border-bottom-width: 1px;
+            }
+
+            #iot-einstieg .chatbot > *:last-child {
+                border-bottom-width: 0;
+            }
+
+            #iot-einstieg .chatbot .question {
+                background: white;
+            }
+
+            #iot-einstieg .chatbot .answer {
+                color: rgb(90, 90, 90);
+            }
+
+            #iot-einstieg .chatbot .inner {
+                width: 55em;
+                max-width: 100%;
+                margin: 0 auto;
+            }
+
+            #iot-einstieg .chatbot .side-by-side {
+                display: flex;
+                justify-content: space-between;
+                align-items: start;
+                gap: 1em;
+            }
+
+            #iot-einstieg .chatbot .avatar {
+                width: 2.5em;
+                height: 2.5em
+            }
+
+            #iot-einstieg .chatbot .text {
+                flex: 1;
+            }
+
+            #iot-einstieg .chatbot .text > *:last-child {
+                margin-bottom: 0;
+            }
+
+            #iot-einstieg .chatbot .commands {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+                margin-top: 1em;
+
+                display: flex;
+                justify-content: center;
+                gap: 2em;
+
+                font-size: small;
+                font-weight: bold;
+            }
+
+            #iot-einstieg .chatbot .commands li:hover {
+                cursor: pointer;
+                text-decoration: underline;
+            }
+        </style>
+
+        <div class="d-flex flex-column h-100">
+            <!-- Eigentlicher Seiteninhalt -->
+            <div class="page-content">
+                <!-- Symbolbilder -->
+                <lsx-grid-fluid class="p-0">
+                    <lsx-row>
+                        <lsx-col size="md">
+                            <img src="1-grundlagen/iot-hardware.jpg" class="d-block h-100 img-thumbnail" alt="">
+                        </lsx-col>
+                        <lsx-col size="md">
+                            <img src="1-grundlagen/iot-mechatronik.jpg" class="d-block h-100 img-thumbnail" alt="">
+                        </lsx-col>
+                    </lsx-row>
+                </lsx-grid-fluid>
+        
+                <!-- Antworten des Fake AI-Chatbots -->
+                <div class="chatbot mt-4 d-none">
+                    <template q="Was bedeutet der Begriff „Internet of Things“?" bot="Bing Chat">
+                        <p>
+                            “Internet of Things” (IoT), auf Deutsch “Internet der Dinge”, ist ein Sammelbegriff
+                            für Technologien einer globalen Infrastruktur der Informationsgesellschaften. Es ermöglicht,
+                            physische und virtuelle Objekte miteinander zu vernetzen und sie durch Informations- und
+                            Kommunikationstechniken zusammenarbeiten zu lassen.
+                        </p>
+                        <p>
+                            Das Netzwerk besteht aus physischen Objekten (“Things”), die mit Sensoren, Software und
+                            anderer Technologie ausgestattet sind, um diese mit anderen Geräten und Systemen über das
+                            Internet zu vernetzen. So können zwischen den Objekten Daten ausgetauscht werden.
+                        </p>
+                        <p>
+                            Diese Geräte reichen von normalen Haushaltsgegenständen bis hin zu anspruchsvollen Industriewerkzeugen.
+                            Die immer kleineren eingebetteten Geräte sollen Menschen unterstützen, ohne abzulenken oder überhaupt
+                            aufzufallen.
+                        </p>
+                        <p>
+                            Das Ziel des Internets der Dinge ist es, automatisch relevante Informationen aus der realen Welt zu erfassen,
+                            miteinander zu verknüpfen und im Netzwerk verfügbar zu machen.
+                        </p>
+                    </template>
+                    <template q="Was ist ein eingebettetes System?" bot="ChatGPT">
+                        <p>
+                            Ein eingebettetes System, oft auch als Embedded System bezeichnet, ist ein spezieller Typ von Computersystem,
+                            der für eine bestimmte Aufgabe oder Funktion entwickelt wurde und in eine größere Maschine oder ein Produkt
+                            integriert ist. Im Gegensatz zu allgemeinen Zweckcomputern, die eine breite Palette von Aufgaben bewältigen
+                            können, sind eingebettete Systeme darauf ausgelegt, eine spezifische Funktion oder eine begrenzte Gruppe von
+                            Funktionen auszuführen.
+                        </p>
+                        <p>
+                            Hier sind einige wichtige Merkmale von eingebetteten Systemen:
+                        </p>
+                        <ol>
+                            <li>
+                                <b>Dedizierte Funktion:</b> Ein eingebettetes System ist darauf ausgelegt, eine dedizierte Funktion oder Aufgabe
+                                auszuführen. Dies kann von der Steuerung einer Waschmaschine über die Berechnung von Flugzeugdaten bis hin
+                                zur Regelung von industriellen Produktionsanlagen reichen.
+                            </li>
+                            <li>
+                                <b>Hardware-Software-Integration:</b> Eingebettete Systeme bestehen aus einer Kombination von Hardware und Software,
+                                die eng miteinander verknüpft sind, um die gewünschte Funktion zu erfüllen. Die Hardware kann speziell für die
+                                Anwendung entwickelte Mikrocontroller oder Prozessoren umfassen.
+                            </li>
+                            <li>
+                                <b>Begrenzte Ressourcen:</b> Eingebettete Systeme haben oft begrenzte Ressourcen wie begrenzten Speicher, Prozessorleistung
+                                und Energieverbrauch. Dies erfordert effiziente Programmierung und Hardware-Design.
+                            </li>
+                            <li>
+                                <b>Echtzeitbetrieb:</b> Viele eingebettete Systeme müssen in Echtzeit arbeiten, was bedeutet, dass sie innerhalb bestimmter
+                                Zeitrahmen auf Ereignisse reagieren müssen. Dies ist beispielsweise bei Steuerungssystemen für Autos oder medizinische
+                                Geräte der Fall.
+                            </li>
+                            <li>
+                                <b>Integration in ein größeres System:</b> Eingebettete Systeme werden oft in ein größeres System oder Produkt eingebaut,
+                                anstatt als eigenständige Computer zu agieren. Beispiele hierfür sind Navigationssysteme in Autos, intelligente
+                                Thermostate in Häusern oder Flugzeugsteuerungen in Flugzeugen.
+                            </li>
+                            <li>
+                                <b>Spezialisierte Softwareentwicklung:</b> Die Software für eingebettete Systeme wird speziell für die jeweilige Anwendung
+                                entwickelt und ist oft maßgeschneidert. Dies kann eine Herausforderung darstellen, da sie auf die spezifischen Anforderungen
+                                und Einschränkungen des Systems abgestimmt sein muss.
+                            </li>
+                        </ol>
+                        <p>
+                            Eingebettete Systeme sind in vielen Aspekten des täglichen Lebens weit verbreitet und spielen eine entscheidende Rolle
+                            in verschiedenen Branchen wie Automotive, Medizintechnik, Industrieautomation, Telekommunikation und mehr. Sie sind oft
+                            unsichtbar für den Endnutzer, aber sie ermöglichen die Funktionalität und Automatisierung vieler Geräte und Systeme,
+                            die wir täglich nutzen.
+                        </p>
+                    </template>
+                    <template q="Wo begegnen uns eingebettete System im Alltag?" bot="ChatGPT">
+                        <p>
+                            Eingebettete Systeme sind aus unserem täglichen Leben kaum wegzudenken und kommen in einer Vielzahl von Geräten und
+                            Anwendungen vor. Hier sind einige Beispiele, wo wir eingebetteten Systemen im Alltag begegnen:
+                        </p>
+                        <ol>
+                            <li>
+                                <b>Smartphones:</b> Smartphones sind voll von eingebetteten Systemen. Diese Systeme steuern die
+                                Telefonfunktionen, die Kamera, den Touchscreen, die Sensoren und mehr.
+                            </li>
+                            <li>
+                                <b>Automobile:</b> Moderne Fahrzeuge verwenden zahlreiche eingebettete Systeme zur Steuerung von
+                                Motorfunktionen, zur Navigation, zur Infotainment-Steuerung, zur Überwachung der Sicherheitssysteme
+                                und zur Fahrerassistenz.
+                            </li>
+                            <li>
+                                <b>Haushaltsgeräte:</b> Eingebettete Systeme finden sich in Geräten wie Waschmaschinen, Geschirrspülern,
+                                Kühlschränken und Mikrowellen. Sie sorgen für die Steuerung und Automatisierung dieser Geräte.
+                            </li>    
+                            <li>
+                                <b>Fernseher und Unterhaltungselektronik:</b> Smart-TVs, Streaming-Geräte, Spielekonsolen und andere
+                                Unterhaltungselektronik nutzen eingebettete Systeme für die Benutzeroberfläche, die Video- und Audioverarbeitung
+                                und die Konnektivität.
+                            </li>
+                            <li>
+                                <b>Medizintechnik:</b> In medizinischen Geräten wie Herzschrittmachern, Insulinpumpen, Blutdruckmessgeräten
+                                und bildgebenden Verfahren werden eingebettete Systeme verwendet, um lebenswichtige Funktionen zu überwachen
+                                und zu steuern.
+                            </li>
+                            <li>
+                                <b>Flugzeuge:</b> In Flugzeugen sind eingebettete Systeme für die Flugsteuerung, Navigation, Kommunikation
+                                und Überwachung von Systemen entscheidend.
+                            </li>
+                            <li>
+                                <b>Industrielle Automatisierung:</b> In Fabriken und Produktionsanlagen werden eingebettete Systeme zur
+                                Steuerung von Maschinen, zur Qualitätskontrolle und zur Überwachung von Produktionsprozessen eingesetzt.
+                            </li>
+                            <li>
+                                <b>Sicherheitssysteme:</b> Alarmanlagen, Überwachungskameras und Zugangskontrollsysteme verwenden eingebettete
+                                Systeme zur Erfassung und Überwachung von Sicherheitsbedrohungen.
+                            </li>
+                            <li>
+                                <b>Verkehrssysteme:</b> In Verkehrslichtern, Ampelanlagen, GPS-Navigationssystemen und öffentlichen
+                                Verkehrsmitteln sind eingebettete Systeme zur Verkehrssteuerung und -überwachung im Einsatz.
+                            </li>
+                            <li>
+                                <b>Wearables:</b> Fitnesstracker, Smartwatches und Gesundheitsüberwachungsgeräte verwenden eingebettete Systeme
+                                zur Erfassung und Analyse von Gesundheitsdaten.
+                            </li>
+                            <li>
+                                <b>Kreditkarten und Zahlungsterminals:</b> Eingebettete Systeme in Kreditkarten und Zahlungsterminals
+                                ermöglichen sichere Transaktionen.
+                            </li>
+                            <li>
+                                <b>Haustechnik:</b> Intelligente Thermostate, Beleuchtungssteuerungen und Sicherheitssysteme in Wohnhäusern
+                                basieren auf eingebetteten Systemen.
+                            </li>    
+                        </ol>
+                        <p>
+                            Diese Beispiele verdeutlichen, wie weit verbreitet eingebettete Systeme in unserer modernen Welt sind und wie sie zur Automatisierung,
+                            Steuerung und Verbesserung verschiedener Aspekte unseres täglichen Lebens beitragen. Sie sind oft unsichtbar, aber sie spielen eine
+                            entscheidende Rolle in der Funktionalität und Effizienz vieler Geräte und Systeme.
+                        </p>
+                    </template>
+                    <template q="Was sind typische Anwendungsfälle für das IoT?" bot="Google Bard">
+                        <p>
+                            Das Internet der Dinge (IoT) ermöglicht es, dass Geräte und Maschinen miteinander kommunizieren und Daten austauschen.
+                            Dies eröffnet eine Vielzahl neuer Möglichkeiten für Anwendungen in verschiedenen Bereichen.
+                        </p>
+                        <p>
+                            Typische Anwendungsfälle für das IoT sind:
+                        </p>
+                        <ul>
+                            <li>
+                                <b>Industrie:</b> In der Industrie wird das IoT zur Verbesserung der Effizienz und Produktivität eingesetzt.
+                                So können beispielsweise Sensoren in der Fertigung die Qualität der Produkte überwachen und Anomalien frühzeitig
+                                erkennen.
+                            </li>
+                            <li>
+                                <b>Logistik:</b> Im Bereich Logistik wird das IoT zur Optimierung der Lieferketten eingesetzt. So können beispielsweise
+                                Sensoren in Lieferfahrzeugen die aktuelle Position und den Status der Ladung verfolgen.
+                            </li>
+                            <li>
+                                <b>Gesundheitswesen:</b> Im Gesundheitswesen wird das IoT zur Verbesserung der Patientenversorgung eingesetzt.
+                                So können beispielsweise Wearables zur Überwachung von Patientendaten wie Herzfrequenz und Blutdruck eingesetzt werden.
+                            </li>
+                            <li>
+                                <b>Smart City:</b> In Smart Cities werden IoT-Technologien zur Verbesserung der Lebensqualität eingesetzt.
+                                So können beispielsweise Sensoren zur Überwachung des Verkehrsflusses oder der Luftqualität eingesetzt werden.
+                            </li>
+                            <li>
+                                <b>Haushalt:</b> Im Haushalt wird das IoT zur Verbesserung des Komforts und der Sicherheit eingesetzt.
+                                So können beispielsweise vernetzte Geräte wie Thermostate oder Lichtschalter automatisch gesteuert werden.
+                            </li>
+                        </ul>
+                        <p>
+                            Weitere Beispiele für IoT-Anwendungen sind:
+                        </p>
+                        <ul>
+                            <li>
+                                <b>Verkehrsmanagement:</b> Überwachung des Verkehrsflusses, Optimierung der Routenplanung, Vermeidung von Staus
+                            </li>
+                            <li>
+                                <b>Umweltüberwachung:</b> Messung von Luftqualität, Wasserqualität, Lärmbelastung
+                            </li>
+                            <li>
+                                <b>Landwirtschaft:</b> Überwachung von Pflanzen und Tieren, Optimierung der Bewässerung, Steigerung der Erträge
+                            </li>
+                            <li>
+                                <b>Kundenservice:</b> Automatisierte Antworten auf Kundenanfragen, Personalisierung von Angeboten
+                            </li>
+                            <li>
+                                <b>Bildung:</b> Virtuelle Klassenzimmer, personalisierte Lernerfahrungen
+                            </li>
+                            <li>
+                                <b>Kunst und Kultur:</b> Interaktive Ausstellungen, immersive Erlebnisse
+                            </li>
+                        </ul>
+                        <p>
+                            Die Möglichkeiten für IoT-Anwendungen sind nahezu unbegrenzt. Mit der Weiterentwicklung der Technologien wird das IoT
+                            in Zukunft noch weiter in unser Leben eindringen.
+                        </p>
+                    </template>
+                </div>
+
+                <!-- Bildnachweise -->
+                <p>
+                    <small>
+                        <small>
+                            Bildnachweise:
+                            <a href="https://pixabay.com/photos/cyber-security-network-internet-2377718/" target="_blank">Pixabay: axonite</a>,
+                            <a href="https://pixabay.com/de/photos/industrie-technologie-maschine-3d-3225119/" target="_blank">Pixabay: CR-3D</a>,
+                            <a href="https://pixabay.com/vectors/bot-icon-robot-automated-cyborg-2883144/" target="_blank">Pixabay: mcmurryjulie</a>,
+                            <a href="https://pixabay.com/vectors/kid-avatar-icon-plain-design-red-1837375/" target="_blank">Pixabay: DavidRockDesign</a>
+                        </small>
+                    </small>
+                </p>
+            </div>
+            
+            <!-- Prompt für den Fake AI-Chatbot -->
+            <div class="prompt">
+                <div>
+                    <small>
+                        <small>
+                            Bitte wählen Sie eine Frage aus:
+                        </small>
+                    </small>
+                    <ul></ul>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            window.iot_einstieg_chatbot = function() {
+                // Auswahl im Promptfenster generieren
+                let sectionElement = document.querySelector("#iot-einstieg");
+                if (!sectionElement) return;
+
+                let questionDefinitions = document.querySelectorAll("#iot-einstieg .chatbot template");
+                let chatbotElement      = document.querySelector("#iot-einstieg .chatbot");
+                let promptElement       = document.querySelector("#iot-einstieg .prompt");
+                let promptListElement   = document.querySelector("#iot-einstieg .prompt ul");
+
+                promptListElement.innerHTML = "";
+
+                for (let questionDefinition of questionDefinitions) {
+                    let botName  = questionDefinition.getAttribute("bot");
+                    let question = questionDefinition.getAttribute("q");
+                    let answer   = questionDefinition.innerHTML;
+
+                    let listItemElement = document.createElement("li");
+                    listItemElement.textContent = question;
+                    promptListElement.appendChild(listItemElement);
+
+                    // Klick auf eine Frage
+                    listItemElement.addEventListener("click", () => {
+                        // Nur ausführen, wenn der Prompt nicht durch eine laufende Generierung gesperrt ist
+                        if (promptElement.classList.contains("disabled")) return;
+
+                        // Chatbereich einblenden
+                        chatbotElement.classList.remove("d-none");
+
+                        // Frage anhängen
+                        let questionElement = document.createElement("div");
+                        questionElement.classList.add("question");
+                        chatbotElement.appendChild(questionElement);
+
+                        questionElement.innerHTML = `
+                            <div class="inner">
+                                <div class="side-by-side">
+                                    <img src="1-grundlagen/fake-ai-chat-avatar-user.png" alt="Benutzer" class="avatar">
+                                    <div class="text">
+                                        ${question}
+                                    </div>
+                                </div>
+                            </div>
+                        `;
+
+                        // Frage im Prompt ausblenden
+                        listItemElement.classList.add("d-none");
+
+                        // Prompt ausblenden, wenn keine Fragen mehr enthalten
+                        let otherQuestions = promptListElement.querySelector("li:not(.d-none)");
+                        if (!otherQuestions) promptElement.classList.add("d-none");
+
+                        // Antwort anhängen
+                        window.setTimeout(async () => {
+                            let answerElement = document.createElement("div");
+                            answerElement.classList.add("answer");
+                            chatbotElement.appendChild(answerElement);
+    
+                            answerElement.innerHTML = `
+                                <div class="inner">
+                                    <div class="side-by-side">
+                                        <img src="1-grundlagen/fake-ai-chat-avatar-bot.png" alt="Chatbot" class="avatar">
+                                        <div class="text"></div>
+                                    </div>
+                                </div>
+                                <ul class="commands">
+                                    <li class="command-cancel">
+                                        ⏹ Generierung abbrechen
+                                    </li>
+                                    <li class="command-repeat d-none">
+                                        🔁 Wiederholen
+                                    </li>
+                                </ul>
+                            `;
+
+                            // Tipp-Animation für generierten Antworttext
+                            let abort = false;
+
+                            let textElement          = answerElement.querySelector(".text");
+                            let commandListElement   = answerElement.querySelector(".commands");
+                            let commandCancelElement = answerElement.querySelector(".command-cancel");
+                            let commandRepeatElement = answerElement.querySelector(".command-repeat");
+
+                            commandCancelElement.addEventListener("click", () => abort = true);
+                            commandRepeatElement.addEventListener("click", async () => await _generateAnswer());
+
+                            async function _generateAnswer() {
+                                abort = false;
+
+                                promptElement.classList.add("disabled");
+                                commandListElement.classList.remove("d-none");
+                                commandCancelElement.classList.remove("d-none");
+                                commandRepeatElement.classList.add("d-none");
+
+                                let i = 0;
+                                let htmlString = "";
+
+                                while (i < answer.length && !abort) {
+                                    let timeout = Math.floor(Math.random() * 50);
+                                    await new Promise(resolve => window.setTimeout(resolve, timeout));
+
+                                    let len = Math.floor(Math.random() * 5);
+                                    let token = answer.slice(i, i + len);
+                                    i += len;
+
+                                    htmlString += token;
+                                    textElement.innerHTML = htmlString;
+
+                                    // window.scrollTo(0, document.body.scrollHeight);
+                                    window.scrollTo(0, promptElement.offsetTop - promptElement.offsetHeight);   // Kompromiss für Smartphones
+                                }
+                                
+                                if (!abort) {
+                                    textElement.innerHTML += `
+                                        <p>
+                                            <small>
+                                                <small>
+                                                    Generiert mit ${botName}
+                                                </small>
+                                            </small>
+                                        </p>
+                                    `;
+
+                                    commandListElement.classList.add("d-none");
+                                } else {
+                                    commandCancelElement.classList.add("d-none");
+                                    commandRepeatElement.classList.remove("d-none");
+                                }
+
+                                promptElement.classList.remove("disabled");
+                            }
+
+                            await _generateAnswer();
+                        }, 500);
+                    });
+                }
+            };
+
+            window.addEventListener("ls-slide-changed", () => {
+                window.setTimeout(iot_einstieg_chatbot, 500);
+            });
+        </script>
     </article>
+    <aside>
+        <p>
+            Anhand der bereits vorgestellten Lernziele sollten Sie bereits eine grobe Vorstellung vom
+            Internet of Things haben. Lassen Sie uns dieses Kapitel daher mit einem kleinen Brainstorming
+            beginnen. Gerne können Sie hierfür auch ein wenig recherchieren oder einen KI-Sprachassistenten
+            wie ChatGPT befragen. Oder klicken Sie auf die Fragen im Hauptbereich, um zu sehen, welche
+            Antworten ChatGPT, Bing Chat und Google Bard hierzu geben.
+        </p>
+        <p>
+            Beachten Sie in jedem Fall aber, dass die Sprachmodelle zwar einigermaßen wohlklingend formulieren,
+            doch selbst die hier übernommenen Antworten in Teilen unsinnig oder ungenau sind. Beispielsweise
+            dienen die Sensoren eines IoT-Devices nicht der Vernetzung über das Internet (Bing Chat) und eingebettete
+            Systeme sind nicht oft sondern immer in größeren Systemen unsichtbar verbaut (ChatGPT). Und „automatisierte
+            Antworten auf Kundenanfragen” oder „Personalisierung von Angeboten” sind klassische KI-Probleme ohne
+            nennenswerten IoT-Bezug (Google Bard). Lesen Sie die Antworten daher sehr genau.
+        </p>
+        <img src="shared/question.png" class="d-block" style="width: 20em; max-width: 100%; margin-bottom: 0.5em;" />
+        <p>
+            <small>
+                <small>
+                    Bildnachweis:
+                    <a href="https://pixabay.com/illustrations/question-mark-a-notice-duplicate-2153533/" target="_blank" style="color: rgb(25, 68, 49);">Pixabay: geralt</a>
+                </small>
+            </small>
+        </p>
+    </aside>
 </section>
 
 <section>
     <h1>Definition „Eingebettetes System”</h1>
     <article>
-        DEFINITION / BEISPIELBILDER <br>
-        EINGEBETTETE SYSTEME IM ALLTAG
+        <lsx-tab-pages>
+            <lsx-tab-page title="Allgemeine Definition">
+                <h3 class="dhbw-lightblue">Definition</h3>
+                <lsx-ul class="dhbw-list-spacious">
+                    <li>
+                        Eingebettete Systeme sind <b>kleine Mikrocomputer</b>, die innerhalb eines größeren Geräts unsichtbar
+                        verbaut sind, um seine Funktionen zu <b>steuern</b> und zu <b>überwachen</b>.
+                    </li>
+                    <li>
+                        Ihre grundsätzliche Architektur ist dieselbe wie bei konventionellen Computern, jedoch verfügen sie über
+                        weitaus weniger, genau auf den Anwendungsfall zugeschnittene Ressourcen bei <b>minimalen Kosten, Platzbedarf
+                        und Energieverbrauch.</b> Der Leitgedanke hierbei lautet „so viel wie gerade nötig, so wenig wie absolut möglich“.
+                    </li>
+                    <li>
+                        Eingebettete Systeme sind in aller Regel <b>geschlossene Systeme</b> mit <b>deterministischem
+                        Systemverhalten</b>, die rund um die Uhr laufen und exakt eine Aufgabe erfüllen.
+                    </li>
+                </lsx-ul>
+
+                <h3 class="dhbw-lightblue mt-4">Beispiele</h3>
+                <lsx-grid-fluid class="p-0">
+                    <lsx-row class="gx-0">
+                        <lsx-col size="md">
+                            <img src="1-grundlagen/definition-iot-funkwecker.jpg" alt="" class="d-block w-100">
+                        </lsx-col>
+                        <lsx-col size="md">
+                            <img src="1-grundlagen/definition-iot-waschmaschine.jpg" alt="" class="d-block w-100">
+                        </lsx-col>
+                        <lsx-col size="md">
+                            <img src="1-grundlagen/definition-iot-nes.jpg" alt="" class="d-block w-100">
+                        </lsx-col>
+                        <lsx-col size="md">
+                            <img src="1-grundlagen/definition-iot-keyboards.jpg" alt="" class="d-block w-100">
+                        </lsx-col>
+                        <lsx-col size="md">
+                            <img src="1-grundlagen/definition-iot-auto.jpg" alt="" class="d-block w-100">
+                        </lsx-col>
+                    </lsx-row>
+                </lsx-grid-fluid>
+                <p>
+                    <small>
+                        <small>
+                            Bildnachweise:
+                            <a href="https://de.wikipedia.org/wiki/Datei:Radiocontrolledclock.jpg" target="_blank">Wikipedia: Stefan Kühn</a>,
+                            <a href="https://pixabay.com/de/photos/waschmaschine-w%C3%A4scherei-reinigung-2617514/" target="_blank">Pixabay: StockSnap</a>,
+                            <a href="https://pixabay.com/de/photos/nes-nintendo-entertainment-system-2649705/" target="_blank">Pixabay: RobinLe</a>,
+                            <a href="https://pixabay.com/de/photos/wagen-bmw-lenkrad-interieur-1281640/" target="_blank">Pixabay: Pexels</a>,
+                        </small>
+                    </small>
+                </p>
+            </lsx-tab-page>
+
+            <lsx-tab-page title="Eingebettete Systeme im Alltag">
+                <img src="1-grundlagen/embedded_devices.jpg" alt="" class="d-block img-thumbnail">
+            </lsx-tab-page>
+        </lsx-tab-pages>
     </article>
     <aside>
         <p>
@@ -47,20 +673,140 @@
 <section>
     <h1>Definition „Internet of Things”</h1>
     <article>
-        DEFINITION / BEISPIELBILDER <br>
-        IOT-DEVICES IM ALLTAG
-    </article>
-    <aside>
-        <p>
-            …
-        </p>
-    </aside>
-</section>
+        <lsx-tab-pages>
+            <lsx-tab-page title="Heutige Definition">
+                <h3 class="dhbw-lightblue">Definition</h3>
+                <lsx-ul class="dhbw-list-spacious">
+                    <li>
+                        IoT-Devices sind eingebettete Systeme größerer Leistungsklasse mit quasi-permanenter
+                        Internetverbindung.
+                    </li>
+                    <li>
+                        Die ursprüngliche Definition aus dem Jahr 1999 sah die maschinenlesbare Identifikation
+                        physischer Objekte anhand von RFID-Tags vor. Heute versteht man darunter elektronische
+                        Geräte mit eingebetteten, mit dem Internet verbundenen Computermodulen, die über eine
+                    </li>
+                    <li>
+                        Im erweiterten Sinne zählen zum „Internet of Things“ auch Infrastruktur, Cloudplattformen
+                        und Backendservices, über welche die Devices miteinander verbunden, verwaltet, gesteuert
+                        und überwacht werden können.
+                    </li>
+                </lsx-ul>
 
-<section>
-    <h1>Industrielle IoT-Anwendungsfälle</h1>
-    <article>
-        …
+                <img src="1-grundlagen/embedded_typen.svg" alt="Deeply Embedded / Embedded / Internet of Things" class="d-block w-100 mb-4 mt-4">
+
+                <h3 class="dhbw-lightblue">Beispiele</h3>
+                <lsx-grid-fluid class="p-0">
+                    <lsx-row class="gx-0">
+                        <lsx-col size="md">
+                            <img src="1-grundlagen/definition-iot-wearable.jpg" alt="" class="d-block w-100">
+                        </lsx-col>
+                        <lsx-col size="md">
+                            <img src="1-grundlagen/definition-iot-blitzer.jpg" alt="" class="d-block w-100">
+                        </lsx-col>
+                        <lsx-col size="md">
+                            <img src="1-grundlagen/definition-iot-pipeline.jpg" alt="" class="d-block w-100">
+                        </lsx-col>
+                    </lsx-row>
+                </lsx-grid-fluid>
+                <p>
+                    <small>
+                        <small>
+                            Bildnachweise:
+                            <a href="https://pixabay.com/de/photos/pulsmessger%C3%A4t-1903997/" target="_blank">Pixabay: pearlsband</a>,
+                            <a href="https://ka.stadtwiki.net/Datei:Blitzer-Pulverhausstra%C3%9Fe.jpg" target="_blank">Stadtwiki Karlsruhe: Beate Paland</a>,
+                            <a href="https://pixabay.com/de/photos/winter-alaska-pipeline-%C3%B6l-schnee-681175/" target="_blank">Pixabay: Robzor</a>,
+                        </small>
+                    </small>
+                </p>
+            </lsx-tab-page>
+
+            <lsx-tab-page title="IoT-Devices im Alltag">
+                <lsx-grid-fluid class="p-0">
+                    <lsx-row>
+                        <lsx-col size="md">
+                            <img src="1-grundlagen/iot-beispiele-smarttv.jpg" alt="" class="d-block w-100 img-thumbnail">
+                            Smart TV
+                        </lsx-col>
+                        <lsx-col size="md">
+                            <img src="1-grundlagen/iot-beispiele-smarthome.jpg" alt="" class="d-block w-100 img-thumbnail">
+                            Smart Home
+                        </lsx-col>
+                    </lsx-row>
+                    <lsx-row>
+                        <lsx-col size="md">
+                            <img src="1-grundlagen/iot-beispiele-saugroboter.jpg" alt="" class="d-block w-100 img-thumbnail">
+                            Saugroboter
+                        </lsx-col>
+                        <lsx-col size="md">
+                            <img src="1-grundlagen/iot-beispiele-drone.jpg" alt="" class="d-block w-100 img-thumbnail">
+                            Autonome Fahr- und Fluggeräte
+                        </lsx-col>
+                    </lsx-row>
+                </lsx-grid-fluid>
+                <p>
+                    <small>
+                        <small>
+                            Bildnachweise:
+                            <a href="https://developer.android.com/tv/images/atv-framed.png" target="_blank">Android.com</a>,
+                            <a href="https://pixabay.com/de/photos/roboter-staubsauger-teppich-5073580/" target="_blank">Pixabay: ron2025</a>,
+                            <a href="https://pixabay.com/de/photos/drohne-hexacopter-uav-rpas-2168938/" target="_blank">Pixabay: AzureEyes</a>,
+                        </small>
+                    </small>
+                </p>
+            </lsx-tab-page>
+
+            <lsx-tab-page title="Industrielle Anwendungsfälle">
+                <lsx-grid-fluid class="p-0">
+                    <lsx-row>
+                        <lsx-col size="md">
+                            <img src="1-grundlagen/iiot-beispiele-fertigung.jpg" alt="" class="d-block w-100 img-thumbnail">
+                            Industrie 4.0 / Intelligente Fertigung
+                        </lsx-col>
+                        <lsx-col size="md">
+                            <img src="1-grundlagen/iiot-beispiele-autonomes-fahren.jpg" alt="" class="d-block w-100 img-thumbnail">
+                            Autonomes Fahren
+                        </lsx-col>
+                    </lsx-row>
+                    <lsx-row>
+                        <lsx-col size="md">
+                            <img src="1-grundlagen/iiot-beispiele-energie.jpg" alt="" class="d-block w-100 img-thumbnail">
+                            Smart Energy Grid
+                        </lsx-col>
+                        <lsx-col size="md">
+                            <img src="1-grundlagen/iiot-beispiele-smartmeter.jpg" alt="" class="d-block w-100 img-thumbnail">
+                            Intelligenter Stromzähler
+                        </lsx-col>
+                    </lsx-row>
+
+                    <lsx-row>
+                        <lsx-col size="md">
+                            <img src="1-grundlagen/iiot-beispiele-smight1.jpg" alt="" class="d-block w-100 img-thumbnail">
+                            <a href="https://smight.com" target="_blank">Smart City Light (Smight)</a>
+                        </lsx-col>
+                        <lsx-col size="md">
+                            <img src="1-grundlagen/iiot-beispiele-smight2.jpg" alt="" class="d-block w-100 img-thumbnail">
+                        </lsx-col>
+                    </lsx-row>
+                    <lsx-row>
+                        <lsx-col size="md">
+                            <img src="1-grundlagen/iiot-beispiele-taf.jpg" alt="" class="d-block w-100 img-thumbnail">
+                            <a href="https://taf-bw.de/" target="_blank">Testfeld autonomes Fahren</a>
+                        </lsx-col>
+                    </lsx-row>
+                </lsx-grid-fluid>
+                <p>
+                    <small>
+                        <small>
+                            Bildnachweise:
+                            <a href="https://pixabay.com/de/photos/fahrzeug-autonom-autonomes-fahren-4759347/" target="_blank">Pixabay: falco</a>,
+                            <a href="https://pixabay.com/de/photos/photovoltaikanlage-solar-2742302/" target="_blank">Pixabay: mrganso</a>,
+                            <a href="https://commons.wikimedia.org/wiki/File:Digitale_meter_Sagemcom.gif" target="_blank">Wikimedia: Mattias Campe</a>
+                        </small>
+                    </small>
+                </p>
+            </lsx-tab-page>
+        </lsx-tab-pages>        
     </article>
     <aside>
         <p>
