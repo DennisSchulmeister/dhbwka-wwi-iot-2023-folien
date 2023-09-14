@@ -46,8 +46,8 @@ import LsPluginHighlightJs from "@dschulmeis/ls-plugin-highlight.js";
 // import HLJS_Language_HTTP from 'highlight.js/lib/languages/http';
 // import HLJS_Language_XML from 'highlight.js/lib/languages/xml';
 // import HLJS_Language_CSS from 'highlight.js/lib/languages/css';
-// import HLJS_Language_JS from 'highlight.js/lib/languages/javascript';
-// import HLJS_Language_JAVA from 'highlight.js/lib/languages/java';
+import HLJS_Language_CPP from 'highlight.js/lib/languages/cpp';
+import HLJS_Language_PYTHON from 'highlight.js/lib/languages/python';
 import "highlight.js/styles/atom-one-light.css";
 
 window.addEventListener("load", async () => {
@@ -76,10 +76,14 @@ window.addEventListener("load", async () => {
                 labelQuizPoints: "{1} von {2}",
                 labelQuizEvaluate: "Bewerten",
                 labelQuizNewTry: "Neuer Versuch",
-                githubEditUrlPrefix: "https://github.com/DennisSchulmeister/dhbwka-wwi-iot-2023-quellcodes/tree/master/",
+                githubEditUrlPrefix: "https://github.com/DennisSchulmeister/dhbwka-wwi-iot-2023-quellcodes/tree/main/",
             }),
             HighlightJs: new LsPluginHighlightJs({
                 languages: {
+                    c: HLJS_Language_CPP,
+                    cpp: HLJS_Language_CPP,
+                    "c++": HLJS_Language_CPP,
+                    python: HLJS_Language_PYTHON,
                     // http: HLJS_Language_HTTP,
                     // html: HLJS_Language_XML,
                     // xml: HLJS_Language_XML,

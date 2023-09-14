@@ -823,7 +823,7 @@
 <section data-use-template="teilkapitel" data-titel="Technische Grundlagen"></section>
 
 <section>
-    <h1>Ebenen der Datenverarbeitung</h1>
+    <h1>(Ebenen der Datenverarbeitung)</h1>
     <article>
         BILD: DEVICE ... EDGE ... FOG ... CLOUD <br>
         ZWEIGETEILT IN ANWENDUNGS- UND KONTROLLEBENE
@@ -836,7 +836,7 @@
 </section>
 
 <section>
-    <h1>Industrielle Prozesssteuerung</h1>
+    <h1>(Industrielle Prozesssteuerung)</h1>
     <article>
         BILD: FELDEBENE ... ERP (FÜNF EBENEN)
     </article>
@@ -848,7 +848,7 @@
 </section>
 
 <section>
-    <h1>Technologieauswahl</h1>
+    <h1>(Technologieauswahl)</h1>
     <article>
         VGL. ALTE FOLIE: HAUS MIT TIEFEM KELLER
     </article>
@@ -860,7 +860,7 @@
 </section>
 
 <section>
-    <h1>Beispiel einer typischen IoT-Architektur</h1>
+    <h1>(Beispiel einer typischen IoT-Architektur)</h1>
     <article>
     </article>
     <aside>
@@ -871,7 +871,7 @@
 </section>
 
 <section>
-    <h1>Blick in die Historie</h1>
+    <h1>(Blick in die Historie)</h1>
     <article>
         ALTE FOLIE: EINE KLEINE COMPUTERGESCHICHTE <br>
         ALTE FOLIE: DIE MORAL DER GESCHICHTE
@@ -884,7 +884,7 @@
 </section>
 
 <section>
-    <h1>Beispiele für typische Single Board Computer</h1>
+    <h1>(Beispiele für typische Single Board Computer)</h1>
     <article>
     </article>
     <aside>
@@ -895,7 +895,7 @@
 </section>
 
 <section>
-    <h1>Typischer Systemaufbau eingebetteter Systeme</h1>
+    <h1>(Typischer Systemaufbau eingebetteter Systeme)</h1>
     <article>
         VGL. ALTE FOLIE ZUM SYSTEMAUFBAU (ERWEITERT UM SENSOREN/AKTOREN/SIGNALE ANGEDEUTET)<br>
         SOWIE RECHNERARCHITEKTUR-FOTO (BEARBEITET [DISKRETE PLATINE] >>> [MICROCONTROLLER]) <br>
@@ -909,7 +909,7 @@
 </section>
 
 <section>
-    <h1>Fallbeispiel: Die erste Mondlandung</h1>
+    <h1>(Fallbeispiel: Die erste Mondlandung)</h1>
     <article>
     </article>
     <aside>
@@ -920,7 +920,7 @@
 </section>
 
 <section>
-    <h1>Fallbeispiel: Yamaha SPX90 (1985)</h1>
+    <h1>(Fallbeispiel: Yamaha SPX90 (1985))</h1>
     <article>
     </article>
     <aside>
@@ -931,7 +931,7 @@
 </section>
 
 <section>
-    <h1>Fallbeispiel: LED-Laufschrift</h1>
+    <h1>(Fallbeispiel: LED-Laufschrift)</h1>
     <article>
     </article>
     <aside>
@@ -942,7 +942,7 @@
 </section>
 
 <section>
-    <h1>Fallbeispiel: Steckbrett-Prototyp</h1>
+    <h1>(Fallbeispiel: Steckbrett-Prototyp)</h1>
     <article>
     </article>
     <aside>
@@ -953,13 +953,661 @@
 </section>
 
 <section>
-    <h1>Was bedeutet hardwarenahe Programmierung?</h1>
+    <h1>(Was bedeutet hardwarenahe Programmierung?)</h1>
     <article>
         HIGH LEVEL (z.B. PYTHON) VS. LOW LEVEL (PLATTFORM SDK / µC-SPEZIFISCH) VS. ARDUINO VS. FREERTOS
     </article>
     <aside>
         <p>
             …
+        </p>
+    </aside>
+</section>
+
+<section data-background-color="rgb(231, 221, 141)">
+    <h1>(Aufgabe 1: Ein kleines IoT-Quiz)</h1>
+    <article>
+        xxx
+    </article>
+    <aside>
+        <p>
+            So viele neue Sachen. Halten wir an dieser Stelle kurz inne und schauen,
+            ob wir uns alles gemerkt haben. 🤔
+        </p>
+        <img src="shared/quiz.png" class="img-fluid d-block" style="max-width: 20em;"/>
+        <p>
+            <small>
+                Bildnachweis:
+                <a href="https://pixabay.com/illustrations/quiz-tiles-letters-red-game-test-2058883/" target="_blank">Pixabay: 905513</a>
+            </small>
+        </p>
+    </aside>
+</section>
+
+<section data-background-color="rgb(231, 221, 141)">
+    <h1>Aufgabe 1: Hallo, Arduino!</h1>
+    <article>
+        <lsx-github-edit
+            class    = "mb-3"
+            download = "Arduino/01 Hallo%2C Arduino"
+        >
+        </lsx-github-edit>
+
+        <lsx-tab-pages>
+            <lsx-tab-page title="Hauptaufgabe">
+                <p>
+                    Öffnen Sie den Quellcode in der Arduino IDE und versuchen Sie, ihn auf einem Arduino-Board auszuführen.
+                    Hierfür müssen Sie den Arduino mit einem USB-Kabel an Ihren Rechner anschließen und danach im „Board Manager”
+                    der IDE bekannt machen. Mit den Toolbar-Buttons können Sie dann folgende Dinge machen:
+                </p>
+                <ul>
+                    <li>
+                        <b>Verify:</b> Quellcode kompileren, auf Fehler prüfen und den Platzbedarf ausrechnen.
+                    </li>
+                    <li>
+                        <b>Upload:</b> Wie „Verify“ jedoch mit Upload und Ausführung des Programms auf dem Arduino.
+                    </li>
+                </ul>
+                <p>
+                    Wichtig ist, dass etwaige Programmierfehler erst bei einem Klick auf „Verify“ oder „Upload“ angezeigt werden.
+                    Die Arduino IDE untersucht den Quellcode selbst nicht auf Fehler, sonder überlässt dies vollständig dem Compiler.
+                </p>
+                <p>
+                    Öffnen Sie über das <i>Tools</i>-Menü auch die serielle Konsole und schauen Sie sich die Konsolenausgaben an,
+                    die der Arduino über die serielle Schnittstelle an den Host-PC schickt.
+                </p>
+            </lsx-tab-page>
+            <lsx-tab-page title="Vertiefungsfragen">
+                <ol class="dhbw-list-spacious">
+                    <li>
+                        Was bewirkt die Zeile <src-code language="cpp">Serial.begin(9600)</src-code>?
+                    </li>
+                    <li>
+                        Konstanten werden in diesem Beispiel mit dem Schlüsselwort <src-code language="cpp">const</src-code> definiert.
+                        Sie könnten aber auch mit <src-code language="cpp">#define</src-code> definiert werden. Was ist der Unterschied
+                        und welche Variante ist besser?
+                    </li>
+                    <li>
+                        Passen Sie die serielle Ausgabe so an, dass der Zustand der Pins im „Serial Plotter“ der Arduino IDE angezeigt werden kann.
+                        Recherchieren Sie hierfür im Internet was der Serial Plotter ist, wie er funktioniert und wie die Daten hierfür über die
+                        serielle Schnittstelle geschickt werden müssen.
+                    </li>
+                </ol>
+            </lsx-tab-page>
+        </lsx-tab-pages>
+
+        <lsx-grid-fluid class="p-0">
+            <lsx-row>
+                <lsx-col size="md-7">
+                    <img src="1-grundlagen/hallo-arduino-ide.png" class="img-thumbnail d-block h-100" />
+                    Quellcode in der Arduino IDE
+                </lsx-col>
+                <lsx-col size="md">
+                    <img src="1-grundlagen/sbc-arduino-uno.jpg" class="img-thumbnail d-block h-100" />
+                    Arduino UNO
+                </lsx-col>
+            </lsx-row>
+        </lsx-grid-fluid>
+    </article>
+    <aside>
+        <p>
+            Die Arduino-Plattform gilt als besonders einsteigerfreundlich. Neben der großen Bekanntheit und
+            Verfügbarkeit guter Dokumentationen liegt dies vor allem an der auf das Wesentliche reduzierten
+            IDE und der leichten Programmierung. Insbesondere die Arduino-Codebibliothek (offiziell „Arduino
+            Language” genannt, aber eigentlich ist es nur eine Bibliothek für C++) ist hierfür verantwortlich,
+            da sie möglichst viel Komplexität bei der Microcontroller-Programmierung verbirgt. In dieser
+            Aufgabe wollen wir daher die Arduino IDE zum Laufen bringen und unseren ersten Sketch (Programm)
+            ausführen.
+        </p>
+        <img src="shared/github_atom.png" class="img-fluid d-block"/>
+        <p>
+            <small>
+                Bildnachweis:
+                <a href="https://atom.io/" target="_blank">Atom Webseite</a>
+            </small>
+        </p>
+    </aside>
+</section>
+
+<section data-background-color="rgb(231, 221, 141)">
+    <h1>Aufgabe 2: Arduino mit Visual Studio Code</h1>
+    <article>
+        <lsx-github-edit
+            class    = "mb-3"
+            download = "Arduino/01 Hallo%2C Arduino"
+        >
+        </lsx-github-edit>
+
+        <p>
+            Die Bearbeitung dieser Aufgabe ist freiwillig, falls Sie überlegen, lieber mit einer komfortableren
+            Entwicklungsumgebung als der Arduino IDE zu programmieren. Installieren Sie in diesem Fall die offizielle
+            „Arduino Extension” für Visual Studio Code und öffnen Sie dann das Projektverzeichnis der vorherigen
+            Aufgabe in Visual Studio Code. Mit etwas Glück sollte sich das Beispiel zumindest kompilieren und auf
+            dem Arduino ausführen lassen, auch wenn Visual Studio Code die eingebauten Funktionen und Konstanten
+            der „Arduino Language“ nicht kennt.¹
+        </p>
+        <p>
+            Zunächst muss das Arduino Board mit Visual Studio Code „verbunden“ werden:
+        </p>
+        <ol class="dhbw-list-spacious">
+            <li>
+                <kbd>F1</kbd> → <kbd><i>Arduino: Board Manager</i></kbd> → Auswahl des richtigen Boards, damit ggf. das noch
+                fehlende Board Package lokal installiert wird.
+            </li>
+            <li>
+                <kbd>F1</kbd> → <kbd><i>Arduino: Board Config</i></kbd> → Im oben erscheinenden Menü das neu angelegte Board
+                auswählen.
+            </li>
+        </ol>
+        <lsx-info-box type="warning">
+            Ganz unten rechts in der Fußzeile von Visual Studio Code muss zusätzlich die serielle Schnittstelle
+            ausgewählt werden, an welcher der Arduino hängt.
+        </lsx-info-box>
+        <p>
+            Anschließend sollten Sie Arduino-Quellcodes in der IDE öffnen und mit folgenden Befehlen kompilieren
+            und ausführen können:
+        </p>
+        <ul class="dhbw-list-spacious">
+            <li>
+                <kbd>F1</kbd> → <kbd><i>Arduino: Select SKetch</i></kbd>: Muss manuell ausgeführt werden, um die tatsächlich
+                zu kompilierende und zu testende Quelldatei auszuwählen.²
+            </li>
+            <li>
+                <kbd>F1</kbd> → <kbd><i>Arduino: Verify</i></kbd>: Quellcode kompilieren und prüfen
+            </li>
+            <li>
+                <kbd>F1</kbd> → <kbd><i>Arduino: Upload</i></kbd>: Quellcode kompilieren, hochladen und ausführen
+            </li>
+            <li>
+                <kbd>F1</kbd> → <kbd><i>Arduino: Open Serial Monitor</i></kbd>: Über die serielle Schnittstelle Daten mit der Arduino austauschen
+            </li>
+        </ul>
+        <p>
+            ¹
+            <small>
+                Dies ist ein viel diskutiertes Problem im Internet. Um es zu beheben, muss eine neue IntelliSense-Konfiguration
+                angelegt werden, die auf die Header-Dateien der Arduino-Umgebung verweist. Da dies in meinen Versuchen aber nur
+                halbherzig funktioniert hat (es wurden danach immer noch nicht nicht alle Teile erkannt) und sich der Pfad der
+                Header-Dateien mit jeder neuen Version des Arduino „Board Packages” ändert, erspare ich Ihnen diesen Aufwand
+                und hoffe, dass Microsoft das Problem irgendwann richtig löst.
+            </small>
+        </p>
+        <p>
+            ²
+            <small>
+                Die Extension „Arduino Sketch Auto Switcher“ schafft hier ggf. Abhilfe, scheint aber schon seit ein paar Jahren
+                nicht mehr gepflegt zu werden.
+            </small>
+        </p>
+
+        <lsx-grid-fluid class="p-0">
+            <lsx-row>
+                <lsx-col size="md-7">
+                    <img src="1-grundlagen/arduino-vscode-ide.png" class="img-thumbnail d-block h-100" />
+                    Quellcode in Visual Studio Code
+                </lsx-col>
+                <lsx-col size="md">
+                    <img src="1-grundlagen/sbc-arduino-uno.jpg" class="img-thumbnail d-block h-100" />
+                    Arduino UNO
+                </lsx-col>
+            </lsx-row>
+        </lsx-grid-fluid>
+    </article>
+    <aside>
+        <p>
+            Wem die Arduino IDE zu eingeschränkt ist, der*die programmiert wahrscheinlich lieber mit Visual
+            Studio Code. Technisch basiert die Arduino IDE zwar auf Visual Studio Code, entfernt daraus aber
+            sehr viele nützliche Funktionen wie zum Beispiel die Verwaltung mehrerer Codedateien oder die
+            Verwendung gewohnter Tastenkürzel. Mit der von Microsoft entwickelten Arduino Extension für
+            Visual Studio Code lassen sich diese Nachteile schnell beheben, wenn auch die Integration nicht
+            ganz so reibungslos und fehlerfrei wie mit der originalen Arduino IDE funktioniert. Hier wollen
+            war daher (Interesse daran vorausgesetzt) versuchen, das Beispiel von eben mit Visual Studio Code
+            auszuführen.
+        </p>
+        <img src="shared/github_atom.png" class="img-fluid d-block"/>
+        <p>
+            <small>
+                Bildnachweis:
+                <a href="https://atom.io/" target="_blank">Atom Webseite</a>
+            </small>
+        </p>
+    </aside>
+</section>
+
+<section data-background-color="rgb(231, 221, 141)">
+    <h1>Aufgabe 3: Einfach zum Drücken</h1>
+    <article>
+        <lsx-github-edit
+            class    = "mb-3"
+            download = "Arduino/02 Hardware-Button"
+        >
+        </lsx-github-edit>
+
+        <ol class="dhbw-list-spacious">
+            <li>
+                Bauen Sie den Hardwareaufbau nach und führen den Quellcode auf dem Arduino aus.
+                Die eingabute LED des Arduino sollte leuchten, solange Sie den Taster gedrückt halten.
+            </li>
+            <li>
+                Ändern Sie anschließend Quellcode und Hardwareaufbau so ab, dass zwei Taster mit dem
+                Arduino verbunden werden. Der eine Taster soll die LED einschalten, der andere Taster
+                soll sie ausschalten. Wird kein Taster gedrückt, soll die LED ihren letzten Status
+                beibehalten, also so lange ein- oder ausgeschaltet bleiben, bis der jeweils andere
+                Button gedrückt wird.
+            </li>
+            <li>
+                Dieses Beispiel verwendet eine selbstgeschriebene Klasse. Die Syntax ist ähnlich zu Java,
+                aber nicht identisch. Welche Gemeinsamkeiten und Unterschiede können Sie erkennen?
+                Schreiben Sie die Klasse zum Vergleich nach Java um, auch wenn der Arduino leider nicht
+                wirklich in Java programmiert werden kann. Wahlweise können Sie die Klasse auch nach
+                JavaScript, C# oder irgend eine andere Sprache umschreiben.
+            </li>
+        </ol>
+
+        <lsx-info-box>
+            <b>Bonusfrage für Wissbegierige:</b> Warum ändert der eingebaute Pull-Up-Wiederstand des
+            Arduino die Logik des angeschlossenen Buttons? Also, warum muss der Button beim Drücken
+            den Eingangspin mit Masse (Ground) und nicht mit +5V Spannung verbinden und warum erkennt
+            der Arduino dabei ein <src-code language="cpp">LOW</src-code> statt wie sonst üblich
+            ein <src-code language="cpp">HIGH</src-code>. Recherchieren Sie hierfür selbstständig
+            im Internet oder der Fachliteratur.
+        </lsx-info-box>
+
+        <lsx-grid-fluid class="p-0">
+            <lsx-row>
+                <lsx-col size="md-7">
+                    <img src="1-grundlagen/ardunio-hardwarebutton-ide.png" class="img-thumbnail d-block h-100" />
+                    Quellcode in der Arduino IDE
+                </lsx-col>
+                <lsx-col size="md">
+                    <img src="1-grundlagen/ardunio-hardwarebutton-aufbau.png" class="img-thumbnail d-block h-100" />
+                    Hardwareaufbau dieses Beispiels
+                </lsx-col>
+            </lsx-row>
+        </lsx-grid-fluid>
+    </article>
+    <aside>
+        <p>
+            Viele Ereignisse der realen Welt stellen sich für einen Computer als einfache, binäre Gegebenheiten
+            dar: Licht ist an oder aus, die Temperater zu hoch oder genau richtig, eine Lichtschranke wird durch
+            ein antreffendes Bauteil unterbrochen oder nicht, die Tür ist offen oder geschlossen und so weiter.
+            Im einfachsten Fall schließen derartige Sensoren einfach nur einen elektrischen Kontakt, der in der
+            Software abgefragt werden kann. Das Problem dabei ist allerdings, dass vor allem mechanische Bauteile
+            nicht einfach hart umschalten können, sonder immer eine kleine Zeit benötigen, bis sich der Zustand
+            stabilisiert. Das Signal muss daher „entprellt“ werden, um eindeutig interpretierbar zu sein.
+        </p>
+        <img src="1-grundlagen/switch-bounce-diagram.jpg" class="img-responsive img-thumbnail" alt="Zeitlicher Verlauf des elektrischen Signals bei einem nicht entprellten Drucktaster">
+        <p>
+            <small>
+                Bildnachweis:
+                <a href="https://microchipdeveloper.com/xpress:code-free-switch-debounce-using-tmr2-with-hlt" target="_blank">Microchip Developer Help</a>
+            </small>
+        </p>
+        <p>
+            Dieser Sketch liefert ein Beispiel, wie die Entprellung digitaler Eingangssignale in Software realisiert
+            werden kann. Viel mehr soll es uns aber auch als Anlass dienen, eine erste kleine Hardwareschaltung
+            „hands-on” aufzubauen und zu testen.
+        </p>
+    </aside>
+</section>
+
+<section data-background-color="rgb(231, 221, 141)">
+    <h1>Aufgabe 4: Wir bauen eine Einparkhilfe</h1>
+    <article>
+        <lsx-github-edit
+            class    = "mb-3"
+            download = "Arduino/03 Einparkhilfe"
+        >
+        </lsx-github-edit>
+
+        <ol class="dhbw-list-spacious">
+            <li>
+                Bauen Sie den Hardwareaufbau nach und führen den Quellcode auf dem Arduino aus. Testen Sie, wie sich
+                die Einparkhilfe verhält, wenn Sie die Hand vor dem Sensor hin und her bewegen.
+            <li/>
+            <li>
+                Versuchen Sie den Quellcode nachzuvollziehen, um zu verstehen, was hier genau passiert. Verwenden Sie
+                hierfür ruhig einen KI-Sprachassistenten wie ChatGPT, um sich einzelne Codeausschnitte erklären zu lassen.
+            </li>
+            <li>
+                Recherchieren Sie anschießend die Bedeutung des Schlüsselworts <src-code language="cpp">static</src-code>
+                in C++. Dieses wurde hier gewählt, um sich den Aufwand zum Schreiben einer Klasse zu sparen. Doch wie
+                würde beispielsweise der Quellcode zur Glättung der Messwerte mit einer Klasse statt der Funktion
+                <src-code language="cpp">calc_running_average(unsigned int id, long value)</src-code> aussehen?
+            </li>
+            <li>
+                Welche Nachteile wurden sich durch die Verwendung von <src-code language="cpp">static</src-code> anstelle
+                einer richtigen Klasse erkauft?
+            </li>
+        </ol>
+
+        <lsx-info-box>
+            Denken Sie bei der letzten Frage vor allem an den Speicherverbrauch (RAM ist kostbar auf Microcontrollern!) und
+            mögliche Mengenbeschränkungen.
+        </lsx-info-box>
+
+        <lsx-grid-fluid class="p-0">
+            <lsx-row>
+                <lsx-col size="md-7">
+                    <img src="1-grundlagen/ardunio-einparkhilfe-ide.png" class="img-thumbnail d-block h-100" />
+                    Quellcode in der Arduino IDE
+                </lsx-col>
+                <lsx-col size="md">
+                    <img src="1-grundlagen/arduino-einparkhilfe-aufbau.png" class="img-thumbnail d-block h-100" />
+                    Hardwareaufbau dieses Beispiels
+                </lsx-col>
+            </lsx-row>
+        </lsx-grid-fluid>
+    </article>
+    <aside>
+        <p>
+            Langsam laufen wir uns richtig warm mit dem Arduino. Zum Schluss bauen wir daher eine etwas
+            größere Schaltung mit einer einfachen Einparkhilfe, wie sie typischerweise in Autos verbaut
+            wird, auf.¹ Genau wie die kommerziellen Produkte nutzen wir einen Ultraschall-Abstandssensor,
+            um Anhand der Signallaufzeit eines akkustischen Signals die Entfernung zwischen Fahrzeug und
+            Hinderniss zu berechnen. Und genau wie die großen Produkte geben wir einen periodischen Warnton
+            aus, dessen Frequenz in umgekehrter Relation zur gemessenen Distanz steht. Und genau wie die
+            ersten Einparkhilfen, als die Technologie noch neu und teuer war, messen wir nur, solange der
+            Rückwärtsgang eingelegt ist. In dieser Aufgabe wollen wir die Schaltung nachbauen und dabei
+            einen kleinen Blick auf den Quellcode werfen.
+        </p>
+        <img src="1-grundlagen/citroen-xsara.webp" class="img-responsive img-thumbnail" alt="Citroen Xsara Coupe, Heckansicht">
+        <p>
+            <small>
+                Bildnachweis:
+                <a href="https://www.adac.de/rund-ums-fahrzeug/autokatalog/marken-modelle/citroen/xsara/1generation/985497/" target="_blank">ADAC Fahrzeugportal</a>
+            </small>
+        </p>
+        <p>
+            ¹
+            <small>
+                Warem das Zeiten, als eine solche Einparkhilfe in meinem roten Citroen Xsara Coupé, Baujahr 1999
+                selbst nachgerüstet habe. 🚗
+            </small>
+        </p>
+    </aside>
+</section>
+
+<section data-background-color="rgb(231, 221, 141)">
+    <h1>Aufgabe 5: Gestatten, Python mein Name</h1>
+    <article>
+        <lsx-github-edit
+            class    = "mb-3"
+            url      = "Raspberry Pi/01 Hallo%2C Python"
+            download = "Raspberry Pi/01 Hallo%2C Python"
+        >
+        </lsx-github-edit>
+
+        <p>
+            Nehmen Sie Ihren Rasbperry Pi in Betrieb und versuchen Sie den hier verlinkten Quellcode darauf auszuführen.
+            Der Raspberry Pi sollte Sie auf der Konsole nach Ihrem Namen fragen und anschließend freundlich begrüßen.¹
+        </p>
+        <p>
+            ¹
+            <small>
+                Computer sind per Definition immer höflich.
+                <a href="https://de.wikipedia.org/wiki/Robotergesetze" target="_blank">Vgl. Asimov’sche Robotergesetze</a>. 🤖
+            </small>
+        </p>
+
+        <lsx-grid-fluid class="p-0">
+            <lsx-row>
+                <lsx-col size="md-7">
+                    <img src="1-grundlagen/raspberrypi-python-ide.png" class="img-thumbnail d-block h-100" />
+                    Quellcode in Visual Studio Code
+                </lsx-col>
+                <lsx-col size="md">
+                    <img src="1-grundlagen/sbc-raspberrypi.jpg" class="img-thumbnail d-block h-100" />
+                    Rasbperry Pi
+                </lsx-col>
+            </lsx-row>
+        </lsx-grid-fluid>
+    </article>
+    <aside>
+        <p>
+            Diese Aufgabe kann auf jedem Rechner ausgeführt werden, auf dem Python installiert ist.
+            Da insbesondere der Raspberry Pi, dank <a href="http://micropython.org/" target="_blank">Micropython</a>
+            aber auch immer mehr andere Microcontroller-Boards, mit Python programmiert wird, wollen wir hier
+            einen professionellen Entwicklungsworkflow für Python testen. Das heißt, statt einfacher Skripte
+            wollen wir richtige Programme schreiben, deren Abhängigkeiten (benötigte Quellcode-Bibliotheken)
+            automatisch verwaltet werden.
+        </p>
+        <img src="shared/github_atom.png" class="img-fluid d-block"/>
+        <p>
+            <small>
+                Bildnachweis:
+                <a href="https://atom.io/" target="_blank">Atom Webseite</a>
+            </small>
+        </p>
+    </aside>
+</section>
+
+<section data-background-color="rgb(231, 221, 141)">
+    <h1>Aufgabe 6: Hallo, Raspberry Pi!</h1>
+    <article>
+        <lsx-github-edit
+            class    = "mb-3"
+            download = "Raspberry Pi/02 Hallo%2C Raspbery Pi"
+        >
+        </lsx-github-edit>
+
+        <lsx-tab-pages>
+            <lsx-tab-page title="Hauptaufgabe">
+                <p>
+                    Verbinden Sie Ihren Raspberry Pi mit dem Internet (i.d.R. über das örtliche WLAN) und richten
+                    Sie den automatischen Start eines SSH-Servers darauf ein. Anschließend verbinden Sie sich mit
+                    der <kbd><i>SSH: Remote Development</i></kbd> Funktion von Visual Studio Code von Ihrem Arbeits-PC aus mit dem
+                    Raspberry Pi und versuchen, den hier verlinkten Quellcode darauf auszuführen.
+                </p>
+            </lsx-tab-page>
+
+            <lsx-tab-page title="Verständnisfragen">
+                <ol class="dhbw-list-spacious">
+                    <li>
+                        Wofür wird die Endlosschleife in diesem Beispiel benötigt?
+                    </li>
+                    <li>
+                        Welchen Nutzen bringt die Anweisung <src-code language="python">time.sleep(1)</src-code>?
+                    </li>
+                    <li>
+                        Warum wird hier ein <tt>KeyboardInterrupt</tt> als Exception abgefangen?
+                    </li>
+                </ol>
+                <p>
+                    Recherchieren Sie ggf. im Internet oder befragen Sie den KI-Sprachassistenten Ihres Vertrauens. 🦥
+                </p>
+            </lsx-tab-page>
+
+            <lsx-tab-page title="Knobelfrage">
+                <p>
+                    Passen Sie den Quellcode so an, dass die Ausgangssignale mit den Methoden <tt>on()</tt> und
+                    <tt>off()</tt> manuell ein- und ausgeschaltet werden. Geben Sie dabei auf der Konsole jeweils
+                    eine Meldung aus.
+                </p>
+            </lsx-tab-page>
+        </lsx-tab-pages>
+
+        <lsx-info-box>
+            Ab hier verwenden wir <b>Python Environments</b> und <b>pip</b>, um die Abhängigkeiten unserer
+            Python-Projekte zu verwalten. Lesen Sie sich die entsprechende Anleitung im Skript durch und
+            versuchen Sie diese, mit diesem Quellcode nachzuvollziehen.
+        </lsx-info-box>
+
+        <lsx-grid-fluid class="p-0">
+            <lsx-row>
+                <lsx-col size="md-7">
+                    <img src="1-grundlagen/raspberrypi-hellopi-ide.png" class="img-thumbnail d-block h-100" />
+                    Quellcode in Visual Studio Code
+                </lsx-col>
+                <lsx-col size="md">
+                    <img src="1-grundlagen/sbc-raspberrypi.jpg" class="img-thumbnail d-block h-100" />
+                    Rasbperry Pi
+                </lsx-col>
+            </lsx-row>
+        </lsx-grid-fluid>
+    </article>
+    <aside>
+        <p>
+            Unsere ersten Gehversuche mit dem Raspberry Pi! Genau wie beim Arduino wollen wir im ersten
+            Schritt unsere Entwicklungsumgebung zum Laufen bringen (hier Visual Studio Code mit Remotezugriff)
+            und ein erstes Programm zur Ansteuerung der GPIOs zum Laufen bringen. Nichts Besonderes! Alle
+            folgenden Programme werden aber auf genau dieselbe Weise getestet.
+        </p>
+
+        <img src="1-grundlagen/arduino-new.png" class="img-responsive img-thumbnail" alt="My first Adruino project">
+        <p>
+            <small>
+                Bildnachweis:
+                <a href="https://turnoff.us/geek/arduino-project/" target="_blank">turnoff.us</a>
+            </small>
+        </p>
+    </aside>
+</section>
+
+<section data-background-color="rgb(231, 221, 141)">
+    <h1>Aufgabe 7: Buttons am Raspberry Pi</h1>
+    <article>
+        <lsx-github-edit
+            class    = "mb-3"
+            download = "Raspberry Pi/03 Hardware-Button"
+        >
+        </lsx-github-edit>
+
+        <lsx-tab-pages>
+            <lsx-tab-page title="Hauptaufgabe">
+                <p>
+                    Bauen Sie den Hardwareaufbau nach und führen den Quellcode auf dem Rasbperry Pi aus.
+                    Die angeschlossene LED sollte leuchten, solange Sie den Taster gedrückt halten.
+                </p>
+            </lsx-tab-page>
+
+            <lsx-tab-page title="Knobelfragen">
+                <ol class="dhbw-list-spacious">
+                    <li>
+                        <p>
+                            Wie hätte der Quellcode ohne eine selbst-definierte Callback-Funktion alternativ
+                            geschrieben werden können? Recherchieren Sie hierfür die im Quellcode verlinkten
+                            Seiten in der <tt>gpiozero</tt>-Dokumentation.
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            Ändern Sie anschließend Quellcode und Hardwareaufbau so ab, dass zwei Taster mit dem
+                            Raspberry Pi verbunden werden. Der eine Taster soll die LED einschalten, der andere
+                            Taster soll sie ausschalten. Wird kein Taster gedrückt, soll die LED ihren letzten
+                            Status beibehalten, also so lange ein- oder ausgeschaltet bleiben, bis der jeweils
+                            andere Button gedrückt wird.        
+                        </p>
+                    </li>
+                </ol>
+                <lsx-info-box>
+                    Für die erste Frage gibt es zwei Lösungsansätze. Einmal mit einer Schleife und einmal
+                    durch Verwenden der Methoden <tt>on()</tt> und <tt>off()</tt> der <tt>LED</tt>-Klasse.
+                </lsx-info-box>
+            </lsx-tab-page>
+        </lsx-tab-pages>
+
+        <lsx-grid-fluid class="p-0">
+            <lsx-row>
+                <lsx-col size="md-5">
+                    <img src="1-grundlagen/raspberrypi-hardwarebutton-ide.png" class="img-thumbnail d-block h-100" />
+                    Quellcode in Visual Studio Code
+                </lsx-col>
+                <lsx-col size="md">
+                    <img src="1-grundlagen/raspberrypi-hardwarebutton-aufbau.png" class="img-thumbnail d-block h-100" />
+                    Hardwareaufbau dieses Beispiels
+                </lsx-col>
+            </lsx-row>
+        </lsx-grid-fluid>
+    </article>
+    <aside>
+        <p>
+            Hier nochmal dasselbe Bild wie bei Aufgabe 3, für den Fall, dass Sie kein Arduino-kompatibles Board
+            zur Hand haben und die Aufgaben nur am Raspberry Pi ausführen können. Wie in der Aufgabe beschrieben,
+            stellen sich viele Zustände der realen Welt as einfache Digitalsignale an einem elektrischen Eingang
+            des verarbeitenden Computers dar. Denn meistens können diese mit sehr einfachen Sensoren registriert
+            werden, die lediglich einen elektrischen Kontakt schließen (so das Strom fließt) oder öffnen (so dass
+            kein Strom fließt) können. Ein Beispiel könnte ein Kontaktsensor an der Haustür sein, der so lange
+            ein Signal liefert, wie die Tür geschlossen ist und kein Signal liefert, sobald die Tür sich öffnet.
+            Insbesondere mechanische Bauteile schwingen aber immer ein wenig, so dass der elektrische Kontakt
+            niemals direkt geöffnet oder geschlossen wird. Sie pendeln erst eine Weile zwischen beiden Zuständen
+            hin und her, bis sich der Spannungsverlauf beruhigt. Das beobachtete Signal muss daher „entprellt“
+            werden. Die Code-Bibliothek <a href="https://gpiozero.readthedocs.io/" target="_blank">gpiozero</a>
+            liefert hierfür sogar schon alles mit.
+        </p>
+        <img src="1-grundlagen/switch-bounce-diagram.jpg" class="img-responsive img-thumbnail" alt="Zeitlicher Verlauf des elektrischen Signals bei einem nicht entprellten Drucktaster">
+        <p>
+            <small>
+                Bildnachweis:
+                <a href="https://microchipdeveloper.com/xpress:code-free-switch-debounce-using-tmr2-with-hlt" target="_blank">Microchip Developer Help</a>
+            </small>
+        </p>
+        <p>
+            Auch in dieser Aufgabe geht es primör darum, eine einfache Hardwareschaltung selbst aufzubauen und
+            das Zusammenspiel von Hard- und Software nachzuvollziehen.
+        </p>
+    </aside>
+</section>
+
+<section data-background-color="rgb(231, 221, 141)">
+    <h1>Aufgabe 8: Noch ein Stück, noch ein Stück, …</h1>
+    <article>
+        <lsx-github-edit
+            class    = "mb-3"
+            download = "Raspberry Pi/04 Einparkhilfe"
+        >
+        </lsx-github-edit>
+
+        <ol class="dhbw-list-spacious">
+            <li>
+                <p>
+                    Bauen Sie den Hardwareaufbau nach und führen den Quellcode auf dem Raspberry Pi aus. Testen Sie, wie sich
+                    die Einparkhilfe verhält, wenn Sie die Hand vor dem Sensor hin und her bewegen.
+                </p>
+            </li>
+            <li>
+                <p>
+                    Versuchen Sie den Quellcode nachzuvollziehen, um zu verstehen, was hier genau passiert. Verwenden Sie
+                    hierfür ruhig einen KI-Sprachassistenten wie ChatGPT, um sich einzelne Codeausschnitte erklären zu lassen.
+                </p>
+            </li>
+            <li>
+                <p>
+                    In wiefern unterscheidet sich die hier verwendete Klasse <tt>Buzzer</tt> von der Klasse <tt>LED</tt>
+                    der vorangegangenen Beispiele? Recherchieren Sie hierfür in der <tt>gpiozero</tt>-Dokumentation.
+                </p>
+            </li>
+        </ol>
+
+        <lsx-grid-fluid class="p-0">
+            <lsx-row>
+                <lsx-col size="md-5">
+                    <img src="1-grundlagen/raspberrypi-einparkhilfe-ide.png" class="img-thumbnail d-block h-100" />
+                    Quellcode in Visual Studio Code
+                </lsx-col>
+                <lsx-col size="md">
+                    <img src="1-grundlagen/raspberrypi-einparkhilfe-aufbau.png" class="img-thumbnail d-block h-100" />
+                    Hardwareaufbau dieses Beispiels
+                </lsx-col>
+            </lsx-row>
+        </lsx-grid-fluid>
+    </article>
+    <aside>
+        <p>
+            Was der Arduino kann, kann der Raspberry Pi schon lange. Sollte man zumindest meinen.
+            Tatsächlich gibt es aber Anwendungsgebiete, bei denen der kleine Arduino wesentlich
+            besser abschneidet, da er beispielsweise pulsweitenmodulierte Signale viel präzisier
+            generieren oder auch analoge Signale verarbeiten kann. Bei der Ansteuerung eines
+            Ultraschall-Abstandssensor zur Realisierung einer Einparkhilfe fällt dies allerdings
+            nicht ins Gewicht. Für den Fall daher, dass Sie keinen Ardunio zur Hand haben, gibt
+            es hier nochmal dasselbe Beispiel zum Nachbauen mit dem Raspberry Pi.
+        </p>
+        <img src="shared/github_atom.png" class="img-fluid d-block"/>
+        <p>
+            <small>
+                Bildnachweis:
+                <a href="https://atom.io/" target="_blank">Atom Webseite</a>
+            </small>
         </p>
     </aside>
 </section>
