@@ -442,6 +442,10 @@
                 let promptElement       = document.querySelector("#iot-einstieg .prompt");
                 let promptListElement   = document.querySelector("#iot-einstieg .prompt ul");
 
+                document.querySelector("#iot-einstieg .chatbot .question")?.remove();
+                document.querySelector("#iot-einstieg .chatbot .answer")?.remove();
+                chatbotElement.classList.add("d-none");
+
                 promptListElement.innerHTML = "";
 
                 for (let questionDefinition of questionDefinitions) {
@@ -587,9 +591,9 @@
             Beachten Sie in jedem Fall aber, dass die Sprachmodelle zwar einigermaßen wohlklingend formulieren,
             doch selbst die hier übernommenen Antworten in Teilen unsinnig oder ungenau sind. Beispielsweise
             dienen die Sensoren eines IoT-Devices nicht der Vernetzung über das Internet (Bing Chat) und eingebettete
-            Systeme sind nicht oft sondern immer in größeren Systemen unsichtbar verbaut (ChatGPT). Und „automatisierte
+            Systeme sind nicht oft sondern immer in größeren Systemen verbaut (ChatGPT). Und „automatisierte
             Antworten auf Kundenanfragen” oder „Personalisierung von Angeboten” sind klassische KI-Probleme ohne
-            nennenswerten IoT-Bezug (Google Bard). Lesen Sie die Antworten daher sehr genau.
+            wirklichen IoT-Bezug (Google Bard). Lesen Sie die Antworten daher sehr genau.
         </p>
         <img src="shared/question.png" class="d-block" style="width: 20em; max-width: 100%; margin-bottom: 0.5em;" />
         <p>
@@ -665,7 +669,36 @@
     </article>
     <aside>
         <p>
-            …
+            Im Zusammenhang mit dem „Internet of Things“ ist häufig auch von „Smart Devices“ die Rede.
+            Smart Phone, Smart Watch, Smart Speaker, Smart TV oder Smart Mirror sind nur einige Beispiele.
+            Die allgemeine Wahrnehmung ist, dass diese „intelligenten“ Geräte wesentlich mehr als ihre
+            nicht-intelligenten Originale können, was durch integrierte Digitaltechnik erst möglich wird.
+            Konkret bestehen smarte Geräte im Kern immer aus einem kleinen Computer, der die gewünschte
+            Funktionalität in Software nachbildet und um weitere Funktionen anreichert. Meistens sind die
+            Geräte darüber hinaus auch mit dem Internet verbunden, weshalb zumindest Wikipedia
+            <a href="https://de.wikipedia.org/wiki/Smart-Ger%C3%A4t" target="_blank">Smart-Geräte mit IoT-Devices gleichsetzt</a>.
+            Hinzu kommt, dass Smart-Geräte ihre Vorbilder zunehmend vom Mark verdrängen, wie beispielsweise
+            bei Telefonen oder Fernsehern längst geschehen.
+        </p>
+        <p>
+            Da Smart Devices meistens ein Display oder Touchscreen besitzen, sind sie besonders leicht
+            als computerisierte Geräte erkennbar. In andere Apparate eingebaute Computersysteme zur
+            Steuerung, Überwachung und Ausführung deren Funktionen gab es aber auch schon früher, wobei
+            hier allgemein von „eingebetteten Systemen“ (engl. „embedded system”) gesprochen wird.
+            Sie besitzen grundsätzlich dieselbe Architektur wie „große“ Computer bestehend aus Prozessor,
+            Programmspeicher, Hauptspeicher und Hardwareschnittstellen, sind jedoch weitgehend unsichtbar
+            in ein größeres Gerät verbaut. Hard- und Software sind genau auf den Anwendungsfall zugeschnitten,
+            um Kosten, Platzbedarf und Energieverbrauch zu optimieren und oft über Jahre hinweg ohne Unterbrechung
+            zuverlässig laufen zu können.
+        </p>
+        <p>
+            Smarte Geräte sind daher nur ein Sonderfall eingebetteter Systeme, wobei uns „nicht smarte“
+            eingebettete Systeme sehr viel häufiger im Alltag begnen: Vom einfachen Funkweker bis zu
+            Computermaus, Drucker, Mikrowellenherd oder Digitalkamera. Mehr Geräte, als man auf den ersten
+            Blick sieht, beinhalten eingebettete Systeme, ohne die sie nicht funktionieren würden. Aber
+            selbst Autos der günstigsten Kleinwagenklasse beinhalten inzwischen hunderte eingebettete
+            Systeme zur Steuerung und Überwachung von Spritzufuhr, Motorfunktionen, Bremsen, Hydraulik
+            und vielem mehr.
         </p>
     </aside>
 </section>
@@ -810,7 +843,31 @@
     </article>
     <aside>
         <p>
-            …
+            Wesentliches Definitionskriterium des Internet of Things ist der nahtlose Übergang von der virtuellen
+            zur physischen Welt. Jedes physische Objekt spiegelt sich in der virtuellen Welt wieder und kann daher
+            in dieser überwacht oder oftmals sogar gesteuert werden. Alltägliche Beispiele könnten Wetterstationen
+            zur Messung von Umweltdaten in viel befahrenen Stadtteilen oder typische Smart-Home-Komponenten sein,
+            die über das Internet adressiert werden. Heute werden die physischen Objekt hierfür mit vergleichsweise
+            leistungsstarken, eingebetteten Systemen ausgestattet und direkt an das Internet angebunden. Eingebaute
+            Sensoren und Aktoren dienen der Überwachung und Beeinflussung phyischer Parameter, wodurch die Lücke
+            zwischen realer und virtueller Welt geschlossen wird.
+        </p>
+        <p>
+            Interessanterweise wurde der IoT-Begriff jedoch schon früher geprägt, als es eingebettete Systeme mit
+            Internetverbindung noch gar nicht gab. Ursprünglich aus der industriellen Fabrikation stammend, verstand
+            man unter dem Internet of Things zunächst mit RFID-Readern und anderen Sensoren versehene, „intelligente“
+            Produktionsstraßen, die den Weg einzelner Bauteile durch die Produktionsanlage nachverfolgen und mit einer
+            Computeranlage steuern konnten. Heute würde man „Industrie 4.0” dazu sagen. Die Grundidee war jedoch auch
+            hier, aktuelle Daten zu Objekten der physischen Welt über das Internet abrufbar und zumindest in Teilen
+            auch beeinflussbar zu machen.
+        </p>
+        <p>
+            Sowohl im Alltag als auch im industriellen Umfeld finden sich viele Anwendungsfälle, die beiden Ansätzen
+            gerecht werden. Weil dabei immer eine Brücke zwischen realer Welt und dem Internet geschlagen wird, werden
+            sie alle dem Internet of Things zugerechnet. Dabei muss jedoch bedacht werden, dass neben überwachten
+            Dingen (Things) selbst auch Infrastruktur, Message Broker, Datenbanken, Cloudservices und vieles mehr zur
+            Bereitstellung aller Funktionalitäten benötigt werden. Des Internet of Things umfasst daher neben den Geräten
+            vor Ort auch all jene Komponenten im Hintergrund, die für das blose Auge meist ebenso verborgen bleiben.
         </p>
     </aside>
 </section>
@@ -825,8 +882,71 @@
 <section>
     <h1>(Ebenen der Datenverarbeitung)</h1>
     <article>
-        BILD: DEVICE ... EDGE ... FOG ... CLOUD <br>
-        ZWEIGETEILT IN ANWENDUNGS- UND KONTROLLEBENE
+        <lsx-grid-fluid class="p-0">
+            <lsx-row class="g-0">
+                <lsx-col size="md-9">
+                    <img src="1-grundlagen/ebene-device-3.jpg" class="d-block w-100">
+                </lsx-col>
+                <!-- <lsx-col size="md-3">
+                    <img src="1-grundlagen/ebene-edge-1.jpg" class="d-block w-100">
+                </lsx-col>
+                <lsx-col size="md">
+                    <img src="1-grundlagen/ebene-fog-1.jpg" class="d-block w-100">
+                </lsx-col>
+                <lsx-col size="md">
+                    <img src="1-grundlagen/ebene-cloud-1.jpg" class="d-block w-100">
+                </lsx-col> -->
+                <lsx-col size="md-3" class="d-flex flex-column align-items-stretch gap-2 ps-2 pe-2">
+                    <button type="button" class="btn btn-light border">Edge Layer hinzufügen</button>
+                    <button type="button" class="btn btn-light border">Fog Layer hinzufügen</button>
+                    <button type="button" class="btn btn-light border">Cloud Layer hinzufügen</button>
+                </lsx-col>
+            </lsx-row>
+        </lsx-grid-fluid>
+
+        <lsx-tab-pages class="mt-4 mb-0">
+            <lsx-tab-page title="Device Layer">
+                <p>
+                    ...
+                </p>
+                <button type="button" class="btn btn-sm btn-outline-danger">Ebene entfernen</button>
+            </lsx-tab-page>
+
+            <!-- 
+            <lsx-tab-page title="Edge Layer">
+                <p>
+                    ...
+                </p>
+                <button type="button" class="btn btn-sm btn-outline-danger">Ebene entfernen</button>
+            </lsx-tab-page>
+
+            <lsx-tab-page title="Fog Layer">
+                <p>
+                    ...
+                </p>
+                <button type="button" class="btn btn-sm btn-outline-danger">Ebene entfernen</button>
+            </lsx-tab-page>
+
+            <lsx-tab-page title="Cloud Layer">
+                <p>
+                    ...
+                </p>
+                <button type="button" class="btn btn-sm btn-outline-danger">Ebene entfernen</button>
+            </lsx-tab-page> -->
+        </lsx-tab-pages>
+
+        <p>
+            <small>
+                <small>
+                    Bilder generiert mit <a href="https://www.midjourneyai.ai/" target="_blank">Midjourney AI</a>,
+                    Outpainting mit <a href="https://labs.openai.com/" target="_blank">DALL-E</a> und
+                    <a href="https://clipdrop.co/uncrop" target="_blank">Clipdrop</a>
+                </small>
+            </small>
+        </p>
+
+        <!-- BILD: DEVICE ... EDGE ... FOG ... CLOUD <br>
+        ZWEIGETEILT IN ANWENDUNGS- UND KONTROLLEBENE -->
     </article>
     <aside>
         <p>
@@ -1109,7 +1229,7 @@
         </p>
         <ul class="dhbw-list-spacious">
             <li>
-                <kbd>F1</kbd> → <kbd><i>Arduino: Select SKetch</i></kbd>: Muss manuell ausgeführt werden, um die tatsächlich
+                <kbd>F1</kbd> → <kbd><i>Arduino: Select Sketch</i></kbd>: Muss manuell ausgeführt werden, um die tatsächlich
                 zu kompilierende und zu testende Quelldatei auszuwählen.²
             </li>
             <li>
