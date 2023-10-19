@@ -837,10 +837,16 @@
                 };
             }
 
-            window.validate_costs1 = validateNumberRange(5.57, 5.60, 5.59);       // Aufgabe 3.1 c)
-            window.validate_costs2 = validateNumberRange(11.17, 11.20, 11.19);    // Aufgabe 3.1 d)
-
-            window.validate_battery1 = validateNumberRange(6.6, 6.7, 6.67);     // Aufgabe 3.2 c)
+            window.validate_costs1   = validateNumberRange(5.57, 5.60, 5.59);       // Aufgabe 3.1 c)
+            window.validate_costs2   = validateNumberRange(11.17, 11.20, 11.19);    // Aufgabe 3.1 d)
+            window.validate_battery1 = validateNumberRange(6.6, 6.7, 6.67);         // Aufgabe 3.2 c)
+            window.validate_ohm1     = validateNumberRange(11.5, 11.5, 11.5)        // Aufgabe 3.3d)
+            window.validate_ohm2     = validateNumberRange(0.71, 0.73, 0.72);       // Aufgabe 3.3e)
+            window.validate_ohm3     = validateNumberRange(14.4, 14.6, 14.5)        // Aufgabe 3.3e)
+            window.validate_ohm4     = validateNumberRange(1.11, 1.13, 1.12);       // Aufgabe 3.3f)
+            window.validate_ohm5     = validateNumberRange(0.82, 0.84, 0.83);       // Aufgabe 3.3g)
+            window.validate_ohm6     = validateNumberRange(500, 500, 500);          // Aufgabe 3.3h)
+            window.validate_ohm7     = validateNumberRange(2.2, 2.2, 2.2);          // Aufgabe 3.3i)
         </script>
 
         <lsx-tab-pages>
@@ -981,12 +987,153 @@
             </lsx-tab-page>
 
             <lsx-tab-page title="Aufgabe 3.3">
-                <h2>Das Ohmsche Gesetz</h2>
-                <p>(In Arbeit)</p>
-                <!-- <lsx-quiz>
+                <lsx-quiz>
                     <lsx-exercise title="Das Ohmsche Gesetz">
+                        <lsx-question
+                            type        = "assignment"
+                            label-width = "3em"
+                            text = "a) Die folgendne zwei Abbildungen dienen als Eselsbrücke zur Berechnung von Spannung, Stromstärke, Widerstand und Leistung.
+                                    Für welchen Wert stehen die jeweiligen Formelzeichen?"
+                            hint = "<div class='mb-4'>
+                                       <img src='2-elektronik/formel_pui.svg' class='d-thumbnail' style='height: 7em' alt='Dreieck mit P oben in der Spitze sowie darunter U und I'>
+                                       &nbsp;
+                                       <img src='2-elektronik/formel_uri.svg' class='d-thumbnail' style='height: 7em' alt='Dreieck mit U oben in der Spitze sowie darunter R und I'>
+                                    </div>"
+                        >
+                            <lxs-question-text>
+                                a) Die folgendne zwei Abbildungen dienen als Eselsbrücke zur Berechnung von Spannung, Stromstärke, Widerstand und Leistung.
+                                Für welchen Wert stehen die jeweiligen Formelzeichen?
+                            </lxs-question-text>
+                            <lxs-question-hint>
+                                <img src="2-elektronik/formel_pui.svg" class="d-thumbnail" style="height: 7em" alt="Dreieck mit P oben in der Spitze sowie darunter U und I">
+                                <img src="2-elektronik/formel_uri.svg" class="d-thumbnail" style="height: 7em" alt="Dreieck mit U oben in der Spitze sowie darunter R und I">
+                            </lxs-question-hint>
+
+                            <lsx-assignment answer="Spannung (von lat. „urgere“ = Drängen)">U</lsx-assignment>
+                            <lsx-assignment answer="Widerstand (von eng. „Resistance")">R</lsx-assignment>
+                            <lsx-assignment answer="Stromstärke (von eng. „Intensity”)">I</lsx-assignment>
+                            <lsx-assignment answer="Leistung (von eng. “Power”)">P</lsx-assignment>
+                        </lsx-question>
+
+                        <lsx-question
+                            type = "gap-text"
+                            mode = "source-code"
+                            text = "b) Welche Formeln drücken den Zusammenhang von Spannung, Stromstärke und Widerstand mathematisch aus?"
+                        >
+                            U = <lsx-gap answer="R * I" ignore-case ignore-spaces></lsx-gap>
+                            I = <lsx-gap answer="U / R" ignore-case ignore-spaces></lsx-gap>
+                            R = <lsx-gap answer="U / I" ignore-case ignore-spaces></lsx-gap>
+                        </lsx-question>
+
+                        <lsx-question
+                            type = "gap-text"
+                            mode = "source-code"
+                            text = "c) Welche Formeln drücken den Zusammenhang von Spannung, Stromstärke und Leistung mathematisch aus?"
+                        >
+                            P = <lsx-gap answer="U * I" ignore-case ignore-spaces></lsx-gap>
+                            I = <lsx-gap answer="P / U" ignore-case ignore-spaces></lsx-gap>
+                            R = <lsx-gap answer="P / I" ignore-case ignore-spaces></lsx-gap>
+                        </lsx-question>
+
+                        <lsx-question
+                            type = "gap-text"
+                            mode = "source-code"
+                        >
+                            <lsx-question-text>
+                                d) Das Typenschild eines USB-Schnellladegeräts weist folgende Werte für die Ausgangsseite aus:
+                                5&nbsp;V Spannung und 2.3&nbsp;A Stromstärke. Welche maximale Leistung in Watt kann das Ladegerät
+                                zur Verfügung stellen?
+                            </lsx-question-text>
+                            <lsx-question-hint>
+                                Geben Sie nur das auf zwei Nachkommastellen gerundete Ergebnis in das Eingabefeld ein.
+                            </lsx-question-hint>
+
+                            Leistung = <lsx-gap answer="11,5" ignore-spaces ignore-case validate="validate_ohm1"></lsx-gap> Watt
+                        </lsx-question>
+
+                        <lsx-question
+                            type = "gap-text"
+                            mode = "source-code"
+                        >
+                            <lsx-question-text>
+                                e) Ein Computernetzteil wird mit einer Leistung von 175 Watt angepriesen. Welcher Stromstärke
+                                entspricht dies auf der Eingangsseite bei einer Spannung von 240 Volt? Und welcher Stromstärke
+                                würde dies bei einer Ausgangsspannung von 12 Volt entsprechen?
+                            </lsx-question-text>
+                            <lsx-question-hint>
+                                Geben Sie nur das auf zwei Nachkommastellen gerundete Ergebnis in das Eingabefeld ein.
+                            </lsx-question-hint>
+
+                            Eingangsstrom ≈ <lsx-gap answer="0,73" ignore-spaces ignore-case validate="validate_ohm2"></lsx-gap> Ampere
+                            Ausgangsstrom ≈ <lsx-gap answer="14,58" ignore-spaces ignore-case validate="validate_ohm3"></lsx-gap> Ampere
+                        </lsx-question>
+
+                        <lsx-question
+                            type = "gap-text"
+                            mode = "source-code"
+                        >
+                            <lsx-question-text>
+                                f) Eine 9&nbsp;V Blockbatterie besitzt im nicht ganz vollen Zustand einen Innenwiderstand von 8&nbsp;Ω.
+                                Welche maximale Stromstärke würde bei einem Kurzschluss fließen, wenn wir den Leitungswiderstands des
+                                verursachenden Kabels vernachlässigen?
+                            </lsx-question-text>
+                            <lsx-question-hint>
+                                Geben Sie nur das auf zwei Nachkommastellen gerundete Ergebnis in das Eingabefeld ein.
+                            </lsx-question-hint>
+
+                            Kurzschlusstrom ≈ <lsx-gap answer="1,13" ignore-spaces ignore-case validate="validate_ohm4"></lsx-gap> Ampere
+                        </lsx-question>
+
+                        <!-- R zu gezogener Stromstärke -->
+                        <lsx-question
+                            type = "gap-text"
+                            mode = "source-code"
+                        >
+                            <lsx-question-text>
+                                g) Der in einem IoT-Device verbaute Raspberry Pi zieht bei 5&nbsp;V Versorgungsspannung einen
+                                Strom von 6&nbsp;A. Wie hoch ist der Ersatzwiderstand, mit dem der Raspberry Pi in einer
+                                Schaltplanskizze vereinfachend ersetzt werden kann?
+                            </lsx-question-text>
+                            <lsx-question-hint>
+                                Geben Sie nur das auf zwei Nachkommastellen gerundete Ergebnis in das Eingabefeld ein.
+                            </lsx-question-hint>
+
+                            Ersatzwiderstand ≈ <lsx-gap answer="0,83" ignore-spaces ignore-case validate="validate_ohm5"></lsx-gap> Ohm
+                        </lsx-question>
+
+                        <lsx-question
+                            type = "gap-text"
+                            mode = "source-code"
+                        >
+                            <lsx-question-text>
+                                h) Die Stromstärke eines am Arduino Uno angeschlossenen Bauteils soll auf 10&nbsp;mA begrenzt werden.
+                                Welcher Vorwiderstand muss hierfür eingebaut werden, wenn der Arduino einen Logikpegel von 5&nbsp;
+                                besitzt und wir von einem linearen Bauteil (ohne nennenswerten Spannungsabfall wie z.B. bei einer
+                                LED oder einem Transistor) ausgehen?
+                            </lsx-question-text>
+                            <lsx-question-hint>
+                                Geben Sie nur das auf zwei Nachkommastellen gerundete Ergebnis in das Eingabefeld ein.
+                            </lsx-question-hint>
+
+                            Vorwiderstand ≈ <lsx-gap answer="500" ignore-spaces ignore-case validate="validate_ohm6"></lsx-gap> Ohm
+                        </lsx-question>
+
+                        <lsx-question
+                            type = "gap-text"
+                            mode = "source-code"
+                        >
+                            <lsx-question-text>
+                                i) Ein am Raspberry Pi angeschlossenes Bauteil besitzt einen Ersatzwiderstand von 1,5&nbsp;kΩ.
+                                Welche Stromstärke zieht das Bauteile aufgrund des Logikpegels von 3,3&nbsp;V des Pis?
+                            </lsx-question-text>
+                            <lsx-question-hint>
+                                Geben Sie nur das auf zwei Nachkommastellen gerundete Ergebnis in das Eingabefeld ein.
+                            </lsx-question-hint>
+
+                            Stromstärke ≈ <lsx-gap answer="2,2" ignore-spaces ignore-case validate="validate_ohm7"></lsx-gap> Milliampere
+                        </lsx-question>
                     </lsx-exercise>
-                </lsx-quiz> -->
+                </lsx-quiz>
             </lsx-tab-page>
 
             <lsx-tab-page title="Aufgabe 3.4">
@@ -1029,7 +1176,7 @@
 <section data-background-color="rgb(231, 221, 141)">
     <h1>(Aufgabe 4: Was bewirkt die Schaltung?)</h1>
     <article>
-        (In Arbeit)
+        <h2>(In Arbeit)</h2>
     </article>
     <aside>
         <p>
