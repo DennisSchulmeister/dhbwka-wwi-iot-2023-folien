@@ -1,0 +1,1077 @@
+<section data-chapter="h1" data-background-color="rgb(210,190,210)">
+    <h1>Elektronik für eingebettete Systeme</h1>
+    <article>
+        <lsx-tab-pages>
+            <lsx-tab-page title="Leitfragen">
+                <h3 class="dhbw-lightblue">Physikalische Grundlagen</h3>
+                <ul class="mb-4">
+                    <li>Was ist Strom und welche Begriffe muss ich kennen?</li>
+                    <li>Was bedeuten konkret Spannung, Stromstärke und Widerstand?</li>
+                    <li>Welche mathematischen Grundformeln muss ich kennen?</li>
+                    <li>Mit welchen Regeln können einfache Hardwareschaltungen analysiert werden?</li>
+                </ul>
+
+                <h3 class="dhbw-lightblue">Hardwareschaltungen mit Strom versorgen</h3>
+                <ul class="mb-4">
+                    <li>Was genau ist der „Strom aus der Steckdose“?</li>
+                    <li>Was für einen Strom benötigt mein Microcontroller?</li>
+                    <li>Welche Möglichkeiten der Stromversorgung gibt es generell?</li>
+                    <li>Wie lange hält die Batterie bzw. der Akku?</li>
+                    <li>Was kostet der jährliche Stromverbrauch?</li>
+                </ul>
+
+                <h3 class="dhbw-lightblue">Signale verarbeiten und erzeugen</h3>
+                <ul>
+                    <li>Wie kommuniziert ein Microcontroller mit der Außenwelt?</li>
+                    <li>Welche Arten der Signalübertragung gibt es?</li>
+                    <li>Welche Signalarten kann mein Microcontroller verarbeiten?</li>
+                    <li>Wie werden Sensoren/Aktoren mit dem Microcontroller verbunden?</li>
+                    <li>Wie viel Strom kann mein Microcontroller-Board bereitstellen?</li>
+                    <li>Wie lassen sich Schäden an Microcontroller und Bauteilen vermeiden?</li>
+                    <li>Wie lassen sich inkompatible Logikpegel anpassen?</li>
+                    <li>Wie können starke Lastströme geschaltet werden?</li>
+                </ul>
+            </lsx-tab-page>
+            <lsx-tab-page title="Lernziele">
+                <h3 class="dhbw-lightblue">Physikalische Grundlagen</h3>
+                <ul class="mb-4">
+                    <li>Eine einfache Definition des elektrischen Stroms kennen und verstehen</li>
+                    <li>Die Begriffe „Spannung“, „Stromstärke“ und „Widerstand“' erklären</li>
+                    <li>Das Ohmsche Gesetz anwenden können, um mit diesen Begriffen zu rechnen</li>
+                    <li>Die Kirchhoffschen Regeln kennen, um einfache Schaltungen zu analysieren</li>
+                    <li>Praktische Anwendungen von Spannungs- und Stromteilern nachvollziehen können</li>
+                </ul>
+
+                <h3 class="dhbw-lightblue">Hardwareschaltungen mit Strom versorgen</h3>
+                <ul class="mb-4">
+                    <li>Die Unterschiede zwischen „Gleichstrom“ und „Wechselstrom“ kennen</li>
+                    <li>Die Anforderungen typischer Microcontroller an die Stromversorgung kennen</li>
+                    <li>Die Funktionsweise eines einfachen USB-Trafonetzteils verstehen</li>
+                    <li>Verschiedene Arten der Stromversorgung planen und einsetzen können</li>
+                    <li>Die Lebensdauer einer Batterie/Akku abschätzen können</li>
+                    <li>Den Verbrauch und die erwarteten Stromkosten berechnen können</li>
+                </ul>
+
+                <h3 class="dhbw-lightblue">Signale verarbeiten und erzeugen</h3>
+                <ul>
+                    <li>Die gängigen Schnittstellen eingebetteter Systeme erklären können</li>
+                    <li>Analoge und digitale Sensoren und Aktoren verbinden können</li>
+                    <li>Sensoren und Aktoren mit Active-High und Active-Low-Logik verbinden können</li>
+                    <li>Stromstärken und Spannungen für den Microcontroller anpassen</li>
+                    <li>Die Hardwareschnittstellen grundlegend programmieren können</li>
+                </ul>
+            </lsx-tab-page>
+        </lsx-tab-pages>
+        <span style="font-size: 240px; color: white;" class="dhbw-text-shadow" >🏁</span>
+    </article>
+    <aside>
+        <p>
+            Der Vorlesungsname „Hardwarenahe Programmierung für das Internet of Things“ legt ja bereits nahe,
+            dass hier physische und virtuelle Welten zusammenfinden. Neben der Programmierung eingebetteter
+            Computersysteme müssen wir uns daher in besonderer Weise mit dem Übergang zur physischen Welt
+            auseinandersetzen und verstehen, wie ein Microcontroller mit dieser interagieren kann. Letztlich
+            müssen hierfür Sensoren und Aktoren angebunden werden, deren Zustand in der Software abgefragt
+            bzw. beeinflusst werden kann. Doch welche Bauteile kommen hierfür in Frage und wie müssen Sie
+            mit dem Microcontroller verbunden werden? Welche Dinge müssen dabei bedacht werden, damit das
+            Zusammenspiel wirklich funktioniert? Und wie muss der Microcontroller programmiert werden?
+        </p>
+        <p>
+            Wie so oft stellen sich am Anfang sehr viele Fragen, die einen einfachen Einstieg fast unmöglich
+            erscheinen lassen. Und tatsächlich müssen wir uns an für Wirtschaftsinformatiker ungewohnte Themen
+            wie die physikalischen Grundlagen des elektrischen Stroms heranwagen, um die meisten fragen beantworten
+            zu können. Ist diese Hürde jedoch einmal genommen, ist es am Ende gar nicht so schwer. Ein paar einfache
+            Definitionen und Rechenregeln genügen schon, damit wir die digitale Hardwareschaltungen verstehen und
+            selbst entwerfen können. Anhand vieler Fallbeispiele werden wir uns hierfür ein intuitives Verständnis
+            der wichtigsten Zusammenhänge erarbeiten, um so Schritt für Schritt unsere eigenen Ideen umsetzen zu können.
+        </p>
+        <p>
+            Dieses Kapitel gliedert sich daher in drei grobe Themengebiete: Im ersten Abschnitt <b>Hardware
+            für das IoT</b> schauen wir uns typische Hardwarekomponenten an, die zum Bauen eigener Schaltungen
+            in Frage kommen. Hier werfen wir auch einen ersten Blick auf die Hardwareschnittstellen gängiger
+            Entwicklungsboards. Dies stimmt uns auf den zweiten Abschnitt ein, in dem wir die <b>physikalischen
+            Grundlagen</b> des elektrischen Stroms vertiefen. Hier lernen wir eine eine einfache Definition
+            kennen, die uns bei vielen Fragestellungen weiterhelfen wird. Sei es dabei, die Stromversorgung
+            für ein IoT-Device zu planen, Sensoren und Aktoren zu verbinden oder andere, digitale Bauteile
+            zu verbinden. Abschließend widmen wir uns deshalb konkreten Schaltungen, um <b>Signale zu erzeugen
+            und zu verarbeiten</b>. Hier können wir die gelernten Regeln praktisch anwenden und reale Probleme
+            damit lösen.
+        </p>
+    </aside>
+</section>
+
+<!--
+    ====================
+    HARDWARE FÜR DAS IOT
+    ====================
+-->
+<section data-use-template="teilkapitel" data-titel="Hardware für das IoT"></section>
+
+<section data-background-color="rgb(231, 221, 141)">
+    <h1>Aufgabe 1: Ein kleines Hardware-Quiz</h1>
+    <article>
+        <lsx-tab-pages>
+            <lsx-tab-page title="Aufgabe 1.1">
+                <h2>Arten von Hardwarebausteinen</h2>
+
+                <lsx-quiz>
+                    <lsx-exercise>
+                        <lsx-question
+                            type = "multiple-choice"
+                            text = "a) In welche Kategorien lassen sich die Hardwarekomponenten zur Entwicklung eigener IoT-Anwendungen einordnen?"
+                        >
+                            <lsx-answer correct>Integrierte Schaltkreise</lsx-answer>
+                            <lsx-answer>Halbgeschlossene Stromkreise</lsx-answer>
+                            <lsx-answer correct>Vorgefertigte Baugruppen</lsx-answer>
+                            <lsx-answer>Selbstgebaute Trägerplatinen</lsx-answer>
+                            <lsx-answer correct>Elementare Bauteile</lsx-answer>
+                            <lsx-answer>Halbleiterelemente</lsx-answer>
+                            <lsx-answer>Isolierende Materialien</lsx-answer>
+                            <lsx-answer correct>Modular kombinierbare Geräte</lsx-answer>
+                        </lsx-question>
+        
+                        <lsx-question
+                            type = "single-choice"
+                            text = "b) Integrierte Schaltkreise werden auch Microchips oder umgangssprachlich nur Chips genannt."
+                        >
+                            <lsx-question-line>
+                                <lsx-answer correct>Wahr</lsx-answer>
+                                <lsx-answer>Falsch</lsx-answer>
+                            </lsx-question-line>
+                        </lsx-question>
+        
+                        <lsx-question
+                            type = "single-choice"
+                            text = "c) Integrierte Schaltkreise oder größere Baugruppen lassen sich prinzipiell nicht mit diskreten Bauteilen nachbauen."
+                        >
+                            <lsx-question-line>
+                                <lsx-answer>Wahr</lsx-answer>
+                                <lsx-answer correct>Falsch</lsx-answer>
+                            </lsx-question-line>
+                        </lsx-question>
+        
+                        <lsx-question
+                            type = "single-choice"
+                            text = "d) Die Verwendung diskreter Bauteile in einer Schaltung schließt die Verwendung andersartiger Hardwarekomponenten aus."
+                        >
+                            <lsx-question-line>
+                                <lsx-answer>Wahr</lsx-answer>
+                                <lsx-answer correct>Falsch</lsx-answer>
+                            </lsx-question-line>
+                        </lsx-question>
+
+                        <lsx-question
+                            type            = "assignment"
+                            text            = "e) Welche Bauteile werden auf den folgenden Bildern dargestellt und wofür werden sie typischerweise eingesetzt?"
+                            select-style    = "background: rgb(228, 229, 230);"
+                            select-position = "below"
+                            select-length   = "10em"
+                        >
+                            <lsx-question-line>
+                                <lsx-assignment answer="<b>Widerstand:</b> Begrenzt den Stromfluss in einem Teil der Schaltung">
+                                    <img src="2-elektronik/komponenten_elementar_widerstand.jpg" alt="" class="img-thumbnail d-block w-100" style="max-width: 10em">
+                                </lsx-assignment>
+                                <lsx-assignment answer="<b>Kondensator:</b> Kann einen Strom temporär zwischenspeichern">
+                                    <img src="2-elektronik/komponenten_elementar_kondensator.jpg" alt="" class="img-thumbnail d-block w-100" style="max-width: 10em">
+                                </lsx-assignment>
+                                <lsx-assignment answer="<b>Diode:</b> Lässt Strom nur in eine Richtung fließen">
+                                    <img src="2-elektronik/komponenten_elementar_diode.jpg" alt="" class="img-thumbnail d-block w-100" style="max-width: 10em">
+                                </lsx-assignment>
+                                <lsx-assignment answer="<b>Transistor:</b> Kann einen Strom verstärken oder ferngesteuert schalten">
+                                    <img src="2-elektronik/komponenten_elementar_transistor.jpg" alt="" class="img-thumbnail d-block w-100" style="max-width: 10em">
+                                </lsx-assignment>
+                            </lsx-question-line>
+
+                            <lsx-question-line>
+                                <lsx-assignment answer="<b>Quartz:</b> Dient häufig als Taktgeber für digitale Bausteine">
+                                    <img src="2-elektronik/komponenten_elementar_quartz.jpg" alt="" class="img-thumbnail d-block w-100" style="max-width: 10em">
+                                </lsx-assignment>
+                                <lsx-assignment answer="<b>Drehregler:</b> Kann zur Regelung analoger Werte verwendet werden">
+                                    <img src="2-elektronik/komponenten_elementar_drehregler.jpg" alt="" class="img-thumbnail d-block w-100" style="max-width: 10em">
+                                </lsx-assignment>
+                                <lsx-assignment answer="<b>Schalter/Taster:</b> Kann zur Eingabe binärer Werte verwendet werden">
+                                    <img src="2-elektronik/komponenten_elementar_taster.jpg" alt="" class="img-thumbnail d-block w-100" style="max-width: 10em">
+                                </lsx-assignment>
+                                <lsx-assignment answer="<b>LED:</b> Kann als kleines Lämpchen verwendet werden">
+                                    <img src="2-elektronik/komponenten_elementar_led.jpg" alt="" class="img-thumbnail d-block w-100" style="max-width: 10em">
+                                </lsx-assignment>
+                            </lsx-question-line>
+                        </lsx-question>
+
+                        <lsx-question
+                            type = "multiple-choice"
+                            text = "f) Welche Vor- und Nachteile hat der Aufbau einer Schaltung mit elementaren Bausteinen wie Widerständen oder Transistoren?"
+                        >
+                            <lsx-answer>Es werden weniger Bauteile als bei der Verwendung anderer Bauteile benötigt.</lsx-answer>
+                            <lsx-answer correct>Die Schaltung kann exakt an die eigenen Bedürfnisse angepasst werden.</lsx-answer>
+                            <lsx-answer correct>Zumindest bei einfachen Schaltungen fallen häufig geringere Materialkosten an.</lsx-answer>
+                            <lsx-answer>Der Platzbedarf der Schaltung ist in etwa dergleiche wie bei anderen Bauteilen.</lsx-answer>
+                            <lsx-answer>Der Stromverbrauch der Schaltung kann wesentlich einfacher kalkuliert und geplant werden.</lsx-answer>
+                        </lsx-question>
+
+                        <lsx-question
+                            type = "multiple-choice"
+                            text = "g) Welche Vor- und Nachteile hat die Verwendung eines vorgefertigten Sensor Kits wie in der Vorlesung gezeigt?"
+                        >
+                            <lsx-answer correct>Man hat einen soliden Grundstock gängiger Sensoren und Bauteile zur Verfügung.</lsx-answer>
+                            <lsx-answer>Die Kosten sind geringer als beim Einzelkauf der für eine Schaltung benötigten Bauteile.</lsx-answer>
+                            <lsx-answer>Die Bauteile können in der Regel einfacher mit einem Microcontroller verbunden werden.</lsx-answer>
+                            <lsx-answer correct>Das Sensor Kit kommt mit einer guten Dokumentation einschließlich vieler Beispiele.</lsx-answer>
+                            <lsx-answer>Das Sensor Kit enthält auch eher unübliche Bauteile, die einzeln schwer zu beschaffen sind.</lsx-answer>
+                        </lsx-question>
+                    </lsx-exercise>
+                </lsx-quiz>
+            </lsx-tab-page>
+
+            <lsx-tab-page title="Aufgabe 1.2">
+                <h2>Hardwareschnittstellen des Arduino Uno</h2>
+                <img src="2-elektronik/arduino-uno-pinout.png" class="d-block img-thumbnail mw-100 mb-4" style="width: 35em;" alt="Arduino Uno Pinout-Diagramm">
+
+                <lsx-quiz>
+                    <lsx-exercise>
+                        <lsx-question
+                            type         = "assignment"
+                            text         = "a) Welche Signalarten kann der Arduino Uno als Eingangssignal verarbeiten oder als Ausgangssignal erzeugen?"
+                            label-length = "17em"
+                        >
+                            <lsx-assignment answer="Nur empfangen">Analoge Spannungsverläufe</lsx-assignment>
+                            <lsx-assignment answer="Erzeugen und empfangen">Binäre Spannungen</lsx-assignment>
+                            <lsx-assignment answer="Dies ist kein Datensignal">Ground / Masse</lsx-assignment>
+                            <lsx-assignment answer="Dies ist kein Datensignal">12&nbsp;V Gleichstrom</lsx-assignment>
+                            <lsx-assignment answer="Dies ist kein Datensignal">240&nbsp;V Wechselstrom</lsx-assignment>
+                            <lsx-assignment answer="Erzeugen und empfangen">Serielle Datensignale</lsx-assignment>
+                            <lsx-assignment answer="Nur erzeugen">Pulsweitenmodulierte Signale</lsx-assignment>
+                            <lsx-assignment answer="Weder erzeugen noch empfangen"></lsx-assignment>
+                        </lsx-question>
+
+                        <lsx-question
+                            type = "single-choice"
+                            text = "b) Welchen Logikpegel besitzt der Microcontroller des Arduino Uno?"
+                        >
+                            <lsx-question-line>
+                                <lsx-answer>1,8&nbsp;V</lsx-answer>
+                                <lsx-answer>2,4&nbsp;V</lsx-answer>
+                                <lsx-answer>3,3&nbsp;V</lsx-answer>
+                                <lsx-answer correct>5,0&nbsp;V</lsx-answer>
+                                <lsx-answer>9,0&nbsp;V</lsx-answer>
+                            </lsx-question-line>
+                        </lsx-question>
+
+                        <lsx-question
+                            type = "single-choice"
+                            text = "c) Bauteile mit 3,3&nbsp;V oder 5&nbsp;V Logikpegel können direkt mit dem Arduino Uno verbunden werden."
+                        >
+                            <lsx-question-line>
+                                <lsx-answer>Wahr</lsx-answer>
+                                <lsx-answer correct>Falsch</lsx-answer>
+                            </lsx-question-line>
+                        </lsx-question>
+
+                        <lsx-question
+                            type         = "assignment"
+                            text         = "d) Welche Pins erfüllen die folgenden Funktionen beim Arduino Uno?"
+                            label-length = "25em"
+                        >
+                            <lsx-assignment answer="NC">Keine Funktion (nicht verbunden)</lsx-assignment>
+                            <lsx-assignment answer="VIN, GND">Den Arduino Uno mit Strom versorgen</lsx-assignment>
+                            <lsx-assignment answer="3V3, 5V, GND">Externe Bauteile mit Strom versorgen</lsx-assignment>
+                            <lsx-assignment answer="A0 … A5">Analoge Signale empfangen</lsx-assignment>
+                            <lsx-assignment answer="Nicht vorgesehen">Analoge Signale erzeugen</lsx-assignment>
+                            <lsx-assignment answer="D0 … D19">Binäre signale empfangen</lsx-assignment>
+                            <lsx-assignment answer="D0 … D19">Binäre signale erzeugen</lsx-assignment>
+                            <lsx-assignment answer="Nicht vorgesehen">PWM-Signale empfangen</lsx-assignment>
+                            <lsx-assignment answer="~D3, ~D5, ~D6, ~D10, ~D11">PWM-Signale erzeugen</lsx-assignment>
+                            <lsx-assignment answer="D13">Die interne LED ansteuern</lsx-assignment>
+                            <lsx-assignment answer="TX/RX, SCL/SDA, SCK/CIPO/COPI/SS">Serielle Daten austauschen (ohne Bitbanging)</lsx-assignment>
+                        </lsx-question>
+                    </lsx-exercise>
+                </lsx-quiz>
+            </lsx-tab-page>
+
+            <lsx-tab-page title="Aufgabe 1.3">
+                <h2>Hardwareschnittstellen des Raspberry Pi</h2>
+                <img src="2-elektronik/raspi-pinout-small.jpg" class="d-block img-thumbnail mw-100 mb-4" style="width: 25em;" alt="Raspberry Pi Pinout-Diagramm">
+
+                <lsx-quiz>
+                    <lsx-exercise>
+                        <lsx-question
+                            type         = "assignment"
+                            text         = "a) Welche Signalarten kann der Raspberry Pi als Eingangssignal verarbeiten oder als Ausgangssignal erzeugen?"
+                            label-length = "17em"
+                        >
+                            <lsx-assignment answer="Weder erzeugen noch empfangen">Analoge Spannungsverläufe</lsx-assignment>
+                            <lsx-assignment answer="Erzeugen und empfangen">Binäre Spannungen</lsx-assignment>
+                            <lsx-assignment answer="Dies ist kein Datensignal">Ground / Masse</lsx-assignment>
+                            <lsx-assignment answer="Dies ist kein Datensignal">12&nbsp;V Gleichstrom</lsx-assignment>
+                            <lsx-assignment answer="Dies ist kein Datensignal">240&nbsp;V Wechselstrom</lsx-assignment>
+                            <lsx-assignment answer="Erzeugen und empfangen">Serielle Datensignale</lsx-assignment>
+                            <lsx-assignment answer="Nur erzeugen">Pulsweitenmodulierte Signale</lsx-assignment>
+                            <lsx-assignment answer="Nur empfangen"></lsx-assignment>
+                        </lsx-question>
+
+                        <lsx-question
+                            type = "single-choice"
+                            text = "b) Welchen Logikpegel besitzt der System-on-a-Chip des Raspberry Pi?"
+                        >
+                            <lsx-question-line>
+                                <lsx-answer>1,8&nbsp;V</lsx-answer>
+                                <lsx-answer>2,4&nbsp;V</lsx-answer>
+                                <lsx-answer correct>3,3&nbsp;V</lsx-answer>
+                                <lsx-answer>5,0&nbsp;V</lsx-answer>
+                                <lsx-answer>9,0&nbsp;V</lsx-answer>
+                            </lsx-question-line>
+                        </lsx-question>
+
+                        <lsx-question
+                            type = "single-choice"
+                            text = "c) Bauteile mit 3,3&nbsp;V oder 5&nbsp;V Logikpegel können direkt mit dem Raspberry Pi verbunden werden."
+                        >
+                            <lsx-question-line>
+                                <lsx-answer>Wahr</lsx-answer>
+                                <lsx-answer correct>Falsch</lsx-answer>
+                            </lsx-question-line>
+                        </lsx-question>
+
+                        <lsx-question
+                            type         = "assignment"
+                            text         = "d) Welche Pins erfüllen die folgenden Funktionen beim Raspberry Pi?"
+                            label-length = "25em"
+                        >
+                            <lsx-assignment answer="Nicht vorgesehen">Den Raspberry Pi mit Strom versorgen</lsx-assignment>
+                            <lsx-assignment answer="3.3V, 5V, GND">Externe Bauteile mit Strom versorgen</lsx-assignment>
+                            <lsx-assignment answer="Nicht vorgesehen">Analoge Signale empfangen</lsx-assignment>
+                            <lsx-assignment answer="Nicht vorgesehen">Analoge Signale erzeugen</lsx-assignment>
+                            <lsx-assignment answer="GPIO2 … GPIO26">Binäre signale empfangen</lsx-assignment>
+                            <lsx-assignment answer="GPIO2 … GPIO26">Binäre signale erzeugen</lsx-assignment>
+                            <lsx-assignment answer="Nicht vorgesehen">PWM-Signale empfangen</lsx-assignment>
+                            <lsx-assignment answer="GPIO12/13/18/19">PWM-Signale erzeugen</lsx-assignment>
+                            <lsx-assignment answer="TX0/RX0, SDA1/SCL1, SPI_MOSI/SPI_MISO/SPI_CLK">Serielle Daten austauschen (ohne Bitbanging)</lsx-assignment>
+                        </lsx-question>
+                    </lsx-exercise>
+                </lsx-quiz>
+            </lsx-tab-page>
+        </lsx-tab-pages>
+    </article>
+    <aside>
+        <p>
+            Aller Anfang ist leicht. Dieses Quiz greift trotzdem nochmal die wichtigsten Punkte
+            der vorangegangen Seiten auf.
+        </p>
+        <img src="shared/quiz.png" class="img-fluid d-block" style="max-width: 20em;"/>
+        <p>
+            <small>
+                Bildnachweis:
+                <a href="https://pixabay.com/illustrations/quiz-tiles-letters-red-game-test-2058883/" target="_blank">Pixabay: 905513</a>
+            </small>
+        </p>
+    </aside>
+</section>
+
+<!--
+    ========================
+    PHYSIKALISCHE GRUNDLAGEN
+    ========================
+-->
+<section data-use-template="teilkapitel" data-titel="Physikalische Grundlagen"></section>
+
+<section data-background-color="rgb(231, 221, 141)">
+    <h1>Aufgabe 2: Ein kleines Elektronik-Quiz</h1>
+    <article>
+        <lsx-tab-pages>
+            <lsx-tab-page title="Aufgabe 2.1">
+                <lsx-quiz>
+                    <lsx-exercise title="Wiederholungsfragen">
+                        <lsx-question
+                            type = "multiple-choice"
+                            text = "a) Jedes System strebt einen Zustand maximaler Unordnung an. Welche Konsequenzen ergeben sich daraus?"
+                        >
+                            <lsx-question-hint>
+                                <div>
+                                    <img src='2-elektronik/schreibtisch.jpg' class='img-thumbnail mw-100' style='height: 15em;'>
+                                    <img src='2-elektronik/kinderzimmer.jpg' class='img-thumbnail mw-100' style='height: 15em;'>
+                                </div>
+                                <p>
+                                    <small>
+                                        <small>
+                                            Bildnachweise: Eigenes Foto und
+                                            <a href="https://pixabay.com/illustrations/computer-room-desk-toys-game-play-627220/" target="_blank">Pixabay: levelord</a>
+                                        </small>
+                                    </small>
+                                </p>
+                            </lsx-question-hint>
+
+                            <lsx-answer>Keine, da dieser Satz für elektronische Systeme nicht zutrifft.</lsx-answer>
+                            <lsx-answer correct>Unordnung ist sehr viel wahrscheinlicher als Ordnung.</lsx-answer>
+                            <lsx-answer correct>Ein Schreibtisch oder Kinderzimmer wird zum Beispiel zwangsläufig immer unaufgeräumter.</lsx-answer>
+                            <lsx-answer correct>Man muss daher aktiv Energie aufwenden, um das System in einen „geordneten Zustand” zu bringen.</lsx-answer>
+                            <lsx-answer>Bezogen auf die Elektronik bedeutet das, dass Strom ohne äußere Einwirkung von alleine zu fließen beginnt.</lsx-answer>
+                            <lsx-answer correct>Bezogen auf die Elektronik bedeutet das, dass Strom stets durch Energietransfer von außen „erzeugt“ wird.</lsx-answer>
+                        </lsx-question>
+
+                        <lsx-question
+                            type = "single-choice"
+                            text = "b) Wenn Strom fließt bewegen sich auf atomarer Ebene die …"
+                        >
+                            <lsx-question-line>
+                                <lsx-answer>Neutronen</lsx-answer>
+                                <lsx-answer>Protonen</lsx-answer>
+                                <lsx-answer correct>Elektronen</lsx-answer>
+                            </lsx-question-line>
+                        </lsx-question>
+
+                        <lsx-question
+                            type = "single-choice"
+                            text = "c) Was sind Ionen?"
+                        >
+                            <lsx-answer correct>Atome mit einem Elektronenungleichgewicht</lsx-answer>
+                            <lsx-answer>Besonders schwere Atome mit sehr vielen Protonen</lsx-answer>
+                            <lsx-answer>Atome ohne Neutronen im Inneren des Atomkerns</lsx-answer>
+                        </lsx-question>
+
+                        <lsx-question
+                            type = "assignment"
+                            text = "d) Welche der folgenden Aussagen trifft auf Leiter, Halbleiter und Isolatoren zu?"
+                            label-length = "6em"
+                        >
+                            <lsx-assignment answer="Besitzen tendenziell viele frei bewegliche Elektronen">Leiter</lsx-assignment>
+                            <lsx-assignment answer="Die Anzahl frei beweglicher Elektronen kann durch äußere Einflüsse verändert werden">Halbleiter</lsx-assignment>
+                            <lsx-assignment answer="Bewegliche Elektronen lassen sich nur sehr schwer herauslösen">Isolatoren</lsx-assignment>
+                            <lsx-assignment answer="Leitet im zeitlichen Mitteln halb so viel Strom wie ein Leiter"></lsx-assignment>
+                            <lsx-assignment answer="Kann selbst mit sehr hohem Energieaufwand keinen Strom leiten"></lsx-assignment>
+                            <lsx-assignment answer="Leitet den Stromfluss in eine von mehreren möglichen Richtungen"></lsx-assignment>
+                        </lsx-question>
+
+                        <lsx-question
+                            type = "assignment"
+                            text = "e) Welcher Bebgriff verbirgt sich hinter welcher vereinfachten Definition?"
+                            label-length = "100%"
+                            select-position = "below"
+                        >
+                            <lsx-assignment answer="Spannung">
+                                Durch äußere Einwirkung wird Energie auf die Elektronen eines Leiters übertragen, wodurch die
+                                Elektronen zusätzlich angeregt werden, sich in einen geordneteren Zustand zu begeben, wodurch
+                                wiederum der Strom fließen und die somit die Energie übertragen werden kann.
+                            </lsx-assignment>
+
+                            <lsx-assignment answer="Widerstand">
+                                Die durch die Elektronen transportierte Energie „verrichtet Arbeit“, in dem die Energie innerhalb
+                                der Bauteile einer Schaltung beispielsweise in Abwärme umgewandelt wird. Da die aufgeladene Energie
+                                die Ursache für den Stromfluss ist, nimmt der Stromfluss hierdurch ab. Man kann sagen, die Schaltung
+                                widersetzt sich dem Stromfluss und wirkt ihm entgegen.
+                            </lsx-assignment>
+
+                            <lsx-assignment answer="Stromstärke">
+                                Die Menge der zur Verfügung stehenden Energie richtet sich nicht nur nach der Energie, welche den
+                                Elektronen aufgeladen wird, sondern in selbem Maße nach der Anzahl fließender Elektronen innerhalb
+                                einer Zeiteinheit.
+                            </lsx-assignment>
+
+                            <lsx-assignment answer="Leistung"></lsx-assignment>
+                            <lsx-assignment answer="Energie"></lsx-assignment>
+                            <lsx-assignment answer="Kraft"></lsx-assignment>
+                            <lsx-assignment answer="Geschwindigkeit"></lsx-assignment>
+                        </lsx-question>
+
+                        <lsx-question
+                            type = "single-choice"
+                            text = "f) Strom fließt gedanklich immer …"
+                        >
+                            <lsx-answer>vom niedrigen zum hohen Potential.</lsx-answer>
+                            <lsx-answer correct>vom hohen zum niedrigen Potential.</lsx-answer>
+                            <lsx-answer partially-correct>von einer Spannung nach Masse/Ground.</lsx-answer>
+                            <lsx-answer>entgegen der technischen Stromrichtung.</lsx-answer>
+                        </lsx-question>
+
+                        <lsx-question
+                            type = "single-choice"
+                            text = "g) Tatsächlich weiß man heute, dass Strom in Wirklichkeit …"
+                        >
+                            <lsx-answer correct>vom niedrigen zum hohen Potential fließt.</lsx-answer>
+                            <lsx-answer>vom hohen zum niedrigen Potential fließt.</lsx-answer>
+                            <lsx-answer>ständig im Kreis fließt.</lsx-answer>
+                        </lsx-question>
+
+                        <lsx-question
+                            type         = "assignment"
+                            text         = "h) Welche Einheit beschreibt welche Kenngröße?"
+                            label-length = "8em"
+                        >
+                            <lsx-assignment answer="Ohm">Widerstand</lsx-assignment>
+                            <lsx-assignment answer="Ampere">Stromstärke</lsx-assignment>
+                            <lsx-assignment answer="Volt">Spannung</lsx-assignment>
+                            <lsx-assignment answer="Watt">Leistung</lsx-assignment>
+                            <lsx-assignment answer="Joule">Energie</lsx-assignment>
+
+                            <lsx-assignment answer="Newton"></lsx-assignment>
+                            <lsx-assignment answer="km/h"></lsx-assignment>
+                            <lsx-assignment answer="MBit"></lsx-assignment>
+                            <lsx-assignment answer="GB/Sek"></lsx-assignment>
+                            <lsx-assignment answer="Lumen"></lsx-assignment>
+                            <lsx-assignment answer="Dezibel"></lsx-assignment>
+                        </lsx-question>
+                    </lsx-exercise>
+                </lsx-quiz>
+            </lsx-tab-page>
+
+            <lsx-tab-page title="Ausgabe 2.2">
+                <lsx-quiz>
+                    <lsx-exercise title="Mathematische Interpretation">
+                        <lsx-question
+                            type = "single-choice"
+                            text = "a) Die Spannung ist mathematisch definiert als <tt>1 Volt = 1 Joule ÷ 1 Coulumb</tt>. Wie ist diese Definition zu verstehen?"
+                        >
+                            <lsx-answer correct>Die Formel beschreibt, wie viel Energie ein einzelnes Elektron trägt.</lsx-answer>
+                            <lsx-answer>Die Formel beschreibt, wie viele Elektronen die Stromquelle freisetzen kann.</lsx-answer>
+                            <lsx-answer>Die Formel beschreibt, wie viel Energie in einer Zeiteinheit übertragen wird.</lsx-answer>
+                            <lsx-answer>Die Formel beschreibt, wie viel Energie eine Schaltung verbraucht.</lsx-answer>
+                        </lsx-question>
+
+                        <lsx-question
+                            type = "single-choice"
+                            text = "b) Wie muss hingegen die Definition der Stromstärke <tt>1 Ampere = 1 Coulumb ÷ 1 Sekunde</tt> praktisch ausgelegt werden?"
+                        >
+                            <lsx-answer>Die Formel beschreibt, welche Spannung eine Stromquelle zur Verfügung stellt.</lsx-answer>
+                            <lsx-answer>Die Formel beschreibt, welchen Gesamtwiderstand eine Schaltung besitzt.</lsx-answer>
+                            <lsx-answer correct>Die Formel beschreibt, wie viele Elektronen in einer Zeiteinheit fließen.</lsx-answer>
+                            <lsx-answer>Die Formel beschreibt, wie viel Energie zum Verrichten einer Arbeit benötigt wird.</lsx-answer>
+                        </lsx-question>
+
+                        <lsx-question
+                            type         = "multiple-choice"
+                            text         = "c) Welche Parameter kann man praktisch leicht verändern, um die Stromstärke zu beeinflussen?"
+                            label-length = "8em"
+                        >
+                            <lsx-question-line>
+                                <lsx-answer>Kraft</lsx-answer>
+                                <lsx-answer>Energie</lsx-answer>
+                                <lsx-answer>Leistung</lsx-answer>
+                                <lsx-answer>Zeit</lsx-answer>
+                            </lsx-question-line>
+                            <lsx-question-line>
+                                <lsx-answer>Menge</lsx-answer>
+                                <lsx-answer>Gewicht</lsx-answer>
+                                <lsx-answer correct>Spannung</lsx-answer>
+                                <lsx-answer>Induktivität</lsx-answer>
+                            </lsx-question-line>
+                            <lsx-question-line>
+                                <lsx-answer correct>Widerstand</lsx-answer>
+                                <lsx-answer>Lautstärke</lsx-answer>
+                                <lsx-answer>Geschwindigkeit</lsx-answer>
+                                <lsx-answer>Speicherplatz</lsx-answer>
+                            </lsx-question-line>
+                        </lsx-question>
+
+                        <lsx-question
+                            type = "multiple-choice"
+                            text = "d) Wie welchem Zusammenhang stehen Stromstärke und Leistung?"
+                        >
+                            <lsx-answer correct>Beide drücken im Grunde genommen aus, wie viel Energie je Zeit übertragen wird.</lsx-answer>
+                            <lsx-answer>Die beiden Begriffe sind daher synonym und beschrieben dasselbe physikalische Phänomen.</lsx-answer>
+                            <lsx-answer correct>Leistung ist der allgemeinere Begriff, Stromstärke seine Anwendung in der Elektrodynamik.</lsx-answer>
+                            <lsx-answer correct>Die Leistung drückt daher ganz allgemein „Energie je Zeit“ aus.</lsx-answer>
+                            <lsx-answer correct>Die Stromstärke ersetzt hier „Energie“ durch „Elektronenladungenn“, weil diese die Energie übertragen.</lsx-answer>
+                            <lsx-answer>Da es sich um unterschiedliche Konzepte handelt, kann nicht vom einen zum anderen umgerechnet werden.</lsx-answer>
+                        </lsx-question>
+
+                        <lsx-question
+                            type = "single-choice"
+                            text = "e) Anhand welcher allgemeineren Formel leitet sich die spezielle Formel <tt>Leistung = Spannung · Stromstärke</tt> ab?"
+                        >
+                            <lsx-answer>
+                                <tt>Stromstärke = Elektronenladungen ÷ Zeit</tt>
+                            </lsx-answer>
+                            <lsx-answer>
+                                <tt>Weg = Geschwindigkeit ÷ Zeit</tt>
+                            </lsx-answer>
+                            <lsx-answer correct>
+                                <tt>Leistung = Energie ÷ Zeit</tt>
+                            </lsx-answer>
+                        </lsx-question>
+
+                        <lsx-question
+                            type = "single-choice"
+                            text = "f) In der Elektronik rechnet man immer mit viel Puffer. Exakte Werten sind oft gar nicht so wichtig."
+                            hint = "Hinweis: Toleranz meint hier Fertigungstoleranz und somit Schwankungen in den exakten Werten der Bauteile."
+                        >
+                            <lsx-answer correct>Wahr, weil die verwendeten Bauteile meistens sowieso hohe Toleranzen besitzen.</lsx-answer>
+                            <lsx-answer>Falsch, weil sich die Rundungsfehler aufaddieren und das Gesamtergebniss deutlich verschlechtern.</lsx-answer>
+                        </lsx-question>
+                    </lsx-exercise>
+                </lsx-quiz>
+            </lsx-tab-page>
+
+            <lsx-tab-page title="Aufgabe 2.3">
+                <lsx-quiz>
+                    <lsx-exercise title="Weitere Verständnisfragen">
+                        <lsx-question
+                            type         = "assignment"
+                            text         = "a) Welche Art von Strom liefern die folgenden Quellen?"
+                            label-length = "8em"
+                        >
+                            <lsx-assignment answer="Wechselstrom">Stromnetz</lsx-assignment>
+                            <lsx-assignment answer="Gleichstrom">Batterie</lsx-assignment>
+                            <lsx-assignment answer="Gleichstrom">Akku</lsx-assignment>
+                            <lsx-assignment answer="Gleichstrom">USB-Netzeil</lsx-assignment>
+                        </lsx-question>
+
+                        <lsx-question
+                            type = "single-choice"
+                            text = "b) Die Spannung kann nicht unter 0&nbsp;Volt fallen."
+                        >
+                            <lsx-question-line>
+                                <lsx-answer>Wahr</lsx-answer>
+                                <lsx-answer correct>Falsch</lsx-answer>
+                            </lsx-question-line>
+                        </lsx-question>
+
+                        <lsx-question
+                            type = "single-choice"
+                            text = "c) Die Stromstärke ist immer ≥ 0&nbsp;Ampere."
+                        >
+                            <lsx-question-line>
+                                <lsx-answer correct>Wahr</lsx-answer>
+                                <lsx-answer>Falsch</lsx-answer>
+                            </lsx-question-line>
+                        </lsx-question>
+
+                        <lsx-question
+                            type = "multiple-choice"
+                            text = "d) Welche Beschreibungen passen am besten zum Begriff „Wechselstrom”?"
+                        >
+                            <lsx-answer>Der Strom wechselt in unregelmäßigen Abstände seine Stromstärke.</lsx-answer>
+                            <lsx-answer correct>Der Strom wechselt in periodischen Abständen seine Flußrichtung.</lsx-answer>
+                            <lsx-answer correct>Die Spannung pendelt um eine Referenzspannung, die als 0&nbsp;V angegeben wird.</lsx-answer>
+                            <lsx-answer>Der Kunde wechselt öfters zu einem günstigeren Stromanbieter.</lsx-answer>
+                        </lsx-question>
+
+                        <lsx-question
+                            type = "single-choice"
+                            text = "e) Wovon hängt die fließende Stromstärke bei einem Kurzschluss am meisten ab?"
+                        >
+                            <lsx-answer>Vom Gesamtwiderstand der dazwischen liegenden Bauteile</lsx-answer>
+                            <lsx-answer correct>Vom Innenwiderstand der Stromquelle und vom Leitungswiderstand</lsx-answer>
+                            <lsx-answer>Von der Energieeffizienzklasse der verwendeten Stromquelle</lsx-answer>
+                        </lsx-question>
+
+                        <lsx-question
+                            type = "multiple-choice"
+                            text = "f) Warum benötigen viele Bauteile einen Vorwiderstand zwischen Bauteil und Microcontroller?"
+                        >
+                            <lsx-answer correct>Um die entnommene Stromstärke zu begrenzen, wenn das Bauteil ein Signal vom Micrcontroller empfängt.</lsx-answer>
+                            <lsx-answer>Um den Gesamtwiderstand der Schaltung zu vermindern und somit mehr Strom zu erhalten.</lsx-answer>
+                            <lsx-answer correct>Um den nach Masse abfließenden Strom im Falle eines Fehlers zu begrenzen, wenn das Bauteil ein Signal erzeugt.</lsx-answer>
+                            <lsx-answer>Um durch Herabsetzung der Spannung durch einen Widerstand inkompatible Logikpegel anzugleichen.</lsx-answer>
+                        </lsx-question>
+
+                        <lsx-question
+                            type = "multiple-choice"
+                            text = "g) Worin unterscheiden sich lineare Bauteile von nicht-linearen Bauteilen (bspw. ein Widerstand im Vergleich zu einer Diode)?"
+                        >
+                            <lsx-answer>Bei nicht-linearen Bauteilen zeigt die Spannung ein exponentielles Wachstum im zeitlichen Verlauf.</lsx-answer>
+                            <lsx-answer>Lineare Bauteile werden zur Senkung des Stromverbrauchs genutzt, da sie effektiver arbeiten.</lsx-answer>
+                            <lsx-answer correct>Bei linearen Bauteilen steht ihr Widerstand in linearem Zusammenhang zur angelegten Spannung.</lsx-answer>
+                            <lsx-answer correct>Bei nicht-linearen Bauteilen existiert ein komplexerer Zusammenhang zwischen Widerstand und Spannung.</lsx-answer>
+                        </lsx-question>
+                    </lsx-exercise>
+                </lsx-quiz>
+            </lsx-tab-page>
+
+            <lsx-tab-page title="Aufgabe 2.4">
+                <lsx-quiz>
+                    <lsx-exercise title="Die Kirchhoff-Regeln">
+                        <lsx-question
+                            type = "single-choice"
+                            text = "a) Was besagt die Kirchhoffsche Maschenregel (engl. Kirchhoff Voltage Law)?"
+                        >
+                            <lsx-answer>Die Summe aller Widerstände in einem Stromkreis muss immer 0&nbsp;Ω ergeben.</lsx-answer>
+                            <lsx-answer>Die Summe aller Ströme in einem Stromkreis muss immer 0&nbsp;A ergeben.</lsx-answer>
+                            <lsx-answer correct>Die Summe aller Spannungen in einem Stromkreis muss immer 0&nbsp;V ergeben.</lsx-answer>
+                        </lsx-question>
+
+                        <lsx-question
+                            type = "multiple-choice"
+                            text = "b) Welche praktischen Konsequenzen ergeben sich aus der Maschenregel bei der Betrachtung einer Schaltung?"
+                        >
+                            <lsx-answer correct>Die von der Stromquelle bereitgestellte Spannung fällt bei Masse/Ground immer auf 0&nbsp;V ab..</lsx-answer>
+                            <lsx-answer correct>An den einzelnen Bauteilen fallen Teilspannungen ab, die sich zur Ursprungsspannung aufaddieren.</lsx-answer>
+                            <lsx-answer>Die Spannung entlang eines Bauteils (gemessen an seinen beiden Kontakten) ist für alle Bauteile gleich.</lsx-answer>
+                        </lsx-question>
+
+                        <lsx-question
+                            type = "single-choice"
+                            text = "c) Was besagt die Kirchhoffsche Knotenregel (engl. Kirchhoff Current Law)?"
+                        >
+                            <lsx-answer>In einem linearen Widerstandsnetz ist die Summe aller eingehenden Spannungen gleich der Summe aller ausgehenden Spannungen.</lsx-answer>
+                            <lsx-answer correct>In einem linearen Widerstandsnetz ist die Summe aller eingehenden Stromstärken gleich der Summe aller ausgehenden Stromstärken.</lsx-answer>
+                            <lsx-answer>In einem linearen Widerstandsnetz geht die Summe aller Widerstände gegen Unendlich.</lsx-answer>
+                        </lsx-question>
+
+                        <lsx-question
+                            type = "multiple-choice"
+                            text = "d) Welche praktischen Konsequenzen ergeben sich aus der Knotenregel bei der Betrachtung einer Schaltung?"
+                        >
+                            <lsx-question-hint>
+                                <img src="2-elektronik/verbraucher-parallel.png" class="img-thumbnail w-100">
+                            </lsx-question-hint>
+
+                            <lsx-answer>Mehrere in Reihe geschaltete Verbraucher erhöhen den Stromverbrauch einer Schaltung.</lsx-answer>
+                            <lsx-answer correct>Mehrere parallel geschaltete Verbraucher erhöhen den Stromverbrauch einer Schaltung.</lsx-answer>
+                            <lsx-answer correct>Die zur Verfügung stehende Spannung reduziert sich mit jedem weiteren Verbraucher.</lsx-answer>
+                        </lsx-question>
+
+                        <lsx-question
+                            type = "single-choice"
+                            text = "e) Warum reduziert sich die Spannung in der Regel mit jedem weiteren Verbraucher?"
+                        >
+                            <lsx-answer correct>Da die Verbraucher zusammen mit dem Innenwiderstand der Stromquelle einen Spannungsteiler bilden.</lsx-answer>
+                            <lsx-answer>Weil mehr Verbraucher mehr Strom ziehen, dessen Spannung am kombinierten Gesamtwiderstand abfallen muss.</lsx-answer>
+                            <lsx-answer>Weil die Stromquelle nur eine begrenzte Höchstspannung zur Verfügung stellen kann.</lsx-answer>
+                        </lsx-question>
+
+                        <lsx-question
+                            type = "single-choice"
+                            text = "f) Mehrere in Reihe geschaltete Widerstände/Verbraucher nennt man einen …"
+                        >
+                            <lsx-question-hint>
+                                <img src="2-elektronik/spannungsteiler.png" class="img-thumbnail mw-100" style="width: 30em;">
+                            </lsx-question-hint>
+
+                            <lsx-answer>Stromteiler</lsx-answer>
+                            <lsx-answer>Stromverteiler</lsx-answer>
+                            <lsx-answer collect>Spannungsteiler</lsx-answer>
+                            <lsx-answer>Langeweiler</lsx-answer>
+                        </lsx-question>
+
+                        <lsx-question
+                            type = "single-choice"
+                            text = "g) Mehrere parallel geschaltete Widerstände/Verbraucher nennt man einen …"
+                        >
+                            <lsx-question-hint>
+                                <img src="2-elektronik/stromteiler.png" class="img-thumbnail mw-100" style="width: 55em;">
+                            </lsx-question-hint>
+
+                            <lsx-answer collect>Stromteiler</lsx-answer>
+                            <lsx-answer>Spannungsteiler</lsx-answer>
+                        </lsx-question>
+
+                        <lsx-question
+                            type         = "assignment"
+                            text         = "h) Wie verhalten sich Widerstand, Spannung und Stromstärke in einem Spannungsteiler?"
+                            label-length = "10em"
+                        >
+                            <lsx-assignment answer="Nimmt mit jedem weiteren Verbraucher zu">Widerstand</lsx-assignment>
+                            <lsx-assignment answer="Ist für alle Verbraucher identisch">Stromstärke</lsx-assignment>
+                            <lsx-assignment answer="Teilt sich entlang der Verbraucher auf">Spannung</lsx-assignment>
+                        </lsx-question>
+
+                        <lsx-question
+                            type         = "assignment"
+                            text         = "i) Wie verhalten sich Widerstand, Spannung und Stromstärke in einem Stromteiler?"
+                            label-length = "10em"
+                        >
+                            <lsx-assignment answer="Nimmt mit jedem weiteren Verbraucher ab">Widerstand</lsx-assignment>
+                            <lsx-assignment answer="Teilt sich entlang der Verbraucher auf">Stromstärke</lsx-assignment>
+                            <lsx-assignment answer="Ist für alle Verbraucher identisch">Spannung</lsx-assignment>
+                        </lsx-question>
+
+                        <lsx-question
+                            type = "single-choice"
+                            text = "j) Was versteht man unter dem Begriff „Spannungsabfall“?"
+                        >
+                            <lsx-question-hint>
+                                <img src="2-elektronik/spannungsabfall.png" class="img-thumbnail mw-100" style="width: 55em;">
+                            </lsx-question-hint>
+
+                            <lsx-answer>Ungenutzten Strom in einer Schaltung</lsx-answer>
+                            <lsx-answer>Überschüssige Spannung, die bei Masse/Ground verworfen wird</lsx-answer>
+                            <lsx-answer correct>Die Teilspannung entlang eines oder mehrerer Bauteile</lsx-answer>
+                        </lsx-question>
+
+                        <lsx-question
+                            type = "gap-text"
+                            mode = "source-code"
+                            text = "k) Die Summe aller Spannungsabfälle ergibt immer …"
+                        >
+                            ∑ Spannungsabfall = <lsx-gap answer="0" length="2em"></lsx-gap> V
+                        </lsx-question>
+                    </lsx-exercise>
+                </lsx-quiz>
+
+                <!-- https://www.falstad.com/circuit/circuitjs.html?ctz=CQAgjCAMB0l3BWcMBMcUHYMGZIA4UA2ATmIxAUgoqoQFMBaMMAKAA8KMAWcQlZLuTCEkPFDwBKdAJYALOgDsAzgGNZAQwA2AFwCuCgOYAdJQFs6sgE51rlkwDUbAI0vrdam+05IwePOC5ICDBiCB4wfgBlNS1tRRMAd2k7JQATaToHZ1d3eRS3JRNUulMTADcAe0s86QN4pQAhGSUABwzNEwVpNW0TFvVXTU06TQAaEyUKhWLLBRMAImk5pSk5OnnxpSc6Cqd1HvqklJll80sAawSAH8t0usKlR2rYxQAuLwQMJDRCcGxBEBoYggcL8AAi9ROAC8Rgp6g03HFpMNlko4rJekoFLoUgoKmoTCcTA1LLkkR00jYTJF+gpsYYTPpUhMKqZpJi3ASsTjCUtiaSDsiilSlABROGWAwZExQnmPGwAMyuBn0BgAhCwJCA8MRfigEL88Nh+PrflQqIFqOaoNAECxLNrdYCDSBSCaXVQwHB7a7iO7fl6-M6zYDvQ7A-5TeBfGIPSDvQZo3hYwGYyBjdbICxsIR-Dq9S78+m0FAoNnc77-ZXi5ny-4I8HkEGM6Wsxw-BAc8CIthsOmMPxwlQAIIKM7nVWvExg6VKGnqOmq+rbKEZeSo7qyEwAKzoCRkmgebgVJgA4pYKkyAPQAWXUSiUdGgHy+8eBA+BXAiIN4IAAkgoejstIZSZEoAASNjDOyqovqI-wBIQfZcNg5CgiAw6lI+8hovU5wLqcC5FBkj4PE8Gg6PUoGWLh66bPudImKYREPpuxFgU0xS6HoDJKJUyzzJE2gXlhNgwrodQKPMjLTAsQkieU2Scuu0l8VUJjDhJ9RKlY2jPhwnw8FwCD8GAXAoIOCCiOAUTCayJgABTSFhkRLHC5RTEUOJcic9QADIyHEKQKpoGQAPuKMUJiisM5x2XCCgAJSEoBtGYl0PQecsWjQXCmyTNMNjLM5Z6koVJjOWcXmWFyAAnugRdY0VLEcE6GPp3gghgnpcMQyE4D+36ig8GiFToExsUouiiUs9TijYUp0MJC5KAqNibNs0jClh5gxF0qjyJsHhsgdYEVDMTHqAYcLaNIp3RRKi0mMe7HRbF8WQrNDwBeyNgPFc2yWMtkmJMkqQdZ8ohBmA2DEKIoSDeCs4xXQcUXgliQ2MUqIVLKShXfUbKYvNkqzsedSaOo2P0ed3lbqxYEGNBagwsBxj44YNh0AYmL7rcij5ZNqR08Kyw-UFMq6CY2z7pJEOviZpkoeQJnWd+mknkocjWFhADq3PVVy2PUnZpjnNYd0LNRlibnEyzpGBKNo1M9TDpYm3aKpTKKZYoVc-bVMi1rVhgeTIxU4ojuPbOSR0Bdc7aFcKjnCYSopEJSfnPLSAIJaZklrnyE2SAop8miACebSnSkADSFSyMMCr3jYSQzGiC6pPRs4ithKSyPVCq1D7ezcaDtz0R3IyYg7hLvTb91itHYGba07RKPud1gQdoWZVryzDk4CS1ZY5iMqY8s8HwPgINgSB8P46EznQj6dNz6i3aBZ7c4orQEaqmzTVeqxI2s4ACKugRiHlpPSdmu4N6Hh9myQqQMu63DktA1U+MnBNyGKpSSBE9LTjARAoYv9Fy8QVLVIYmIiQJ0zh4bKThs4UE+OARWFBCAWmLgAKTjiKXW0g27aA7j7G2nMgZAPnOQ9mtCGK1A2pbdeyRnpYXFFFLWpgqpbBkCYSA9hnqc3OKycwG5phqiIc-QkpMnCYi1lyAowpa7JDULICoCoFSnWWHeTx1gKYvj7J8AMOYVYYE-MXByL1HyGE0NAEwzMMQinmDXZxshXHuIcBUHQBMTB+XUAkPBigCGJSnEoJ+1Jpqn3xkMEUAAVA8ZCYH1DLr5FyptzbNCYroB8FVNEij0VYuo2wFDMM4UIf4vxCBekRiAcCGRLBpwmHEahl0NxckqJYTYqR7wPF3MUB4CJuIHl5O5LEb8P5gVPN-ZQGDeLURxPjHomzZzx3AZAhpqoUraDqCDJRFw9JwRAIQYybCvyAq4A-YusyRR7Iok4Rxj5NDbBNiJdpiiiZZH5txHesgPmUh2XuA8tR6hSJgVgnBh5YmlNnGVY2jxMnaHMBLJQrNJIAKwrHco7RJE3NgQS5ER4nBdE0f8xMzBkwgAwOKsVPA8BwFbD6BsuZ6xpiVaWQIWYHRukBdDfA-hVVUDQBqx0Eygxav1cgLMWoiyqqNPwc1FpaCthtHaFo1YcCGidO69M8rXUNi9Vqr1fZzQsF9WmL1fqczeuDQkY1ErI3WqDFmGNAbI1msTSwGNEaAy6u1f4JNSYeDhpVem0N4rJUys9eKoNZYY1FnLbGr1+bpUSqlWGyNbZOCGmBWAG+SBkwQu-AIsCzENwWG0Jsai-dxrAPpvHElmD1DYJyn0C8LQqi3SmFoSWosTACKER3deNg7YlKaFtJQhqTAAHlZBYUocstIFQWgtCniyTlIxqQ8uek4Luy8dFKC9JAK9N7GTrwvtqEQbC8B9orI-MmThJiaEOcsPdf1hHTEPUDLeSxmRpEXX+5I1hhhlAXJiByWyx4mFkHMyRps0TH3OGBDKGJpZLVcAcJKlKABiNwd1zh5WS5dzLaoN3SnKLZZEbBTu0PtRxu7BGodqoVZ8mbzKFsjfnS+6bM3Gn8OGnTuayy+tU3GoJKBdORurZav4ZmDMRCBQZ60lokCZltAq-TqqNMOYtSwUVxnw1+ZMvKjgZlUKAr9LwLAYW1ZUAAFqAPlJKeJJSoXBSodOmeSh7jqFMHED9f9DBeBC+QbqAYSD8G6mEqZLFsTHFmnreTNE0M4cXZSspSgUONZEWYLpShCsoV+AOYI3VyviEGlQLZeQ30UnMFYBYJMnp8SUnbeYlLRQpCODhri2hsV9cjTgcIQKqA4DQsgEAR8T4ii0A8EqCcUUWweKFBQ5wHhbLhEMsDxBIADag66SAlXfh3m0PIZit0F6QV9oFWCBlXx+mVRBvqYRi4ARMKseQJh7gxEorl9rDW6PlXxqkB21hVn02PKth4Up0vqDyCUiQAB9S5+McsmCMAARxR2AFnLQUcoC5yj7AfOlCADICAFxAuABn1BAMXlXwTZfZCYc4AA3ukhxlFpFnPJVkdGLi-usGoBKTywIOxfnOTHPF2bzFXGO+YJS-ws-Z0oAAqiYK8KOWcPEAEmE7uTAIH0UoV3ShuqAaUNerCgAJIhMBgUYnOzDDhfDwXUPgUL8F1AO-go5Ro4f4sirX2h6NgW9jj-dsklBK5V8sI4oM+Gkiwhlup-KeXLi5vrt4JhneFAdxIEwAAqEwduHgmC9wP-9cAgNYV70oSAow4AYBj8OEwEfJ+jAwH7rpCRmEAeCJgescAjLF2HJRWY78QKUdqtoO2FH1dgXr1A-LPzlLEWsHFZ6XS9eyAxqX5XCUSmO5j2ztvDOz82WmIE+EgMeAeDkYBguEgvOhQ3OKw2AyUU0oGAKXoJYn2wQkAKARc34cWWEp6q8IwP+f+DuvuPejkAGY+Lukeo+IeN6SBi+U+K+LAQAA -->
+                <!-- https://www.falstad.com/circuit/circuitjs.html?ctz=CQAgjCAMB0l3BWcMBMcUHYMGZIA4UA2ATmIxABYUQkFIaBTAWjDACgAPGjC8Q61mDx8kvFLwAKAJwCGAawAuASwDOAYwAWDADoqAggDsA7gwMATAK4GA5roBuAewO6AygAcZBg1esqFDJQAbBikDTm4kIWEwQgpCcGIIXjBqAFkGDSkQnRUAdSUzEL8AE-McpWcVACUArQAaXSMlcoBbewcpLSkla1NdACEAlTdmwN1egC8A6wUGlRMpQsqZCwAzaykrM10lTIYVXQA1EI0ZQP8DA5UAIndPbxs-AOCpa-HTe4VoV2bdfyC+iozL8VBMLFIjiFVgAf6w+XRPLRlVweLw+cIIDBINDxPCkEBoYiUcDUAAUW10ZhkLSUCkpIIAogYQtYQQArHIM4KKKROACUuis-iyFU8hQhKhWq2gbCM4CEvFwyQVBIQ8UgsuQeGESq1whQaqgmtI1F1JtV6s1ePiuutFqNbj1IF1rDwisgiqgDpA5pd+B1HudXo1jrtZuIpsD2GDbCqIDtBtx2GoieDlHoSHoWegCDYUnjxHiqfNqfoYDgeZ9Eft5e19voaA1+dr+sNrrEhvoFAr1nlbudgfbzrQMa4eAQEGwCCJKUwzv4xPLIEMLRCch8AC5dAARGSNJQSjTNCUGJSaOlAwF3NGPGQAI1WZzGoOmgKMDkCwQMcxUTnF3-CcdJwwAQUBHbAsUXegmhyYEcgAcX2akFGGe54RUCpdFXPYsl0AAVZ5UJvXpKimKRghmfdFjmMwsiRQCJ2dcd5RwJjhGSaCD10I8QnpHJDg-BRV2FQVzEpalaXEq5PEmaZ-CODopjPJFBRaGUuExeIKCEPg8C7FAkhJEB8hyJoJV6FQMkBU471MOYWmhFRLMqbCslwlRjikO9ZAsTReKBGQuh2FpVwla4PFkT8GECN4VApFRT3PXRrkw6pagYWKLM0M5-AvBYlm+FRtwcTRdBWUrLIqHIal2Ux1FOc50Lke53go0wFECZTdAMaEFAmTqKsqgx1O4Xg4moIDKEIUQ+BAABJAw5AcFoPGUO9gl0AAZBxWTkNwGF6Z9PA8JzTAxSCKH7GJICSPByGSahtxBVdVAuXQ9EWCwKgcJh+gcGRFmkryAjelQaQvQo2hUI8-A6VQ-Mqbbdv2w72kqBBDh-HoDDOVRj0BAJmV0QIdvhrRdAZCoripIKwckob-OvB5bBURxKjUGRCox0TtgZ4nSfqnIADkLE-c74joAQEAIGhIBmlIQHB3QOcKyBDl0Ukzl-XRCf8zy7wqSwbHeEjdFSGRTr5QrBiUSlATVhFDcdiqnxyJ7WQUM47xWJ4qp1ioemtgI7fR9XJSixYKl8brlK+M2HH-HJ+hWf4NslYHaTs1TXAUXkoa2c7eAQEcwGl6hi+jB7lzvIxiikVddDBBEIqzvwAE8RkFqQTFUHIlZUbA6mwMOE-8kxT16CVSRQOoKDD+KwDqPAw4wsTLNsgxH0-K4NGKNYejKgwwVzhhVlWUwrd0XILbKwJtb8Kw5nHypCd0bmVHgiQ5oAeSYPQLBUNYGSdsrgfUsN9LCtJzq0GwNECctBtKLmoLrKGg9h47h6LSM4hMgHGwZtJMoWRKjJwAf8S49gQh3i2G+EISwEQfkCAAfgpn7FQqQABv1gBoaDkCDRodcGD2XphMHuV8ChFAUKUOhDNKhMx8L7F4jcLC6G9hYUwG42CbR9BQXghB8A+gVno4QWYQBb0sjQI0cpiA6JAEYn0GB4h2JQJWMgjj9Hlm7LY-RGY9GVg8fQOxrBAx2LLPANgvYgm6PcR42x4gYzYEINED0AT3HJJABgQcXpKY2BkmwO8Po4A0DwBAYgelYlEg1Pk8skByCJIEDU4QIFLRcB4LUm68YsBeLGsgZcn1vpbhUAALQsFDAAqi0eqOUzotIoEgQgYByB4ggPwLsPTCigIAbg6Oko1hbQAPQAAldByAGrwsIXBazRhIGWIgVziCVx6e7LBwQo7APwboNBhxfo+zISocIrB5leOiONWxrAoIgAORUHuKgBnjLKgAu2UMwFfQMA4GOSVQTKNZqMHOeclGN2aEiOo-yYjLLAuACgGTYny3oAbBgoMMIVXyOKEoyI4pQzgroMAxzv4aBaE-EEPFzIMCUjMOYngRqYl4FgCajEsDy3iHI28D4nwqODgzCUycFDCmaIXdJ1i+BgCJBgMgSCQAuAYYCVy2RdCISkMUeSdMIZFGihvAYMhtUhBBLZXOzQ3XzFoa3Byp1KhmT4pZXQEVXbPkmecVuMEqKtRCAYC8NlTCFUML0daXUnL+A0BDFqKgOSQ0hF5HyfkJRwUsoEWy0D4wK1nEgYp8tqBKpZmCCUnkYRwhsIVBadsJTSBkBwVQFCpDdBsCEC8jKNC6GLSVWdQIQRtsgReYtDAob63LV0Qq19NgtEYWwOw9b4gRmEMU3EsQ0yeIqcGHMVoYjxivW6c9V7nH5hfU+3giQJpXq7A+09KBhA-p9EBo0+SMD9jwMmAx1BiDTiNC04p9i4M8HsTSkADIpCSj6rGhQBtAi811hKYgXz+gkzUHIb2nrugMBcdWPAV7zRnq9AaDUViGNXvLCBL9liqxwbA9xgTxi-E1N-RxHjLGGx0E1CkGDjHkjYAVgpvjcnhPgCU+ppsGnlNcc06B4xqp2M6fExpzjvBjNgH0yxqz1YpNsEdLZ0zTmDNBizH40uznPOuek5ZsTrnWDFx87J-zKnAume02p3jUWpNGdk95mzKAYP2blOF6LSWIt5I03o+MMGwBxFPTljUFypxEjINGUuiDXHgtGeQpyTsVCQDqBgMOdgQgkykKbQBB0ZKmEYQAQmNLp795m+MgZY8xsDxWIjIEgPEVghZZtEirjUTQzJQ1cUvJURCkoWgKCaCyz2a9xS6BhJvUt3lyq0x9nMV6xMAjnn8kUWO3Cn432hseSNFsMJTo0VYhtMRgM2IBSJ-M5pInIB4xDjM03IMQBSA2uA5AEcYawzhiYeGCNEaqhKRwUVKikd+hRqjHqdV0Yg1dfzIGFsVIA-KRJsH6eg-jJdeUgZqcxP-XKC9bPeCfoh8449POQcnt59e+gt7sy5lS-5iHQmmdjYB+z4HnOHPaOVMr5UDPozuasSr9n1Zochah4D9XCvptSuQOS0uVLywGjNU9filDt3+Sx1a+mJaVALXWwdiRYoB3upoyCXWsjUTMwUSEJ+CdwSDRzZy1mUJYTe3ciuyUlRpEAGlgghUBCdlQWqye6CyJYCYx4vh1vLNgGc00KsemoFXQwpxjv7F0N70wvvsNHbMNTfyBevU5ECMUXNztF1XZ1lIE5AjvyNABiM-2RMVDBBtfn0n-fGimB6IzMP6FOqnynYVbcMfF3SJOOw-NgI2-GGaId-3l4JRL6IYHsneryyYj4HEZAOWq7xWkefJ4lRmU-dm8JRet6oSYQ1AQt0rt-JVhihPwLxdZuIz9l9U9bIRQUIdgvATgvYA8V8g8ch7weYEQ81nVKgoDfIuhKhfx+5Ep80lFO1E8e1rAZRUtZl5tTcrNBNTdLNkxogYkrMHExcQwNMuDBxeCFcddVMUBFs5dxCjdWC2x+C2Dzcj0SRCkRcUh1DOcvQb00wYBpc1Cyx+CMsxd30SQ8tjCZDtCZNUtGwFcUgrCGdKl7DZdpD2D8RpsAVIgDIBAq9QJS5wU0cPUMdspzgsd59-IH9ARCdyMSoSd8C-EIJ2DBxlDodZZZM3D7C5DuDzpkcgNq8EBvDqwq5chihZIooBkAARwhC8XYR-PIcRTvW-TwJvXmdZW1BgJoc8FQQqVIemFBRuHuUGQApoteZqLwefFENCR4VOfyMEMZFoIwMUaKSoVKRA1mAGJQe8NOVPKULNFOdfRYdNcWEkDAeHG6UCNDKuCQBwC4ZQZaelfyUkbcOiOQVFNwVYPkAZZOH7KQC8KUCIqGOwTY7Yq8bfGY54EIE4lICgY1E1EkILZIeIXIEGZfQwceI2XwWAqKNgIAA -->
+                <!-- https://www.falstad.com/circuit/circuitjs.html?ctz=CQAgjCAMB0l3BWcMBMcUHYMGZIA4UA2ATmIxABYUQkFIaBTAWjDACgAPGjC8Q6sJAxIwhJLxS8ASgwCWACwYA7JgB0AzgFclAEw0AFAIYAnQwBszDM+oDG88wBdtAcw3PLsuwC85D2c85uETw8cDRCcGIIXjBqAGk5JQ0AB1MAaz9bRXUNACE5dWTZKwAaDXUAe10GYyT1RI0AZSsAI3UHBwZ2ssqWjQB3WWMNHWK3KxqlTrqAMQrjAFsrOuNPeT9XdUMlfuUdZQ00gDelJWVoQIRhEDQRSCib-EowkAB1MfUzQ3V6uvU1kYfRrJbZKFwHLS6JoOYwVBbtAAnxjSENkdQAZhUzM49gwFk07I40sYChoamkzEjlAB+NhSEAYPC8bBoBnYCIs+hcyj0CLcmAINjGEB4FkgTkgYgoUIS+iCSBsfqS6Xi1lS0IoBARdhK9Wq+h69mhdjCvWa7WQSQ3LVQR4K00q7BM5BWp28egUOCKl0SG2CV2snU+-XgQTM1kK5yhyDhuVh8Xs20KpWi6gSxmx8BsZIisUUQi8PX55lJ72pygF3NpiPZ5WhYvBhvYUu6lUNw3O5ONyv+5md7298XOwcS9hcK60IQgQgEGiCZ6iECNGFwxHI5SXHg0IhhbC0FDEBfUACixi2Di8g32Z4c2z06mvGhJdmmGhacn2dXe18R1QAXBoUgAPqnlsxgXhoqgAI4aGAGgAPQaAAFHB6iIeoaCQBoADy8gLAAlJByTIah6Gelh6i4QRGiABJEsHYNgOF4ZuvAIBQzaxHgERsREMTUAAIpoxh2ICDDjFsCydAS9hmE4SibOiZjFAA+7i0KwvCDhIiiAHqAAkpBMHqAAqghgGQTk6iAEmEFkaHpQEAOJdIYkmGRohAAGpmeoKFwEx+I5MR6hgAx-mEeodEYQgJQYBoCwAIJlsQ3FSiKlYIKl7BRoOGUCJavCEE8XJCiKyU0KlyX0LltrynSaWsal5bVdynrTkmUDQIKpqFeVeVWs14AMdADGbhEhA9qIh7jeQfEgPFmjop0siWHUj7qE5EkOO0GlriiZJTF88kjDUb4fhCz7rBC341L++zIXEQx2PIFTouiGgAMJCSSUwaAAMoY-T4X+m5IDOSDEBl04hEeID2dh751NBGiajFCUaAAVMhSGFRRVEaGoGF+ZReHhehONhbRGh4CUhAJSxDKQBEyXUBg9ww-ZxlTBCSNRaj8UY1j5PEwFBPkRTaHuUTVHhZFYAYCUdPjluPAQMlSA8Lws0ALLkgwulC3j-ztKJTSaAsSzHcM6jvrIn5PgwL5XbbN1adUFxK7wwjGigi4YIQ0QvK8JhmwMQz3oY75W2tABWDC7Mt-hieo103neGgAG5VJbGgbS5W1mxbWwtDiXgVDidTY1LeH48jVcBZo6j9NA+G0h7DJ+2EU5YIes2vHIZhkmiGjyEcigklbKftGn6heJog9nFbOKrPJNQQsuO1aeuGjogAP-I31xQ36g9P03zlFUxvqEoawONn6gzOYA+N1SACEIMinL07XAQHp8EuIKnHBEod+TIIAhTwIeJkmsXj8UMCbdQF1XzWzOl+Z2N4ETVBSCYR+VhxKElkgwW+Pw0Q6B6AsI+GhtgaAUGcOosd47WFEvUMw74mgALBEdIu6IcEVwesJeQz1XoaA8liW8OI-oA3wu7IIaU5QsnIFxZss1GgfGOKcCEOhDBjw0LPah+88Q52cpJK8Ltp6ZzqDYQw0B6KMWFjohuLklgr24T8IhuxjCfmseoAAOy0VYmwWgeBaEQho6hgSghcO0fuNRgbdQNLEYMURqByOwMNbAdUuKFgSeWJJ7VWp8iTJ1EqECmYJMqpKBJcovTZXypKHqg4yAFK7CUip1BMmtKgLWFp5Sek9WbMVHMvSqlWnKf0zpKYyrlO6ZU70Qy6nxOSQOWp5SGkzLbv6MBkB5yDlmsZVCPNjKOSMUQzG6gpCkUAkczatlrLuS8uoU5vlcbVwlhhUKwsZbIxKFcDy78wwcRjOQMMvEXjGRQG5EyVy84CzOSBM8hgIKvOArnVylkNA2XUJ5GFKF3mG3QigXFJNKbqGwCUKgvzWwyhnHWIc7o2BAA -->
+                <!-- https://www.falstad.com/circuit/circuitjs.html?ctz=CQAgzCAMB0l3AWAnC1b0DYQIEywKxJgIKQCMOkYAHGBKSPo5IwKYC0ZZAUAB4g4kIdjiwIMQkfQEIQAcQBOAewD7rADoBnADIBDTQBdWAOy2aAxgAtdAGyOnNAWwCWBrQBUFu45ueGlCnzgZCDUIADsVCBc2NE4IO4AngAOflasCgDurH4amgAmAD8KAGYmWgBWeca6VloAss7myuZKxgbKNjYZWsYArgpa5rrQWmSQjgCCWt5aOcasjlpyAAoAkgDy7AAizgDmrra6fZp73nszAEZ7rHsKziVlDtkK+SbQQWAhohGQWIKxCggABaJwAJwYAF42JqWLT5XSleHOPIAZT6jkceVs3UGmhMBmMSkxJnKmlRHQAb1i5s4Fg56rpeM5HLYXm5NAA3NpaS6aZKZUaaUhTXqwjmFS4ZCyWBQ5ewffhfbBMcLjbBhWRAxSUtRyrQANQyly8fXSeIA1pTjPT4bpLD1NMZxci5RaJVK8fkUct1ltJic9mDjDctC4ORTlEsudKAnsOS83sYhRTdAYDG9NPjjJ8Qlwwjg6HEQlqsJ5vL5-Ao7n1jPkZbYDLW9txtOAcGFiLJBFgu1BoiASrZ8YwoNxMu3OyRwPh4n2wNxLgJqCwvnPwr2MGFIEEO6vIJ2kOFgiXoixJq8+nSlFpdgcDEdA+ddyvwEgQmAkIfZFrz30Slo2gAPQABJaBaMLmBaJgADRaBi8ImLu4RCKQsg0PEpDHr+IABqc5xaJCfRmFYjZIUqIQYPEEhMBgTBavEFreA43rYtGd6HDYxz4SGMzGDCtwmG8WioskzHNjMNiaCJRh9NKYk2hJmglMUtK2po5Y+H4BgBFoShvHi8xaAASqwXF+HBBQop8LAodgYAsNQmFxCAmQ+vidJaGUCghqwhisHJChGHiqKkXYjolLW7rOG0KJysYlmchk2R1qwCYZEmHwGMw6HTvgs7gNO8QhJwMAYBgn4YGQW40JE+CyDA4T4AedDUNQ4RNR1faUCwbxDn0dhBM1q4MLOI3SGEABC+h+ENGCrgChBMHQzlhAAwkoXSsOYOmBPw+BVeAdGMEgq5brEYQAKLhsF46MAVYDzfdmHVeA3B7M92CvflmE4A1Y4KOA1C5T+YBztOLA4OMO4TmAD3TjQINjggZBMD9Ah-Z9ODhPELAwEwIQwKjUDQMTMBwLjBBnnjd3o2DYTo9jc7cMZWOY+jZBILj-YMECeMk-g3D5CA5XdjjIsYN2mPxH1xyDROosCOLjPizDEtS7IVEa9Ed0IGDhWyM1SM4J8xU0BE77RCjgLxI06a4nkej+QlyLVC6XKbVJBjBt6Fwe9GkbEhacp+Ih0maI0zRKK07SdLi4dnDYnLeGkcLZgYFpKMkyRmelrxko4hRZrB4HWupkoZLm0T5REr6o5qLnzGSmmVrtWg3A24V55lWgAGKqVZflksC2RQe3ziXByflaJyKLdDP0pWCiSZ5C32kBO8WgAOrOHiDZyQ4tbh5YcVXI6-R7cE0TK4Q1-0Y3dJkvMQ7pA4AByKxv+wa9VnxllJloNyeJhxaAAESGCjB3WSGR7AiTCsFUBC8shCXeKbbAEhQhNWwOLBiIBdh5F7lFAwMUfDZFyFobSgD3IlE2vGAAXIBFE8Y+KITxNNSsWgAAUmglBEU0LoG4LFFgyQChkeYZwQwAEow4eC8FpKs4cm4iQUv0XiHsHAuFSs7cOkAYLhANH-KuCA2qYPoJbXBPDqwcgMjJKMJQbAnHDpwzymhJiOBznKaRBRdAqQUP-fQ4dIRuRlGSDaW0dq6U0LWfIWhrquGCloZIyhkgBGIW0WwdoiJzClMYIcXRFEuMDtGexKI1AOCYjaIU+CRIYixDZZgYR2rHnwDEXBJTWAqA5LoaMcT0yOl0JcIUnDJjGCxAoC0zYGGaBHqnMk7DQ5RLrLEm6EUcRkmGFoXR+jlHiTUQMqpflrA2EuGGRxrstDzKzCopSmihRbIMcXOkioIgOQxhAaGQgcA-FkGEUKlg+hQm9PpVglkEKaArgoGURdfChl8EIkKyQBp5EzA0JQu0E5+RzrCGBrAgg40+cQM8XyBBgGwqEEAl0FjVncgMoilxjgl00ClFi7kilEUirKXkrAUEJl3vkIUGxLALDMO5TIxQ3jcFwBAHGkMiwYA6jIbceKAR-QJnAY8f0G5hBsZoUyhgIHEgoSytE8ClIDPaWU+CSzB74nbnsEoQopQyjBL7VBCtpbswKl8hqVdCAQGoKdE6YgXKgmMGCKwhhTlZj4tYa1KLNCACbgdgvddDugCOHeNP90VcIEioMBk00q6GTam3aoDLIslvGmEwlwuLpj0iUDklhe6XSuDcC0xRIQGC8dE1hhFiJZngSghwRTDBgnGbiiijBIhAxCPgcI0hXoFrlFYVRft405MpMQ+MZIDQBDcgZQw3h6xVyqiEOqIsyA-hcqxWxxJR3jpkeSaBkKOh3q5cuoVaVAEZRMFMtYAB9S5Wh1AAEctAAbCd0CJeIgJaATcB8OWhABJhLElxBgUizLxEmlNaa8SUM0D1Z5+sKosHwLQEWRZcFb09mSIBVC8hKByUMEYWhSCQDDNMAdRz7CWQyAcSeIq6jeNNJoP9gGZqIbA8KOAopNCwYI3AYDUmcBTHqeVY8K5KLTtwXbRC0ZBWOBCQ4OQQ8oTgWYnaG0Maj07MUmontT6oz3ugr2zQO8D0PmtZ6ban7u6-pMkprQABVLQ8m1gIYQ5MT0WhoCxZPdQLATUWBblQi5SYW1Xh0j2OHRwZyCiOlErs7L5qcQzx5Joe5hFgmvwuRJq1MTNC9ISZoT0hQoK+CsFuvzxgpkheklJ-ADz2CbL0Q80DrGYJgANGg89KFVQHhthS-EUkTRteglMregl4WulYO6Hdxo6T5CUlkzQiglAOfwze8k1y1FSgrY1lZeJIAGiFG42RFZ154jyd0BwLIxkje2fwwZM3CwXtst8lyqJiSuF5N0CeZIECTYeb4xCDh3PSk8-kUF0ZjgAUHloQbj6LxHevDsfYnFuISOy328CxIsTJklaD+Vc5ICyDVJ2KIO5+A43+EgLAfONUoAung9ybHZN8dYExrMsItAn36ScPT7c-KDtgZoaaAKcg2GeTz8AC2vxCC+KeMIIEwT-n2FG8Oh70yZmzOcxzd7vYPoKAMITTc0fOA80e5VvZKChH1mDCaIBWC8GSDCSEMPlJ+QMDcbozCmU-oZ9z7GR1fzqkemSsI6WbA3E0Y6ECdIyGidid0d0UY0Ub2eAnmY0Zn61EsM7MMEem6OG9+ALB4xzakq1SAeo5egoh09OwdX-kXGcKxPhkBmgQJD4UGt1gXiKwPjrR5BYNe6QvwdA4LNARW80CwNDVcAbhcdxVwcvEve26D3aLL0+ToBiSXDgWvwqQzJeQHkorMD4ndOwMER2dyfaAIB8BXlcFqlNBINtp0Ubs-Zcto1TgFBdR+kpI7dLl+QiszAjJFkGsdUilzMrMmV3I7s1JHRdhgVeh784ViCTJxQlILUTBJE-8IhrZwhkAmCr0gRdN8s94bxNA5Qjtw8cVh1oC8DttNBd0sgPcMcbN+FAwxEV0v14984esAt+tgtQtwMItNAUNhQkd1CKsYIKZONxsCMYIyBwIDNuAgA -->
+                <!-- https://www.falstad.com/circuit/circuitjs.html?ctz=CQAgjCAMB0l3BWcMBMcUHYMGZIA4UA2ATmIxAUgoqoQFMBaMMAKAA8KMAWcQlZPOTCEkPFDwCydABYAnOvIA6AZwBqCgEayAhgFcAxtIUrtAOxV0AlqePKAygBdZAewC2AR110ANt7rtOJDA8PHAuSGxwYggeMH47Z186c2VXGXklNU0dAyNZFQA3ZxSrG3z7JzdPHz9ChWVnWQBzBxUAdwUAE2SVAAoNK2UAB0sfZQ7LZToVNLkFaeUAcQUAE4cFopTu2SnvAZSAIW0HddlRlWdtmfT5gIRuEDQgrmxyNFDY-gAZAFEAEWUhTcKl2+xUiwACgBJADyDAAgrplE0zE0LNY6IDlBJLPoXPpipUkjsAJQAGhmAB-lFMtqMpioAERDbQ6JLeRkqJqYwzabzrVrjLrJCnKXSuFQAKzoE28WM652URSSKjsLNMpl0pjRygAXroLLJpHz1qZoHcHi9yBg8DwuOEQLFCCAfqYHKY3GkbKrKq5lA4VrIANb+Dj3JAoFCRMDYYiRSPOz4geFylQ-XbKLSU-QhlRBswpVxmEG46QqaxY5adFaGd2TFSyXQAMxFKk62hpbcVaoLWp1llcaXKfKxf0sTZb8lMupUurak0MPT1ExUEK1QdNXLoaRpS-nsk6Ki1nQt8YdcWIoXEkSTfL8KXUsi0ekX5QVmJ8A1V6s12r6x7bbRXEsQV31BBZXQUJpRi9bkpQgvwNxcUwSVnXRykfJtKSaPst39GpBQ6A8lwaXxzVkEA8EIHhcB4KiaNtKBkDgFgKLIZ1aJAdiQGwRiqDQFiKLAfBQk44SQh4vjHXgFg2ko6ieMgHhuM4yBZK4jAOKUgRRO0tS5PoyTlM0oyoHUlTGPE0S+JYAoQE06yeAcxSeCoKgHSQNyoGgBB1OczjDNUvzCEc+SGNcgIMBQYhHgwGKbRilACEdZAQEcFwPC8JIAjwBArzwKhiCSx48BvVLH2fXJbFYDhiBC2KYuE3iSv4WIqAqnJXxUFAAmEjAICSqhmC4AbSpS4SQA6l88hUbAWCGcABJcxa4FMyI3PUqzlriVagrkrbeM+XabI0cBhDEYhPi4chYwijg4kISJcCCV4IFwD5yoULCmg0VkFh7DU+16ognrQcBsBEHio3Gqhekg5pFWlNNEMqFCLVER6wkvR1CETRaQDHBZGQAaUsWRDGkZwJ2URcVGJj1TXkbkOT6ZImm8aAVD8UtTjqHYA1MTpvFLExU2UEmyYpqmmxUABhdCp0FL5tDaTlMzoXUrEMGwHFQ9XlG0FpRXbTtlGsdEbAlZRhZsP6UgAdUsbZ-TMTplB1ucFCDMkLTtPAIDALgEBirhGKTecFn3CwsWkUZygKeZrCbbRF0FlQBicFPpFNY3u3FNI21sUpuSMQWl3SgA3gvkW5wxC-KOx84WK4DaREvkm6FJK+r3ppVlLFzeUeFXCGeY9cmBxzTDB5KCG0OIEoMq4gJ7R2jJkxTGNNOlWKb9ez-MVt8d52HFdwuu99BOn06stlGlbosVKTXvBsB9smm+oTCReRtaXIMK41K2KYCMNCCjNnXZQ7YcjKGNh2LE4Db7vl9hQYIZ0IYUBQDEfG6U3D+kDCGFI2hOjvinEebeDRgKCkofBboVsJinCXFNKq5RZgN19FuXUzhuQpH3J0Kei1Mb3CEK9CgBUYaTS+thX6mQAa-iaCwU6zAMC0FxotBAkQSChH0jpEAIVQg7SoHosy+0RKcGdAYsxZkFoWPuOYpaRj1pmXupAfqFAED8GGgvBAohPrXw-uUOatV6reIDhEUI3i7S+Mql1ZQPUOC5XCe4rixVvE+ImkwmJNV7LRTcRABKbjIkTRwZlGo-g5LOVsWFSxak7LOREM6CpJkvIeSYm5Hy5kTJGK2kY7RhkjHcR6R050lStqVN6QpSp3ExmsR0SM0x9SmLhEEhpYZJkBkIGdPxGSFFDKVL6RspiwkWKvCoPs50fSJIQA2iclZuiDkDMua0lgNzukHO6Y865yiqlGLqR84x9l6o-MBQctSHAbRIH6qEYgkB+BRSwRNZYBtXDrHTnQMwwxGy1lDPZRiOAIBxictgQpVBil4ODAsO8tgMl5GQXFUIVF6WQHhc6A48xta4UgZicEmIgIOHnCfV2yhkEEGjC8elRBxr8HhJvM+nKsQwmkH6VO3KpgOE1lif+gCeHr1bsoH+0hX6wNNgg0WtQsh+OYWhJFXo14LFKCoY+9RT7b2oTTbQnNlD3EgCoBVVsr7Gn5MkAAXMKrg-B-ZIFtGk-gAAlFQih3AqAAKoqAAPQqChPGrEgAkwizSoBAqg00qEgGSOAggEDwhUIACSJ83KJ9YqlgMauKEFOXVLiy88BtuabQVp3lfJsRbZRNtwkHSds2ZwNSLyXHhuHTGc5w6nlNDQfO8xc7klaLMooyABzDLDShfgf5I7W3mOnUOzZFpnR1RinVS9UVJUE3pEue2ChBTSDWJucYOqI4qCbIkFoX8IEKnkBuL+eq6C-xSJq1+Ibp5IFIB4zAhViDRpADGgA+oi3l8bE3KDAEW5QvReh4eUOm5QMawB60UEMPoxHSMxpQJR6jyhoAsco1iFQub2NYlo30Ij+GjneuUL6xjNH8MCUE8J+NTG+MkZUEsiTiqSR6xrZ6utQmG3TycoOztWml5SrFgAMUaGkbwoHuSdFkNmDcQaM0YZ5ci7DGbiNUYzSgKTGbsDueYyxhROKkC4wgLaUIyjz1AA -->
+            </lsx-tab-page>
+        </lsx-tab-pages>
+    </article>
+    <aside>
+        <p>
+            In diesem Kapitel ging es schon mehr ans Eingemachte. Zur Kontrolle gibt es hier
+            deshalb viele Übungsaufgaben und Quizfragen. Sie dienen gleichzeitig auch als
+            Klausurvorbereitung. 😉
+        </p>
+        <img src="shared/quiz.png" class="img-fluid d-block" style="max-width: 20em;"/>
+        <p>
+            <small>
+                Bildnachweis:
+                <a href="https://pixabay.com/illustrations/quiz-tiles-letters-red-game-test-2058883/" target="_blank">Pixabay: 905513</a>
+            </small>
+        </p>
+    </aside>
+</section>
+
+<section data-background-color="rgb(231, 221, 141)">
+    <h1>Aufgabe 3: Frei nach Adam Riese</h1>
+    <article>
+        <script>
+            function validateNumberRange(minValue, maxValue, expectedValue) {
+                return function({answer, evaluation, status} = {}) {
+                    answer = parseFloat(answer.replaceAll(",", "."));
+
+                    if (isNaN(answer) || !(minValue <= answer & answer <= maxValue)) {
+                        evaluation.status = status.wrong;
+                        evaluation.expected = `${expectedValue}`.replaceAll(".", ",");
+                    } else {
+                        evaluation.status = status.correct;
+                    }
+                };
+            }
+
+            window.validate_costs1 = validateNumberRange(5.57, 5.60, 5.59);       // Aufgabe 3.1 c)
+            window.validate_costs2 = validateNumberRange(11.17, 11.20, 11.19);    // Aufgabe 3.1 d)
+
+            window.validate_battery1 = validateNumberRange(6.6, 6.7, 6.67);     // Aufgabe 3.2 c)
+        </script>
+
+        <lsx-tab-pages>
+            <lsx-tab-page title="Aufgabe 3.1">
+                <lsx-quiz>
+                    <lsx-exercise title="Berechnung der Stromkosten">
+                        <lsx-question
+                            type         = "single-choice"
+                            text         = "a) In welcher Einheit wird der Stromverbrauch ermittelt?"
+                            label-length = "4em"
+                        >
+                            <lsx-question-line>
+                                <lsx-answer>Volt</lsx-answer>
+                                <lsx-answer>Ampere</lsx-answer>
+                                <lsx-answer>Ohm</lsx-answer>
+                                <lsx-answer>Watt</lsx-answer>
+                                <lsx-answer>Joule</lsx-answer>
+                            </lsx-question-line>
+                            <lsx-question-line>
+                                <lsx-answer correct>kW/h</lsx-answer>
+                                <lsx-answer>km/h</lsx-answer>
+                                <lsx-answer>Ah</lsx-answer>
+                                <lsx-answer>m/s</lsx-answer>
+                                <lsx-answer>db</lsx-answer>
+                            </lsx-question-line>
+                        </lsx-question>
+
+                        <lsx-question
+                            type = "multiple-choice"
+                            text = "b) Mit welchen Formeln können die anfallenden Stromkosten für ein Gerät berechnet werden?"
+                        >
+                            <lsx-answer correct>
+                                <tt>(Leistung ÷ 1000) × Stunden × Strompreis</tt>
+                            </lsx-answer>
+                            <lsx-answer>
+                                <tt>(Spannung ÷ Widerstand) × 1000 × Stunden × Strompreis</tt>
+                            </lsx-answer>
+                            <lsx-answer>
+                                <tt>((Spannung ÷ Stromstärke) ÷) 1000 × Stunden × Strompreis</tt>
+                            </lsx-answer>
+                            <lsx-answer correct>
+                                <tt>((Spannung × Stromstärke) ÷ 1000) × Stunden × Strompreis</tt>
+                            </lsx-answer>
+                        </lsx-question>
+
+                        <lsx-question
+                            type = "gap-text"
+                            mode = "source-code"
+                        >
+                            <lsx-question-text>
+                                c) Ein USB-Netzteil für den Raspberry Pi kann bis zu 9 Watt Leistung bereitstellen. Welche Stromkosten fallen
+                                bei einem Strompreis 37 Cent je Killowattstunde an, wenn der Raspberry Pi zehn Wochen am Stück unter Vollast läuft?
+                            </lsx-question-text>
+                            <lsx-question-hint>
+                                Geben Sie nur das auf zwei Nachkommastellen gerundete Ergebnis in das Eingabefeld ein.
+                            </lsx-question-hint>
+
+                            Stromkosten ≈ <lsx-gap answer="5,59" ignore-spaces ignore-case validate="validate_costs1"></lsx-gap> €
+                        </lsx-question>
+
+                        <lsx-question
+                            type = "gap-text"
+                            mode = "source-code"
+                        >
+                            <lsx-question-text>
+                                d) Ein auf Basis des Arduino Uno entwickeltes IoT-Device benötigt eine Spannung von 12&nbsp;V und verbraucht
+                                750&nbsp;mA Strom. Welche Stromkosten fallen bei einem Strompreis 37 Cent je Killowattstunde an, wenn das Device
+                                zwanzig Wochen am Stück läuft?
+                            </lsx-question-text>
+                            <lsx-question-hint>
+                                Geben Sie nur das auf zwei Nachkommastellen gerundete Ergebnis in das Eingabefeld ein.
+                            </lsx-question-hint>
+
+                            Stromkosten ≈ <lsx-gap answer="11,18" ignore-spaces ignore-case validate="validate_costs2"></lsx-gap> €
+                        </lsx-question>
+                    </lsx-exercise>
+                </lsx-quiz>
+            </lsx-tab-page>
+
+            <lsx-tab-page title="Aufgabe 3.3">
+                <lsx-quiz>
+                    <lsx-exercise title="Berechnung der Batterielaufzeit">
+                        <lsx-question
+                            type         = "single-choice"
+                            text         = "a) Welche Einheit wird zur Abschätzung der minimalen Batterielaufzeit verwendet?"
+                            label-length = "4em"
+                        >
+                            <lsx-question-line>
+                                <lsx-answer>Volt</lsx-answer>
+                                <lsx-answer>Ampere</lsx-answer>
+                                <lsx-answer>Ohm</lsx-answer>
+                                <lsx-answer>Watt</lsx-answer>
+                                <lsx-answer>Joule</lsx-answer>
+                            </lsx-question-line>
+                            <lsx-question-line>
+                                <lsx-answer>kW/h</lsx-answer>
+                                <lsx-answer>km/h</lsx-answer>
+                                <lsx-answer correct>Ah</lsx-answer>
+                                <lsx-answer>m/s</lsx-answer>
+                                <lsx-answer>db</lsx-answer>
+                            </lsx-question-line>
+                        </lsx-question>
+
+                        <lsx-question
+                            type = "multiple-choice"
+                            text = "b) Mit welchen Formeln kann die minimale Laufzeit eines batteriebetriebenen Geräts abgeschätzt werden?"
+                        >
+                            <lsx-answer>
+                                <tt>Nennladung × Spannung</tt>
+                            </lsx-answer>
+                            <lsx-answer correct>
+                                <tt>Nennladung ÷ Stromstärke</tt>
+                            </lsx-answer>
+                            <lsx-answer correct>
+                                <tt>Nennladung ÷ (Spannung ÷ Widerstand)</tt>
+                            </lsx-answer>
+                            <lsx-answer>
+                                <tt>Nennladung × Spannung × Widerstand</tt>
+                            </lsx-answer>
+                        </lsx-question>
+
+                        <lsx-question
+                            type = "gap-text"
+                            mode = "source-code"
+                        >
+                            <lsx-question-text>
+                                c) Ein Akkupack besitzt eine Spannung von 9 Volt und eine Nennladung von 5 Amperestunden. Wie lange kann
+                                damit ein IoT-Device versorgt werden, das im Schnitt 750 Milliampere Strom verbraucht?
+                            </lsx-question-text>
+                            <lsx-question-hint>
+                                Geben Sie nur das auf zwei Nachkommastellen gerundete Ergebnis in das Eingabefeld ein.
+                            </lsx-question-hint>
+
+                            Batterielaufzeit ≈ <lsx-gap answer="6,67" ignore-spaces ignore-case validate="validate_battery1"></lsx-gap> Stunden
+                        </lsx-question>
+                    </lsx-exercise>
+                </lsx-quiz>
+            </lsx-tab-page>
+
+            <lsx-tab-page title="Aufgabe 3.3">
+                <h2>Das Ohmsche Gesetz</h2>
+                <p>(In Arbeit)</p>
+                <!-- <lsx-quiz>
+                    <lsx-exercise title="Das Ohmsche Gesetz">
+                    </lsx-exercise>
+                </lsx-quiz> -->
+            </lsx-tab-page>
+
+            <lsx-tab-page title="Aufgabe 3.4">
+                <h2>Die Kirchhoff-Regeln</h2>
+                <p>(In Arbeit)</p>
+                <!-- <lsx-quiz>
+                    <lsx-exercise title="Die Kirchhoff-Regeln">
+                    </lsx-exercise>
+                </lsx-quiz> -->
+            </lsx-tab-page>
+
+            <lsx-tab-page title="Aufgabe 3.5">
+                <h2>Einfache nicht-lineare Bauteile</h2>
+                <p>(In Arbeit)</p>
+                <!-- <lsx-quiz>
+                    <lsx-exercise title="Einfache nicht-lineare Bauteile">
+                    </lsx-exercise>
+                </lsx-quiz> -->
+            </lsx-tab-page>
+        </lsx-tab-pages>
+    </article>
+    <aside>
+        <p>
+            Natürlich kann man eine Schaltung ad-hoc am Steckbrett oder im Online-Simulator
+            ausarbeiten. Mit dem richtigen Bauchgefühl findet man für viele Bauteile sicher
+            schnell die richtigen Werte. Einfacher und genauer geht es jedoch, wenn man ein
+            paar Rechenregeln kennt und beherrscht. Diese wollen wir hier deshalb üben.
+            Auch das ist mit Blick auf die Klausur sicher nicht verkehrt.
+        </p>
+        <img src="shared/math.png" class="img-fluid d-block" style="max-width: 13em;"/>
+        <p>
+            <small>
+                Bildnachweis:
+                <a href="https://pixabay.com/vectors/calculator-numbers-math-calculation-4285211/" target="_blank">Pixabay: JCamargo</a>
+            </small>
+        </p>
+    </aside>
+</section>
+
+<section data-background-color="rgb(231, 221, 141)">
+    <h1>(Aufgabe 4: Was bewirkt die Schaltung?)</h1>
+    <article>
+        (In Arbeit)
+    </article>
+    <aside>
+        <p>
+            Mit so einem guten Vorwissen können wir uns langsam an die Ausarbeitung eigener elektronischer Schaltungen wagen.
+            Zum Warmwerden wollen wir die hier gezeigte Schaltung im
+            <a href="https://www.falstad.com/circuit/circuitjs.html" target="_blank">CircuitJS-Onlinesimulator</a>
+            nachbauen und analysieren.
+        </p>
+        <img src="shared/github_atom.png" class="img-fluid d-block"/>
+        <p>
+            <small>
+                Bildnachweis:
+                <a href="https://atom.io/" target="_blank">Atom Webseite</a>
+            </small>
+        </p>
+    </aside>
+</section>
+
+<!--
+    ================================
+    SIGNALE ERZEUGEN UND VERARBEITEN
+    ================================
+-->
+<!--
+<section data-use-template="teilkapitel" data-titel="Signale erzeugen und verarbeiten"></section>
+
+<section data-background-color="rgb(231, 221, 141)">
+    <h1>Aufgabe X: Ein kleines Arduino-Quiz</h1>
+    <article>
+        xxx
+    </article>
+    <aside>
+        <p>
+            xxx
+        </p>
+        <img src="shared/quiz.png" class="img-fluid d-block" style="max-width: 20em;"/>
+        <p>
+            <small>
+                Bildnachweis:
+                <a href="https://pixabay.com/illustrations/quiz-tiles-letters-red-game-test-2058883/" target="_blank">Pixabay: 905513</a>
+            </small>
+        </p>
+    </aside>
+</section>
+-->
