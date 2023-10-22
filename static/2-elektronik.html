@@ -211,6 +211,7 @@
                         <lsx-question
                             type = "multiple-choice"
                             text = "g) Welche Vor- und Nachteile hat die Verwendung eines vorgefertigten Sensor Kits wie in der Vorlesung gezeigt?"
+                            wrong-points = "-0.5"
                         >
                             <lsx-answer correct>Man hat einen soliden Grundstock gängiger Sensoren und Bauteile zur Verfügung.</lsx-answer>
                             <lsx-answer>Die Kosten sind geringer als beim Einzelkauf der für eine Schaltung benötigten Bauteile.</lsx-answer>
@@ -232,6 +233,7 @@
                             type         = "assignment"
                             text         = "a) Welche Signalarten kann der Arduino Uno als Eingangssignal verarbeiten oder als Ausgangssignal erzeugen?"
                             label-length = "17em"
+                            select-style = "background: rgb(228, 229, 230);"
                         >
                             <lsx-assignment answer="Nur empfangen">Analoge Spannungsverläufe</lsx-assignment>
                             <lsx-assignment answer="Erzeugen und empfangen">Binäre Spannungen</lsx-assignment>
@@ -270,6 +272,7 @@
                             type         = "assignment"
                             text         = "d) Welche Pins erfüllen die folgenden Funktionen beim Arduino Uno?"
                             label-length = "25em"
+                            select-style = "background: rgb(228, 229, 230);"
                         >
                             <lsx-assignment answer="NC">Keine Funktion (nicht verbunden)</lsx-assignment>
                             <lsx-assignment answer="VIN, GND">Den Arduino Uno mit Strom versorgen</lsx-assignment>
@@ -297,6 +300,7 @@
                             type         = "assignment"
                             text         = "a) Welche Signalarten kann der Raspberry Pi als Eingangssignal verarbeiten oder als Ausgangssignal erzeugen?"
                             label-length = "17em"
+                            select-style = "background: rgb(228, 229, 230);"
                         >
                             <lsx-assignment answer="Weder erzeugen noch empfangen">Analoge Spannungsverläufe</lsx-assignment>
                             <lsx-assignment answer="Erzeugen und empfangen">Binäre Spannungen</lsx-assignment>
@@ -335,6 +339,7 @@
                             type         = "assignment"
                             text         = "d) Welche Pins erfüllen die folgenden Funktionen beim Raspberry Pi?"
                             label-length = "25em"
+                            select-style = "background: rgb(228, 229, 230);"
                         >
                             <lsx-assignment answer="Nicht vorgesehen">Den Raspberry Pi mit Strom versorgen</lsx-assignment>
                             <lsx-assignment answer="3.3V, 5V, GND">Externe Bauteile mit Strom versorgen</lsx-assignment>
@@ -384,7 +389,7 @@
                             type = "multiple-choice"
                             text = "a) Jedes System strebt einen Zustand maximaler Unordnung an. Welche Konsequenzen ergeben sich daraus?"
                         >
-                            <lsx-question-hint>
+                            <lsx-hint>
                                 <div>
                                     <img src='2-elektronik/schreibtisch.jpg' class='img-thumbnail mw-100' style='height: 15em;'>
                                     <img src='2-elektronik/kinderzimmer.jpg' class='img-thumbnail mw-100' style='height: 15em;'>
@@ -397,7 +402,7 @@
                                         </small>
                                     </small>
                                 </p>
-                            </lsx-question-hint>
+                            </lsx-hint>
 
                             <lsx-answer>Keine, da dieser Satz für elektronische Systeme nicht zutrifft.</lsx-answer>
                             <lsx-answer correct>Unordnung ist sehr viel wahrscheinlicher als Ordnung.</lsx-answer>
@@ -428,32 +433,34 @@
                         </lsx-question>
 
                         <lsx-question
-                            type = "assignment"
-                            text = "d) Welche der folgenden Aussagen trifft auf Leiter, Halbleiter und Isolatoren zu?"
+                            type         = "assignment"
+                            text         = "d) Welche der folgenden Aussagen trifft auf Leiter, Halbleiter und Isolatoren zu?"
                             label-length = "6em"
+                            select-style = "background: rgb(228, 229, 230);"
                         >
                             <lsx-assignment answer="Besitzen tendenziell viele frei bewegliche Elektronen">Leiter</lsx-assignment>
                             <lsx-assignment answer="Die Anzahl frei beweglicher Elektronen kann durch äußere Einflüsse verändert werden">Halbleiter</lsx-assignment>
                             <lsx-assignment answer="Bewegliche Elektronen lassen sich nur sehr schwer herauslösen">Isolatoren</lsx-assignment>
-                            <lsx-assignment answer="Leitet im zeitlichen Mitteln halb so viel Strom wie ein Leiter"></lsx-assignment>
+                            <lsx-assignment answer="Leitet im zeitlichen Mittel halb so viel Strom wie ein Leiter"></lsx-assignment>
                             <lsx-assignment answer="Kann selbst mit sehr hohem Energieaufwand keinen Strom leiten"></lsx-assignment>
                             <lsx-assignment answer="Leitet den Stromfluss in eine von mehreren möglichen Richtungen"></lsx-assignment>
                         </lsx-question>
 
                         <lsx-question
-                            type = "assignment"
-                            text = "e) Welcher Bebgriff verbirgt sich hinter welcher vereinfachten Definition?"
-                            label-length = "100%"
+                            type            = "assignment"
+                            text            = "e) Welcher Bebgriff verbirgt sich hinter welcher vereinfachten Definition?"
+                            label-length    = "100%"
                             select-position = "below"
+                            select-style    = "background: rgb(228, 229, 230);"
                         >
                             <lsx-assignment answer="Spannung">
                                 Durch äußere Einwirkung wird Energie auf die Elektronen eines Leiters übertragen, wodurch die
                                 Elektronen zusätzlich angeregt werden, sich in einen geordneteren Zustand zu begeben, wodurch
-                                wiederum der Strom fließen und die somit die Energie übertragen werden kann.
+                                wiederum der Strom fließen und somit die Energie übertragen werden kann.
                             </lsx-assignment>
 
                             <lsx-assignment answer="Widerstand">
-                                Die durch die Elektronen transportierte Energie „verrichtet Arbeit“, in dem die Energie innerhalb
+                                Die durch die Elektronen transportierte Energie „verrichtet Arbeit“, indem die Energie innerhalb
                                 der Bauteile einer Schaltung beispielsweise in Abwärme umgewandelt wird. Da die aufgeladene Energie
                                 die Ursache für den Stromfluss ist, nimmt der Stromfluss hierdurch ab. Man kann sagen, die Schaltung
                                 widersetzt sich dem Stromfluss und wirkt ihm entgegen.
@@ -494,6 +501,7 @@
                             type         = "assignment"
                             text         = "h) Welche Einheit beschreibt welche Kenngröße?"
                             label-length = "8em"
+                            select-style = "background: rgb(228, 229, 230);"
                         >
                             <lsx-assignment answer="Ohm">Widerstand</lsx-assignment>
                             <lsx-assignment answer="Ampere">Stromstärke</lsx-assignment>
@@ -562,13 +570,13 @@
 
                         <lsx-question
                             type = "multiple-choice"
-                            text = "d) Wie welchem Zusammenhang stehen Stromstärke und Leistung?"
+                            text = "d) In welchem Zusammenhang stehen Stromstärke und Leistung?"
                         >
                             <lsx-answer correct>Beide drücken im Grunde genommen aus, wie viel Energie je Zeit übertragen wird.</lsx-answer>
                             <lsx-answer>Die beiden Begriffe sind daher synonym und beschrieben dasselbe physikalische Phänomen.</lsx-answer>
                             <lsx-answer correct>Leistung ist der allgemeinere Begriff, Stromstärke seine Anwendung in der Elektrodynamik.</lsx-answer>
-                            <lsx-answer correct>Die Leistung drückt daher ganz allgemein „Energie je Zeit“ aus.</lsx-answer>
-                            <lsx-answer correct>Die Stromstärke ersetzt hier „Energie“ durch „Elektronenladungenn“, weil diese die Energie übertragen.</lsx-answer>
+                            <lsx-answer correct>Leistung drückt ganz allgemein „Energie je Zeit“ aus, unabhängig von der Art des Energieübertrags.</lsx-answer>
+                            <lsx-answer correct>Stromstärke ist stattdessen „Elektronenladungen je Zeit“, weil diese die Energie übertragen.</lsx-answer>
                             <lsx-answer>Da es sich um unterschiedliche Konzepte handelt, kann nicht vom einen zum anderen umgerechnet werden.</lsx-answer>
                         </lsx-question>
 
@@ -577,7 +585,7 @@
                             text = "e) Anhand welcher allgemeineren Formel leitet sich die spezielle Formel <tt>Leistung = Spannung · Stromstärke</tt> ab?"
                         >
                             <lsx-answer>
-                                <tt>Stromstärke = Elektronenladungen ÷ Zeit</tt>
+                                <tt>Energie = Masse · Lichtgeschwindigkeit²</tt>
                             </lsx-answer>
                             <lsx-answer>
                                 <tt>Weg = Geschwindigkeit ÷ Zeit</tt>
@@ -606,6 +614,7 @@
                             type         = "assignment"
                             text         = "a) Welche Art von Strom liefern die folgenden Quellen?"
                             label-length = "8em"
+                            select-style = "background: rgb(228, 229, 230);"
                         >
                             <lsx-assignment answer="Wechselstrom">Stromnetz</lsx-assignment>
                             <lsx-assignment answer="Gleichstrom">Batterie</lsx-assignment>
@@ -628,8 +637,8 @@
                             text = "c) Die Stromstärke ist immer ≥ 0&nbsp;Ampere."
                         >
                             <lsx-question-line>
-                                <lsx-answer correct>Wahr</lsx-answer>
-                                <lsx-answer>Falsch</lsx-answer>
+                                <lsx-answer>Wahr</lsx-answer>
+                                <lsx-answer correct>Falsch</lsx-answer>
                             </lsx-question-line>
                         </lsx-question>
 
@@ -669,7 +678,7 @@
                             <lsx-answer>Bei nicht-linearen Bauteilen zeigt die Spannung ein exponentielles Wachstum im zeitlichen Verlauf.</lsx-answer>
                             <lsx-answer>Lineare Bauteile werden zur Senkung des Stromverbrauchs genutzt, da sie effektiver arbeiten.</lsx-answer>
                             <lsx-answer correct>Bei linearen Bauteilen steht ihr Widerstand in linearem Zusammenhang zur angelegten Spannung.</lsx-answer>
-                            <lsx-answer correct>Bei nicht-linearen Bauteilen existiert ein komplexerer Zusammenhang zwischen Widerstand und Spannung.</lsx-answer>
+                            <lsx-answer correct>Bei nicht-linearen Bauteilen existiert ein nicht-linearer Zusammenhang zwischen Widerstand und Spannung.</lsx-answer>
                         </lsx-question>
                     </lsx-exercise>
                 </lsx-quiz>
@@ -709,9 +718,9 @@
                             type = "multiple-choice"
                             text = "d) Welche praktischen Konsequenzen ergeben sich aus der Knotenregel bei der Betrachtung einer Schaltung?"
                         >
-                            <lsx-question-hint>
+                            <lsx-hint>
                                 <img src="2-elektronik/verbraucher-parallel.png" class="img-thumbnail w-100">
-                            </lsx-question-hint>
+                            </lsx-hint>
 
                             <lsx-answer>Mehrere in Reihe geschaltete Verbraucher erhöhen den Stromverbrauch einer Schaltung.</lsx-answer>
                             <lsx-answer correct>Mehrere parallel geschaltete Verbraucher erhöhen den Stromverbrauch einer Schaltung.</lsx-answer>
@@ -723,7 +732,7 @@
                             text = "e) Warum reduziert sich die Spannung in der Regel mit jedem weiteren Verbraucher?"
                         >
                             <lsx-answer correct>Da die Verbraucher zusammen mit dem Innenwiderstand der Stromquelle einen Spannungsteiler bilden.</lsx-answer>
-                            <lsx-answer>Weil mehr Verbraucher mehr Strom ziehen, dessen Spannung am kombinierten Gesamtwiderstand abfallen muss.</lsx-answer>
+                            <lsx-answer>Weil die Spannung am kombinierten Gesamtwiderstand aller Verbraucher abfallen muss.</lsx-answer>
                             <lsx-answer>Weil die Stromquelle nur eine begrenzte Höchstspannung zur Verfügung stellen kann.</lsx-answer>
                         </lsx-question>
 
@@ -731,13 +740,13 @@
                             type = "single-choice"
                             text = "f) Mehrere in Reihe geschaltete Widerstände/Verbraucher nennt man einen …"
                         >
-                            <lsx-question-hint>
-                                <img src="2-elektronik/spannungsteiler.png" class="img-thumbnail mw-100" style="width: 30em;">
-                            </lsx-question-hint>
+                            <lsx-hint>
+                                <img src="2-elektronik/spannungsteiler.png" class="img-thumbnail mw-100" style="width: 38em;">
+                            </lsx-hint>
 
                             <lsx-answer>Stromteiler</lsx-answer>
                             <lsx-answer>Stromverteiler</lsx-answer>
-                            <lsx-answer collect>Spannungsteiler</lsx-answer>
+                            <lsx-answer correct>Spannungsteiler</lsx-answer>
                             <lsx-answer>Langeweiler</lsx-answer>
                         </lsx-question>
 
@@ -745,11 +754,11 @@
                             type = "single-choice"
                             text = "g) Mehrere parallel geschaltete Widerstände/Verbraucher nennt man einen …"
                         >
-                            <lsx-question-hint>
+                            <lsx-hint>
                                 <img src="2-elektronik/stromteiler.png" class="img-thumbnail mw-100" style="width: 55em;">
-                            </lsx-question-hint>
+                            </lsx-hint>
 
-                            <lsx-answer collect>Stromteiler</lsx-answer>
+                            <lsx-answer correct>Stromteiler</lsx-answer>
                             <lsx-answer>Spannungsteiler</lsx-answer>
                         </lsx-question>
 
@@ -757,6 +766,7 @@
                             type         = "assignment"
                             text         = "h) Wie verhalten sich Widerstand, Spannung und Stromstärke in einem Spannungsteiler?"
                             label-length = "10em"
+                            select-style = "background: rgb(228, 229, 230);"
                         >
                             <lsx-assignment answer="Nimmt mit jedem weiteren Verbraucher zu">Widerstand</lsx-assignment>
                             <lsx-assignment answer="Ist für alle Verbraucher identisch">Stromstärke</lsx-assignment>
@@ -767,6 +777,7 @@
                             type         = "assignment"
                             text         = "i) Wie verhalten sich Widerstand, Spannung und Stromstärke in einem Stromteiler?"
                             label-length = "10em"
+                            select-style = "background: rgb(228, 229, 230);"
                         >
                             <lsx-assignment answer="Nimmt mit jedem weiteren Verbraucher ab">Widerstand</lsx-assignment>
                             <lsx-assignment answer="Teilt sich entlang der Verbraucher auf">Stromstärke</lsx-assignment>
@@ -777,9 +788,9 @@
                             type = "single-choice"
                             text = "j) Was versteht man unter dem Begriff „Spannungsabfall“?"
                         >
-                            <lsx-question-hint>
-                                <img src="2-elektronik/spannungsabfall.png" class="img-thumbnail mw-100" style="width: 55em;">
-                            </lsx-question-hint>
+                            <lsx-hint>
+                                <img src="2-elektronik/spannungsabfall.png" class="img-thumbnail mw-100" style="width: 35em;">
+                            </lsx-hint>
 
                             <lsx-answer>Ungenutzten Strom in einer Schaltung</lsx-answer>
                             <lsx-answer>Überschüssige Spannung, die bei Masse/Ground verworfen wird</lsx-answer>
@@ -791,16 +802,10 @@
                             mode = "source-code"
                             text = "k) Die Summe aller Spannungsabfälle ergibt immer …"
                         >
-                            ∑ Spannungsabfall = <lsx-gap answer="0" length="2em"></lsx-gap> V
+                            ∑ Spannungsabfall = <lsx-gap answer="0" length="2em"></lsx-gap>&nbsp;V
                         </lsx-question>
                     </lsx-exercise>
                 </lsx-quiz>
-
-                <!-- https://www.falstad.com/circuit/circuitjs.html?ctz=CQAgjCAMB0l3BWcMBMcUHYMGZIA4UA2ATmIxAUgoqoQFMBaMMAKAA8KMAWcQlZLuTCEkPFDwBKdAJYALOgDsAzgGNZAQwA2AFwCuCgOYAdJQFs6sgE51rlkwDUbAI0vrdam+05IwePOC5ICDBiCB4wfgBlNS1tRRMAd2k7JQATaToHZ1d3eRS3JRNUulMTADcAe0s86QN4pQAhGSUABwzNEwVpNW0TFvVXTU06TQAaEyUKhWLLBRMAImk5pSk5OnnxpSc6Cqd1HvqklJll80sAawSAH8t0usKlR2rYxQAuLwQMJDRCcGxBEBoYggcL8AAi9ROAC8Rgp6g03HFpMNlko4rJekoFLoUgoKmoTCcTA1LLkkR00jYTJF+gpsYYTPpUhMKqZpJi3ASsTjCUtiaSDsiilSlABROGWAwZExQnmPGwAMyuBn0BgAhCwJCA8MRfigEL88Nh+PrflQqIFqOaoNAECxLNrdYCDSBSCaXVQwHB7a7iO7fl6-M6zYDvQ7A-5TeBfGIPSDvQZo3hYwGYyBjdbICxsIR-Dq9S78+m0FAoNnc77-ZXi5ny-4I8HkEGM6Wsxw-BAc8CIthsOmMPxwlQAIIKM7nVWvExg6VKGnqOmq+rbKEZeSo7qyEwAKzoCRkmgebgVJgA4pYKkyAPQAWXUSiUdGgHy+8eBA+BXAiIN4IAAkgoejstIZSZEoAASNjDOyqovqI-wBIQfZcNg5CgiAw6lI+8hovU5wLqcC5FBkj4PE8Gg6PUoGWLh66bPudImKYREPpuxFgU0xS6HoDJKJUyzzJE2gXlhNgwrodQKPMjLTAsQkieU2Scuu0l8VUJjDhJ9RKlY2jPhwnw8FwCD8GAXAoIOCCiOAUTCayJgABTSFhkRLHC5RTEUOJcic9QADIyHEKQKpoGQAPuKMUJiisM5x2XCCgAJSEoBtGYl0PQecsWjQXCmyTNMNjLM5Z6koVJjOWcXmWFyAAnugRdY0VLEcE6GPp3gghgnpcMQyE4D+36ig8GiFToExsUouiiUs9TijYUp0MJC5KAqNibNs0jClh5gxF0qjyJsHhsgdYEVDMTHqAYcLaNIp3RRKi0mMe7HRbF8WQrNDwBeyNgPFc2yWMtkmJMkqQdZ8ohBmA2DEKIoSDeCs4xXQcUXgliQ2MUqIVLKShXfUbKYvNkqzsedSaOo2P0ed3lbqxYEGNBagwsBxj44YNh0AYmL7rcij5ZNqR08Kyw-UFMq6CY2z7pJEOviZpkoeQJnWd+mknkocjWFhADq3PVVy2PUnZpjnNYd0LNRlibnEyzpGBKNo1M9TDpYm3aKpTKKZYoVc-bVMi1rVhgeTIxU4ojuPbOSR0Bdc7aFcKjnCYSopEJSfnPLSAIJaZklrnyE2SAop8miACebSnSkADSFSyMMCr3jYSQzGiC6pPRs4ithKSyPVCq1D7ezcaDtz0R3IyYg7hLvTb91itHYGba07RKPud1gQdoWZVryzDk4CS1ZY5iMqY8s8HwPgINgSB8P46EznQj6dNz6i3aBZ7c4orQEaqmzTVeqxI2s4ACKugRiHlpPSdmu4N6Hh9myQqQMu63DktA1U+MnBNyGKpSSBE9LTjARAoYv9Fy8QVLVIYmIiQJ0zh4bKThs4UE+OARWFBCAWmLgAKTjiKXW0g27aA7j7G2nMgZAPnOQ9mtCGK1A2pbdeyRnpYXFFFLWpgqpbBkCYSA9hnqc3OKycwG5phqiIc-QkpMnCYi1lyAowpa7JDULICoCoFSnWWHeTx1gKYvj7J8AMOYVYYE-MXByL1HyGE0NAEwzMMQinmDXZxshXHuIcBUHQBMTB+XUAkPBigCGJSnEoJ+1Jpqn3xkMEUAAVA8ZCYH1DLr5FyptzbNCYroB8FVNEij0VYuo2wFDMM4UIf4vxCBekRiAcCGRLBpwmHEahl0NxckqJYTYqR7wPF3MUB4CJuIHl5O5LEb8P5gVPN-ZQGDeLURxPjHomzZzx3AZAhpqoUraDqCDJRFw9JwRAIQYybCvyAq4A-YusyRR7Iok4Rxj5NDbBNiJdpiiiZZH5txHesgPmUh2XuA8tR6hSJgVgnBh5YmlNnGVY2jxMnaHMBLJQrNJIAKwrHco7RJE3NgQS5ER4nBdE0f8xMzBkwgAwOKsVPA8BwFbD6BsuZ6xpiVaWQIWYHRukBdDfA-hVVUDQBqx0Eygxav1cgLMWoiyqqNPwc1FpaCthtHaFo1YcCGidO69M8rXUNi9Vqr1fZzQsF9WmL1fqczeuDQkY1ErI3WqDFmGNAbI1msTSwGNEaAy6u1f4JNSYeDhpVem0N4rJUys9eKoNZYY1FnLbGr1+bpUSqlWGyNbZOCGmBWAG+SBkwQu-AIsCzENwWG0Jsai-dxrAPpvHElmD1DYJyn0C8LQqi3SmFoSWosTACKER3deNg7YlKaFtJQhqTAAHlZBYUocstIFQWgtCniyTlIxqQ8uek4Luy8dFKC9JAK9N7GTrwvtqEQbC8B9orI-MmThJiaEOcsPdf1hHTEPUDLeSxmRpEXX+5I1hhhlAXJiByWyx4mFkHMyRps0TH3OGBDKGJpZLVcAcJKlKABiNwd1zh5WS5dzLaoN3SnKLZZEbBTu0PtRxu7BGodqoVZ8mbzKFsjfnS+6bM3Gn8OGnTuayy+tU3GoJKBdORurZav4ZmDMRCBQZ60lokCZltAq-TqqNMOYtSwUVxnw1+ZMvKjgZlUKAr9LwLAYW1ZUAAFqAPlJKeJJSoXBSodOmeSh7jqFMHED9f9DBeBC+QbqAYSD8G6mEqZLFsTHFmnreTNE0M4cXZSspSgUONZEWYLpShCsoV+AOYI3VyviEGlQLZeQ30UnMFYBYJMnp8SUnbeYlLRQpCODhri2hsV9cjTgcIQKqA4DQsgEAR8T4ii0A8EqCcUUWweKFBQ5wHhbLhEMsDxBIADag66SAlXfh3m0PIZit0F6QV9oFWCBlXx+mVRBvqYRi4ARMKseQJh7gxEorl9rDW6PlXxqkB21hVn02PKth4Up0vqDyCUiQAB9S5+McsmCMAARxR2AFnLQUcoC5yj7AfOlCADICAFxAuABn1BAMXlXwTZfZCYc4AA3ukhxlFpFnPJVkdGLi-usGoBKTywIOxfnOTHPF2bzFXGO+YJS-ws-Z0oAAqiYK8KOWcPEAEmE7uTAIH0UoV3ShuqAaUNerCgAJIhMBgUYnOzDDhfDwXUPgUL8F1AO-go5Ro4f4sirX2h6NgW9jj-dsklBK5V8sI4oM+Gkiwhlup-KeXLi5vrt4JhneFAdxIEwAAqEwduHgmC9wP-9cAgNYV70oSAow4AYBj8OEwEfJ+jAwH7rpCRmEAeCJgescAjLF2HJRWY78QKUdqtoO2FH1dgXr1A-LPzlLEWsHFZ6XS9eyAxqX5XCUSmO5j2ztvDOz82WmIE+EgMeAeDkYBguEgvOhQ3OKw2AyUU0oGAKXoJYn2wQkAKARc34cWWEp6q8IwP+f+DuvuPejkAGY+Lukeo+IeN6SBi+U+K+LAQAA -->
-                <!-- https://www.falstad.com/circuit/circuitjs.html?ctz=CQAgjCAMB0l3BWcMBMcUHYMGZIA4UA2ATmIxABYUQkFIaBTAWjDACgAPGjC8Q61mDx8kvFLwAKAJwCGAawAuASwDOAYwAWDADoqAggDsA7gwMATAK4GA5roBuAewO6AygAcZBg1esqFDJQAbBikDTm4kIWEwQgpCcGIIXjBqAFkGDSkQnRUAdSUzEL8AE-McpWcVACUArQAaXSMlcoBbewcpLSkla1NdACEAlTdmwN1egC8A6wUGlRMpQsqZCwAzaykrM10lTIYVXQA1EI0ZQP8DA5UAIndPbxs-AOCpa-HTe4VoV2bdfyC+iozL8VBMLFIjiFVgAf6w+XRPLRlVweLw+cIIDBINDxPCkEBoYiUcDUAAUW10ZhkLSUCkpIIAogYQtYQQArHIM4KKKROACUuis-iyFU8hQhKhWq2gbCM4CEvFwyQVBIQ8UgsuQeGESq1whQaqgmtI1F1JtV6s1ePiuutFqNbj1IF1rDwisgiqgDpA5pd+B1HudXo1jrtZuIpsD2GDbCqIDtBtx2GoieDlHoSHoWegCDYUnjxHiqfNqfoYDgeZ9Eft5e19voaA1+dr+sNrrEhvoFAr1nlbudgfbzrQMa4eAQEGwCCJKUwzv4xPLIEMLRCch8AC5dAARGSNJQSjTNCUGJSaOlAwF3NGPGQAI1WZzGoOmgKMDkCwQMcxUTnF3-CcdJwwAQUBHbAsUXegmhyYEcgAcX2akFGGe54RUCpdFXPYsl0AAVZ5UJvXpKimKRghmfdFjmMwsiRQCJ2dcd5RwJjhGSaCD10I8QnpHJDg-BRV2FQVzEpalaXEq5PEmaZ-CODopjPJFBRaGUuExeIKCEPg8C7FAkhJEB8hyJoJV6FQMkBU471MOYWmhFRLMqbCslwlRjikO9ZAsTReKBGQuh2FpVwla4PFkT8GECN4VApFRT3PXRrkw6pagYWKLM0M5-AvBYlm+FRtwcTRdBWUrLIqHIal2Ux1FOc50Lke53go0wFECZTdAMaEFAmTqKsqgx1O4Xg4moIDKEIUQ+BAABJAw5AcFoPGUO9gl0AAZBxWTkNwGF6Z9PA8JzTAxSCKH7GJICSPByGSahtxBVdVAuXQ9EWCwKgcJh+gcGRFmkryAjelQaQvQo2hUI8-A6VQ-Mqbbdv2w72kqBBDh-HoDDOVRj0BAJmV0QIdvhrRdAZCoripIKwckob-OvB5bBURxKjUGRCox0TtgZ4nSfqnIADkLE-c74joAQEAIGhIBmlIQHB3QOcKyBDl0Ukzl-XRCf8zy7wqSwbHeEjdFSGRTr5QrBiUSlATVhFDcdiqnxyJ7WQUM47xWJ4qp1ioemtgI7fR9XJSixYKl8brlK+M2HH-HJ+hWf4NslYHaTs1TXAUXkoa2c7eAQEcwGl6hi+jB7lzvIxiikVddDBBEIqzvwAE8RkFqQTFUHIlZUbA6mwMOE-8kxT16CVSRQOoKDD+KwDqPAw4wsTLNsgxH0-K4NGKNYejKgwwVzhhVlWUwrd0XILbKwJtb8Kw5nHypCd0bmVHgiQ5oAeSYPQLBUNYGSdsrgfUsN9LCtJzq0GwNECctBtKLmoLrKGg9h47h6LSM4hMgHGwZtJMoWRKjJwAf8S49gQh3i2G+EISwEQfkCAAfgpn7FQqQABv1gBoaDkCDRodcGD2XphMHuV8ChFAUKUOhDNKhMx8L7F4jcLC6G9hYUwG42CbR9BQXghB8A+gVno4QWYQBb0sjQI0cpiA6JAEYn0GB4h2JQJWMgjj9Hlm7LY-RGY9GVg8fQOxrBAx2LLPANgvYgm6PcR42x4gYzYEINED0AT3HJJABgQcXpKY2BkmwO8Po4A0DwBAYgelYlEg1Pk8skByCJIEDU4QIFLRcB4LUm68YsBeLGsgZcn1vpbhUAALQsFDAAqi0eqOUzotIoEgQgYByB4ggPwLsPTCigIAbg6Oko1hbQAPQAAldByAGrwsIXBazRhIGWIgVziCVx6e7LBwQo7APwboNBhxfo+zISocIrB5leOiONWxrAoIgAORUHuKgBnjLKgAu2UMwFfQMA4GOSVQTKNZqMHOeclGN2aEiOo-yYjLLAuACgGTYny3oAbBgoMMIVXyOKEoyI4pQzgroMAxzv4aBaE-EEPFzIMCUjMOYngRqYl4FgCajEsDy3iHI28D4nwqODgzCUycFDCmaIXdJ1i+BgCJBgMgSCQAuAYYCVy2RdCISkMUeSdMIZFGihvAYMhtUhBBLZXOzQ3XzFoa3Byp1KhmT4pZXQEVXbPkmecVuMEqKtRCAYC8NlTCFUML0daXUnL+A0BDFqKgOSQ0hF5HyfkJRwUsoEWy0D4wK1nEgYp8tqBKpZmCCUnkYRwhsIVBadsJTSBkBwVQFCpDdBsCEC8jKNC6GLSVWdQIQRtsgReYtDAob63LV0Qq19NgtEYWwOw9b4gRmEMU3EsQ0yeIqcGHMVoYjxivW6c9V7nH5hfU+3giQJpXq7A+09KBhA-p9EBo0+SMD9jwMmAx1BiDTiNC04p9i4M8HsTSkADIpCSj6rGhQBtAi811hKYgXz+gkzUHIb2nrugMBcdWPAV7zRnq9AaDUViGNXvLCBL9liqxwbA9xgTxi-E1N-RxHjLGGx0E1CkGDjHkjYAVgpvjcnhPgCU+ppsGnlNcc06B4xqp2M6fExpzjvBjNgH0yxqz1YpNsEdLZ0zTmDNBizH40uznPOuek5ZsTrnWDFx87J-zKnAume02p3jUWpNGdk95mzKAYP2blOF6LSWIt5I03o+MMGwBxFPTljUFypxEjINGUuiDXHgtGeQpyTsVCQDqBgMOdgQgkykKbQBB0ZKmEYQAQmNLp795m+MgZY8xsDxWIjIEgPEVghZZtEirjUTQzJQ1cUvJURCkoWgKCaCyz2a9xS6BhJvUt3lyq0x9nMV6xMAjnn8kUWO3Cn432hseSNFsMJTo0VYhtMRgM2IBSJ-M5pInIB4xDjM03IMQBSA2uA5AEcYawzhiYeGCNEaqhKRwUVKikd+hRqjHqdV0Yg1dfzIGFsVIA-KRJsH6eg-jJdeUgZqcxP-XKC9bPeCfoh8449POQcnt59e+gt7sy5lS-5iHQmmdjYB+z4HnOHPaOVMr5UDPozuasSr9n1Zochah4D9XCvptSuQOS0uVLywGjNU9filDt3+Sx1a+mJaVALXWwdiRYoB3upoyCXWsjUTMwUSEJ+CdwSDRzZy1mUJYTe3ciuyUlRpEAGlgghUBCdlQWqye6CyJYCYx4vh1vLNgGc00KsemoFXQwpxjv7F0N70wvvsNHbMNTfyBevU5ECMUXNztF1XZ1lIE5AjvyNABiM-2RMVDBBtfn0n-fGimB6IzMP6FOqnynYVbcMfF3SJOOw-NgI2-GGaId-3l4JRL6IYHsneryyYj4HEZAOWq7xWkefJ4lRmU-dm8JRet6oSYQ1AQt0rt-JVhihPwLxdZuIz9l9U9bIRQUIdgvATgvYA8V8g8ch7weYEQ81nVKgoDfIuhKhfx+5Ep80lFO1E8e1rAZRUtZl5tTcrNBNTdLNkxogYkrMHExcQwNMuDBxeCFcddVMUBFs5dxCjdWC2x+C2Dzcj0SRCkRcUh1DOcvQb00wYBpc1Cyx+CMsxd30SQ8tjCZDtCZNUtGwFcUgrCGdKl7DZdpD2D8RpsAVIgDIBAq9QJS5wU0cPUMdspzgsd59-IH9ARCdyMSoSd8C-EIJ2DBxlDodZZZM3D7C5DuDzpkcgNq8EBvDqwq5chihZIooBkAARwhC8XYR-PIcRTvW-TwJvXmdZW1BgJoc8FQQqVIemFBRuHuUGQApoteZqLwefFENCR4VOfyMEMZFoIwMUaKSoVKRA1mAGJQe8NOVPKULNFOdfRYdNcWEkDAeHG6UCNDKuCQBwC4ZQZaelfyUkbcOiOQVFNwVYPkAZZOH7KQC8KUCIqGOwTY7Yq8bfGY54EIE4lICgY1E1EkILZIeIXIEGZfQwceI2XwWAqKNgIAA -->
-                <!-- https://www.falstad.com/circuit/circuitjs.html?ctz=CQAgjCAMB0l3BWcMBMcUHYMGZIA4UA2ATmIxABYUQkFIaBTAWjDACgAPGjC8Q6sJAxIwhJLxS8ASgwCWACwYA7JgB0AzgFclAEw0AFAIYAnQwBszDM+oDG88wBdtAcw3PLsuwC85D2c85uETw8cDRCcGIIXjBqAGk5JQ0AB1MAaz9bRXUNACE5dWTZKwAaDXUAe10GYyT1RI0AZSsAI3UHBwZ2ssqWjQB3WWMNHWK3KxqlTrqAMQrjAFsrOuNPeT9XdUMlfuUdZQ00gDelJWVoQIRhEDQRSCib-EowkAB1MfUzQ3V6uvU1kYfRrJbZKFwHLS6JoOYwVBbtAAnxjSENkdQAZhUzM49gwFk07I40sYChoamkzEjlAB+NhSEAYPC8bBoBnYCIs+hcyj0CLcmAINjGEB4FkgTkgYgoUIS+iCSBsfqS6Xi1lS0IoBARdhK9Wq+h69mhdjCvWa7WQSQ3LVQR4K00q7BM5BWp28egUOCKl0SG2CV2snU+-XgQTM1kK5yhyDhuVh8Xs20KpWi6gSxmx8BsZIisUUQi8PX55lJ72pygF3NpiPZ5WhYvBhvYUu6lUNw3O5ONyv+5md7298XOwcS9hcK60IQgQgEGiCZ6iECNGFwxHI5SXHg0IhhbC0FDEBfUACixi2Di8g32Z4c2z06mvGhJdmmGhacn2dXe18R1QAXBoUgAPqnlsxgXhoqgAI4aGAGgAPQaAAFHB6iIeoaCQBoADy8gLAAlJByTIah6Gelh6i4QRGiABJEsHYNgOF4ZuvAIBQzaxHgERsREMTUAAIpoxh2ICDDjFsCydAS9hmE4SibOiZjFAA+7i0KwvCDhIiiAHqAAkpBMHqAAqghgGQTk6iAEmEFkaHpQEAOJdIYkmGRohAAGpmeoKFwEx+I5MR6hgAx-mEeodEYQgJQYBoCwAIJlsQ3FSiKlYIKl7BRoOGUCJavCEE8XJCiKyU0KlyX0LltrynSaWsal5bVdynrTkmUDQIKpqFeVeVWs14AMdADGbhEhA9qIh7jeQfEgPFmjop0siWHUj7qE5EkOO0GlriiZJTF88kjDUb4fhCz7rBC341L++zIXEQx2PIFTouiGgAMJCSSUwaAAMoY-T4X+m5IDOSDEBl04hEeID2dh751NBGiajFCUaAAVMhSGFRRVEaGoGF+ZReHhehONhbRGh4CUhAJSxDKQBEyXUBg9ww-ZxlTBCSNRaj8UY1j5PEwFBPkRTaHuUTVHhZFYAYCUdPjluPAQMlSA8Lws0ALLkgwulC3j-ztKJTSaAsSzHcM6jvrIn5PgwL5XbbN1adUFxK7wwjGigi4YIQ0QvK8JhmwMQz3oY75W2tABWDC7Mt-hieo103neGgAG5VJbGgbS5W1mxbWwtDiXgVDidTY1LeH48jVcBZo6j9NA+G0h7DJ+2EU5YIes2vHIZhkmiGjyEcigklbKftGn6heJog9nFbOKrPJNQQsuO1aeuGjogAP-I31xQ36g9P03zlFUxvqEoawONn6gzOYA+N1SACEIMinL07XAQHp8EuIKnHBEod+TIIAhTwIeJkmsXj8UMCbdQF1XzWzOl+Z2N4ETVBSCYR+VhxKElkgwW+Pw0Q6B6AsI+GhtgaAUGcOosd47WFEvUMw74mgALBEdIu6IcEVwesJeQz1XoaA8liW8OI-oA3wu7IIaU5QsnIFxZss1GgfGOKcCEOhDBjw0LPah+88Q52cpJK8Ltp6ZzqDYQw0B6KMWFjohuLklgr24T8IhuxjCfmseoAAOy0VYmwWgeBaEQho6hgSghcO0fuNRgbdQNLEYMURqByOwMNbAdUuKFgSeWJJ7VWp8iTJ1EqECmYJMqpKBJcovTZXypKHqg4yAFK7CUip1BMmtKgLWFp5Sek9WbMVHMvSqlWnKf0zpKYyrlO6ZU70Qy6nxOSQOWp5SGkzLbv6MBkB5yDlmsZVCPNjKOSMUQzG6gpCkUAkczatlrLuS8uoU5vlcbVwlhhUKwsZbIxKFcDy78wwcRjOQMMvEXjGRQG5EyVy84CzOSBM8hgIKvOArnVylkNA2XUJ5GFKF3mG3QigXFJNKbqGwCUKgvzWwyhnHWIc7o2BAA -->
-                <!-- https://www.falstad.com/circuit/circuitjs.html?ctz=CQAgzCAMB0l3AWAnC1b0DYQIEywKxJgIKQCMOkYAHGBKSPo5IwKYC0ZZAUAB4g4kIdjiwIMQkfQEIQAcQBOAewD7rADoBnADIBDTQBdWAOy2aAxgAtdAGyOnNAWwCWBrQBUFu45ueGlCnzgZCDUIADsVCBc2NE4IO4AngAOflasCgDurH4amgAmAD8KAGYmWgBWeca6VloAss7myuZKxgbKNjYZWsYArgpa5rrQWmSQjgCCWt5aOcasjlpyAAoAkgDy7AAizgDmrra6fZp73nszAEZ7rHsKziVlDtkK+SbQQWAhohGQWIKxCggABaJwAJwYAF42JqWLT5XSleHOPIAZT6jkceVs3UGmhMBmMSkxJnKmlRHQAb1i5s4Fg56rpeM5HLYXm5NAA3NpaS6aZKZUaaUhTXqwjmFS4ZCyWBQ5ewffhfbBMcLjbBhWRAxSUtRyrQANQyly8fXSeIA1pTjPT4bpLD1NMZxci5RaJVK8fkUct1ltJic9mDjDctC4ORTlEsudKAnsOS83sYhRTdAYDG9NPjjJ8Qlwwjg6HEQlqsJ5vL5-Ao7n1jPkZbYDLW9txtOAcGFiLJBFgu1BoiASrZ8YwoNxMu3OyRwPh4n2wNxLgJqCwvnPwr2MGFIEEO6vIJ2kOFgiXoixJq8+nSlFpdgcDEdA+ddyvwEgQmAkIfZFrz30Slo2gAPQABJaBaMLmBaJgADRaBi8ImLu4RCKQsg0PEpDHr+IABqc5xaJCfRmFYjZIUqIQYPEEhMBgTBavEFreA43rYtGd6HDYxz4SGMzGDCtwmG8WioskzHNjMNiaCJRh9NKYk2hJmglMUtK2po5Y+H4BgBFoShvHi8xaAASqwXF+HBBQop8LAodgYAsNQmFxCAmQ+vidJaGUCghqwhisHJChGHiqKkXYjolLW7rOG0KJysYlmchk2R1qwCYZEmHwGMw6HTvgs7gNO8QhJwMAYBgn4YGQW40JE+CyDA4T4AedDUNQ4RNR1faUCwbxDn0dhBM1q4MLOI3SGEABC+h+ENGCrgChBMHQzlhAAwkoXSsOYOmBPw+BVeAdGMEgq5brEYQAKLhsF46MAVYDzfdmHVeA3B7M92CvflmE4A1Y4KOA1C5T+YBztOLA4OMO4TmAD3TjQINjggZBMD9Ah-Z9ODhPELAwEwIQwKjUDQMTMBwLjBBnnjd3o2DYTo9jc7cMZWOY+jZBILj-YMECeMk-g3D5CA5XdjjIsYN2mPxH1xyDROosCOLjPizDEtS7IVEa9Ed0IGDhWyM1SM4J8xU0BE77RCjgLxI06a4nkej+QlyLVC6XKbVJBjBt6Fwe9GkbEhacp+Ih0maI0zRKK07SdLi4dnDYnLeGkcLZgYFpKMkyRmelrxko4hRZrB4HWupkoZLm0T5REr6o5qLnzGSmmVrtWg3A24V55lWgAGKqVZflksC2RQe3ziXByflaJyKLdDP0pWCiSZ5C32kBO8WgAOrOHiDZyQ4tbh5YcVXI6-R7cE0TK4Q1-0Y3dJkvMQ7pA4AByKxv+wa9VnxllJloNyeJhxaAAESGCjB3WSGR7AiTCsFUBC8shCXeKbbAEhQhNWwOLBiIBdh5F7lFAwMUfDZFyFobSgD3IlE2vGAAXIBFE8Y+KITxNNSsWgAAUmglBEU0LoG4LFFgyQChkeYZwQwAEow4eC8FpKs4cm4iQUv0XiHsHAuFSs7cOkAYLhANH-KuCA2qYPoJbXBPDqwcgMjJKMJQbAnHDpwzymhJiOBznKaRBRdAqQUP-fQ4dIRuRlGSDaW0dq6U0LWfIWhrquGCloZIyhkgBGIW0WwdoiJzClMYIcXRFEuMDtGexKI1AOCYjaIU+CRIYixDZZgYR2rHnwDEXBJTWAqA5LoaMcT0yOl0JcIUnDJjGCxAoC0zYGGaBHqnMk7DQ5RLrLEm6EUcRkmGFoXR+jlHiTUQMqpflrA2EuGGRxrstDzKzCopSmihRbIMcXOkioIgOQxhAaGQgcA-FkGEUKlg+hQm9PpVglkEKaArgoGURdfChl8EIkKyQBp5EzA0JQu0E5+RzrCGBrAgg40+cQM8XyBBgGwqEEAl0FjVncgMoilxjgl00ClFi7kilEUirKXkrAUEJl3vkIUGxLALDMO5TIxQ3jcFwBAHGkMiwYA6jIbceKAR-QJnAY8f0G5hBsZoUyhgIHEgoSytE8ClIDPaWU+CSzB74nbnsEoQopQyjBL7VBCtpbswKl8hqVdCAQGoKdE6YgXKgmMGCKwhhTlZj4tYa1KLNCACbgdgvddDugCOHeNP90VcIEioMBk00q6GTam3aoDLIslvGmEwlwuLpj0iUDklhe6XSuDcC0xRIQGC8dE1hhFiJZngSghwRTDBgnGbiiijBIhAxCPgcI0hXoFrlFYVRft405MpMQ+MZIDQBDcgZQw3h6xVyqiEOqIsyA-hcqxWxxJR3jpkeSaBkKOh3q5cuoVaVAEZRMFMtYAB9S5Wh1AAEctAAbCd0CJeIgJaATcB8OWhABJhLElxBgUizLxEmlNaa8SUM0D1Z5+sKosHwLQEWRZcFb09mSIBVC8hKByUMEYWhSCQDDNMAdRz7CWQyAcSeIq6jeNNJoP9gGZqIbA8KOAopNCwYI3AYDUmcBTHqeVY8K5KLTtwXbRC0ZBWOBCQ4OQQ8oTgWYnaG0Maj07MUmontT6oz3ugr2zQO8D0PmtZ6ban7u6-pMkprQABVLQ8m1gIYQ5MT0WhoCxZPdQLATUWBblQi5SYW1Xh0j2OHRwZyCiOlErs7L5qcQzx5Joe5hFgmvwuRJq1MTNC9ISZoT0hQoK+CsFuvzxgpkheklJ-ADz2CbL0Q80DrGYJgANGg89KFVQHhthS-EUkTRteglMregl4WulYO6Hdxo6T5CUlkzQiglAOfwze8k1y1FSgrY1lZeJIAGiFG42RFZ154jyd0BwLIxkje2fwwZM3CwXtst8lyqJiSuF5N0CeZIECTYeb4xCDh3PSk8-kUF0ZjgAUHloQbj6LxHevDsfYnFuISOy328CxIsTJklaD+Vc5ICyDVJ2KIO5+A43+EgLAfONUoAung9ybHZN8dYExrMsItAn36ScPT7c-KDtgZoaaAKcg2GeTz8AC2vxCC+KeMIIEwT-n2FG8Oh70yZmzOcxzd7vYPoKAMITTc0fOA80e5VvZKChH1mDCaIBWC8GSDCSEMPlJ+QMDcbozCmU-oZ9z7GR1fzqkemSsI6WbA3E0Y6ECdIyGidid0d0UY0Ub2eAnmY0Zn61EsM7MMEem6OG9+ALB4xzakq1SAeo5egoh09OwdX-kXGcKxPhkBmgQJD4UGt1gXiKwPjrR5BYNe6QvwdA4LNARW80CwNDVcAbhcdxVwcvEve26D3aLL0+ToBiSXDgWvwqQzJeQHkorMD4ndOwMER2dyfaAIB8BXlcFqlNBINtp0Ubs-Zcto1TgFBdR+kpI7dLl+QiszAjJFkGsdUilzMrMmV3I7s1JHRdhgVeh784ViCTJxQlILUTBJE-8IhrZwhkAmCr0gRdN8s94bxNA5Qjtw8cVh1oC8DttNBd0sgPcMcbN+FAwxEV0v14984esAt+tgtQtwMItNAUNhQkd1CKsYIKZONxsCMYIyBwIDNuAgA -->
-                <!-- https://www.falstad.com/circuit/circuitjs.html?ctz=CQAgjCAMB0l3BWcMBMcUHYMGZIA4UA2ATmIxAUgoqoQFMBaMMAKAA8KMAWcQlZPOTCEkPFDwCydABYAnOvIA6AZwBqCgEayAhgFcAxtIUrtAOxV0AlqePKAygBdZAewC2AR110ANt7rtOJDA8PHAuSGxwYggeMH47Z186c2VXGXklNU0dAyNZFQA3ZxSrG3z7JzdPHz9ChWVnWQBzBxUAdwUAE2SVAAoNK2UAB0sfZQ7LZToVNLkFaeUAcQUAE4cFopTu2SnvAZSAIW0HddlRlWdtmfT5gIRuEDQgrmxyNFDY-gAZAFEAEWUhTcKl2+xUiwACgBJADyDAAgrplE0zE0LNY6IDlBJLPoXPpipUkjsAJQAGhmAB-lFMtqMpioAERDbQ6JLeRkqJqYwzabzrVrjLrJCnKXSuFQAKzoE28WM652URSSKjsLNMpl0pjRygAXroLLJpHz1qZoHcHi9yBg8DwuOEQLFCCAfqYHKY3GkbKrKq5lA4VrIANb+Dj3JAoFCRMDYYiRSPOz4geFylQ-XbKLSU-QhlRBswpVxmEG46QqaxY5adFaGd2TFSyXQAMxFKk62hpbcVaoLWp1llcaXKfKxf0sTZb8lMupUurak0MPT1ExUEK1QdNXLoaRpS-nsk6Ki1nQt8YdcWIoXEkSTfL8KXUsi0ekX5QVmJ8A1V6s12r6x7bbRXEsQV31BBZXQUJpRi9bkpQgvwNxcUwSVnXRykfJtKSaPst39GpBQ6A8lwaXxzVkEA8EIHhcB4KiaNtKBkDgFgKLIZ1aJAdiQGwRiqDQFiKLAfBQk44SQh4vjHXgFg2ko6ieMgHhuM4yBZK4jAOKUgRRO0tS5PoyTlM0oyoHUlTGPE0S+JYAoQE06yeAcxSeCoKgHSQNyoGgBB1OczjDNUvzCEc+SGNcgIMBQYhHgwGKbRilACEdZAQEcFwPC8JIAjwBArzwKhiCSx48BvVLH2fXJbFYDhiBC2KYuE3iSv4WIqAqnJXxUFAAmEjAICSqhmC4AbSpS4SQA6l88hUbAWCGcABJcxa4FMyI3PUqzlriVagrkrbeM+XabI0cBhDEYhPi4chYwijg4kISJcCCV4IFwD5yoULCmg0VkFh7DU+16ognrQcBsBEHio3Gqhekg5pFWlNNEMqFCLVER6wkvR1CETRaQDHBZGQAaUsWRDGkZwJ2URcVGJj1TXkbkOT6ZImm8aAVD8UtTjqHYA1MTpvFLExU2UEmyYpqmmxUABhdCp0FL5tDaTlMzoXUrEMGwHFQ9XlG0FpRXbTtlGsdEbAlZRhZsP6UgAdUsbZ-TMTplB1ucFCDMkLTtPAIDALgEBirhGKTecFn3CwsWkUZygKeZrCbbRF0FlQBicFPpFNY3u3FNI21sUpuSMQWl3SgA3gvkW5wxC-KOx84WK4DaREvkm6FJK+r3ppVlLFzeUeFXCGeY9cmBxzTDB5KCG0OIEoMq4gJ7R2jJkxTGNNOlWKb9ez-MVt8d52HFdwuu99BOn06stlGlbosVKTXvBsB9smm+oTCReRtaXIMK41K2KYCMNCCjNnXZQ7YcjKGNh2LE4Db7vl9hQYIZ0IYUBQDEfG6U3D+kDCGFI2hOjvinEebeDRgKCkofBboVsJinCXFNKq5RZgN19FuXUzhuQpH3J0Kei1Mb3CEK9CgBUYaTS+thX6mQAa-iaCwU6zAMC0FxotBAkQSChH0jpEAIVQg7SoHosy+0RKcGdAYsxZkFoWPuOYpaRj1pmXupAfqFAED8GGgvBAohPrXw-uUOatV6reIDhEUI3i7S+Mql1ZQPUOC5XCe4rixVvE+ImkwmJNV7LRTcRABKbjIkTRwZlGo-g5LOVsWFSxak7LOREM6CpJkvIeSYm5Hy5kTJGK2kY7RhkjHcR6R050lStqVN6QpSp3ExmsR0SM0x9SmLhEEhpYZJkBkIGdPxGSFFDKVL6RspiwkWKvCoPs50fSJIQA2iclZuiDkDMua0lgNzukHO6Y865yiqlGLqR84x9l6o-MBQctSHAbRIH6qEYgkB+BRSwRNZYBtXDrHTnQMwwxGy1lDPZRiOAIBxictgQpVBil4ODAsO8tgMl5GQXFUIVF6WQHhc6A48xta4UgZicEmIgIOHnCfV2yhkEEGjC8elRBxr8HhJvM+nKsQwmkH6VO3KpgOE1lif+gCeHr1bsoH+0hX6wNNgg0WtQsh+OYWhJFXo14LFKCoY+9RT7b2oTTbQnNlD3EgCoBVVsr7Gn5MkAAXMKrg-B-ZIFtGk-gAAlFQih3AqAAKoqAAPQqChPGrEgAkwizSoBAqg00qEgGSOAggEDwhUIACSJ83KJ9YqlgMauKEFOXVLiy88BtuabQVp3lfJsRbZRNtwkHSds2ZwNSLyXHhuHTGc5w6nlNDQfO8xc7klaLMooyABzDLDShfgf5I7W3mOnUOzZFpnR1RinVS9UVJUE3pEue2ChBTSDWJucYOqI4qCbIkFoX8IEKnkBuL+eq6C-xSJq1+Ibp5IFIB4zAhViDRpADGgA+oi3l8bE3KDAEW5QvReh4eUOm5QMawB60UEMPoxHSMxpQJR6jyhoAsco1iFQub2NYlo30Ij+GjneuUL6xjNH8MCUE8J+NTG+MkZUEsiTiqSR6xrZ6utQmG3TycoOztWml5SrFgAMUaGkbwoHuSdFkNmDcQaM0YZ5ci7DGbiNUYzSgKTGbsDueYyxhROKkC4wgLaUIyjz1AA -->
             </lsx-tab-page>
         </lsx-tab-pages>
     </article>
@@ -833,20 +838,33 @@
                         evaluation.expected = `${expectedValue}`.replaceAll(".", ",");
                     } else {
                         evaluation.status = status.correct;
+                        evaluation.points = 1;
                     }
                 };
             }
 
-            window.validate_costs1   = validateNumberRange(5.57, 5.60, 5.59);       // Aufgabe 3.1 c)
-            window.validate_costs2   = validateNumberRange(11.17, 11.20, 11.19);    // Aufgabe 3.1 d)
-            window.validate_battery1 = validateNumberRange(6.6, 6.7, 6.67);         // Aufgabe 3.2 c)
+            window.validate_costs1   = validateNumberRange(5.57, 5.60, 5.59);       // Aufgabe 3.1c)
+            window.validate_costs2   = validateNumberRange(11.17, 11.20, 11.19);    // Aufgabe 3.1d)
+            window.validate_battery1 = validateNumberRange(6.6, 6.7, 6.67);         // Aufgabe 3.2c)
             window.validate_ohm1     = validateNumberRange(11.5, 11.5, 11.5)        // Aufgabe 3.3d)
             window.validate_ohm2     = validateNumberRange(0.71, 0.73, 0.72);       // Aufgabe 3.3e)
-            window.validate_ohm3     = validateNumberRange(14.4, 14.6, 14.5)        // Aufgabe 3.3e)
+            window.validate_ohm3     = validateNumberRange(14.4, 14.6, 14.58)       // Aufgabe 3.3e)
             window.validate_ohm4     = validateNumberRange(1.11, 1.13, 1.12);       // Aufgabe 3.3f)
             window.validate_ohm5     = validateNumberRange(0.82, 0.84, 0.83);       // Aufgabe 3.3g)
             window.validate_ohm6     = validateNumberRange(500, 500, 500);          // Aufgabe 3.3h)
             window.validate_ohm7     = validateNumberRange(2.2, 2.2, 2.2);          // Aufgabe 3.3i)
+            window.validate_vdiv1    = validateNumberRange(1.81, 1.81, 1.82);       // Aufgabe 3.4c)
+            window.validate_cdiv1    = validateNumberRange(19.1, 19.2, 19.15);      // Aufgabe 3.5a)
+            window.validate_cdiv2    = validateNumberRange(16.0, 16.1, 16.07);      // Aufgabe 3.5a)
+            window.validate_cdiv3    = validateNumberRange(13.2, 13.3, 13.24);      // Aufgabe 3.5a)
+            window.validate_cdiv4    = validateNumberRange(48.4, 48.5, 48.45);      // Aufgabe 3.5a)
+            window.validate_cdiv5    = validateNumberRange(185, 186, 186);          // Aufgabe 3.5a)
+            window.validate_cdiv6    = validateNumberRange(45.4, 45.5, 45.45);      // Aufgabe 3.5d)
+            window.validate_cdiv7    = validateNumberRange(8.6, 8.7, 8.68);         // Aufgabe 3.5e)
+            window.validate_led1     = validateNumberRange(5.9, 6, 5.96);           // Aufgabe 3.6a)
+            window.validate_led2     = validateNumberRange(4.1, 4.12, 4.12);        // Aufgabe 3.6a)
+            window.validate_npn1     = validateNumberRange(693, 694, 694);          // Aufgabe 3.5c)
+            window.validate_npn2     = validateNumberRange(6.3, 6.4, 6.32);         // Aufgabe 3.5c)
         </script>
 
         <lsx-tab-pages>
@@ -885,7 +903,7 @@
                                 <tt>(Spannung ÷ Widerstand) × 1000 × Stunden × Strompreis</tt>
                             </lsx-answer>
                             <lsx-answer>
-                                <tt>((Spannung ÷ Stromstärke) ÷) 1000 × Stunden × Strompreis</tt>
+                                <tt>((Spannung ÷ Stromstärke) ÷ 1000) × Stunden × Strompreis</tt>
                             </lsx-answer>
                             <lsx-answer correct>
                                 <tt>((Spannung × Stromstärke) ÷ 1000) × Stunden × Strompreis</tt>
@@ -896,31 +914,31 @@
                             type = "gap-text"
                             mode = "source-code"
                         >
-                            <lsx-question-text>
+                            <lsx-text>
                                 c) Ein USB-Netzteil für den Raspberry Pi kann bis zu 9 Watt Leistung bereitstellen. Welche Stromkosten fallen
                                 bei einem Strompreis 37 Cent je Killowattstunde an, wenn der Raspberry Pi zehn Wochen am Stück unter Vollast läuft?
-                            </lsx-question-text>
-                            <lsx-question-hint>
-                                Geben Sie nur das auf zwei Nachkommastellen gerundete Ergebnis in das Eingabefeld ein.
-                            </lsx-question-hint>
+                            </lsx-text>
+                            <lsx-hint>
+                                Geben Sie das auf zwei Nachkommastellen gerundete Ergebnis in das Eingabefeld ein.
+                            </lsx-hint>
 
-                            Stromkosten ≈ <lsx-gap answer="5,59" ignore-spaces ignore-case validate="validate_costs1"></lsx-gap> €
+                            Stromkosten ≈ <lsx-gap answer="5,59" ignore-spaces ignore-case validate="validate_costs1"></lsx-gap>&nbsp;€
                         </lsx-question>
 
                         <lsx-question
                             type = "gap-text"
                             mode = "source-code"
                         >
-                            <lsx-question-text>
+                            <lsx-text>
                                 d) Ein auf Basis des Arduino Uno entwickeltes IoT-Device benötigt eine Spannung von 12&nbsp;V und verbraucht
                                 750&nbsp;mA Strom. Welche Stromkosten fallen bei einem Strompreis 37 Cent je Killowattstunde an, wenn das Device
                                 zwanzig Wochen am Stück läuft?
-                            </lsx-question-text>
-                            <lsx-question-hint>
-                                Geben Sie nur das auf zwei Nachkommastellen gerundete Ergebnis in das Eingabefeld ein.
-                            </lsx-question-hint>
+                            </lsx-text>
+                            <lsx-hint>
+                                Geben Sie das auf zwei Nachkommastellen gerundete Ergebnis in das Eingabefeld ein.
+                            </lsx-hint>
 
-                            Stromkosten ≈ <lsx-gap answer="11,18" ignore-spaces ignore-case validate="validate_costs2"></lsx-gap> €
+                            Stromkosten ≈ <lsx-gap answer="11,18" ignore-spaces ignore-case validate="validate_costs2"></lsx-gap>&nbsp;€
                         </lsx-question>
                     </lsx-exercise>
                 </lsx-quiz>
@@ -972,15 +990,15 @@
                             type = "gap-text"
                             mode = "source-code"
                         >
-                            <lsx-question-text>
-                                c) Ein Akkupack besitzt eine Spannung von 9 Volt und eine Nennladung von 5 Amperestunden. Wie lange kann
-                                damit ein IoT-Device versorgt werden, das im Schnitt 750 Milliampere Strom verbraucht?
-                            </lsx-question-text>
-                            <lsx-question-hint>
-                                Geben Sie nur das auf zwei Nachkommastellen gerundete Ergebnis in das Eingabefeld ein.
-                            </lsx-question-hint>
+                            <lsx-text>
+                                c) Ein Akkupack besitzt eine Spannung von 9&nbsp;V und eine Nennladung von 5&nbsp;Ah. Wie lange kann
+                                damit ein IoT-Device versorgt werden, das im Schnitt 750&nbsp;mA Strom verbraucht?
+                            </lsx-text>
+                            <lsx-hint>
+                                Geben Sie das auf zwei Nachkommastellen gerundete Ergebnis in das Eingabefeld ein.
+                            </lsx-hint>
 
-                            Batterielaufzeit ≈ <lsx-gap answer="6,67" ignore-spaces ignore-case validate="validate_battery1"></lsx-gap> Stunden
+                            Batterielaufzeit ≈ <lsx-gap answer="6,67" ignore-spaces ignore-case validate="validate_battery1"></lsx-gap>&nbsp;h
                         </lsx-question>
                     </lsx-exercise>
                 </lsx-quiz>
@@ -988,26 +1006,22 @@
 
             <lsx-tab-page title="Aufgabe 3.3">
                 <lsx-quiz>
-                    <lsx-exercise title="Das Ohmsche Gesetz">
+                    <lsx-exercise title="Anwendung des Ohmschen Gesetzes">
                         <lsx-question
-                            type        = "assignment"
-                            label-width = "3em"
-                            text = "a) Die folgendne zwei Abbildungen dienen als Eselsbrücke zur Berechnung von Spannung, Stromstärke, Widerstand und Leistung.
-                                    Für welchen Wert stehen die jeweiligen Formelzeichen?"
-                            hint = "<div class='mb-4'>
-                                       <img src='2-elektronik/formel_pui.svg' class='d-thumbnail' style='height: 7em' alt='Dreieck mit P oben in der Spitze sowie darunter U und I'>
-                                       &nbsp;
-                                       <img src='2-elektronik/formel_uri.svg' class='d-thumbnail' style='height: 7em' alt='Dreieck mit U oben in der Spitze sowie darunter R und I'>
-                                    </div>"
+                            type         = "assignment"
+                            label-length = "1em"
+                            select-style = "background: rgb(228, 229, 230);"
                         >
-                            <lxs-question-text>
+                            <lsx-text>
                                 a) Die folgendne zwei Abbildungen dienen als Eselsbrücke zur Berechnung von Spannung, Stromstärke, Widerstand und Leistung.
                                 Für welchen Wert stehen die jeweiligen Formelzeichen?
-                            </lxs-question-text>
-                            <lxs-question-hint>
-                                <img src="2-elektronik/formel_pui.svg" class="d-thumbnail" style="height: 7em" alt="Dreieck mit P oben in der Spitze sowie darunter U und I">
-                                <img src="2-elektronik/formel_uri.svg" class="d-thumbnail" style="height: 7em" alt="Dreieck mit U oben in der Spitze sowie darunter R und I">
-                            </lxs-question-hint>
+                            </lsx-text>
+                            <lsx-hint>
+                                <div class="mt-2 mb-2">
+                                    <img src="2-elektronik/formel_pui.svg" class="d-thumbnail" style="height: 6rem" alt="Dreieck mit P oben in der Spitze sowie darunter U und I">
+                                    <img src="2-elektronik/formel_uri.svg" class="d-thumbnail" style="height: 6rem" alt="Dreieck mit U oben in der Spitze sowie darunter R und I">
+                                </div>
+                            </lsx-hint>
 
                             <lsx-assignment answer="Spannung (von lat. „urgere“ = Drängen)">U</lsx-assignment>
                             <lsx-assignment answer="Widerstand (von eng. „Resistance")">R</lsx-assignment>
@@ -1019,6 +1033,7 @@
                             type = "gap-text"
                             mode = "source-code"
                             text = "b) Welche Formeln drücken den Zusammenhang von Spannung, Stromstärke und Widerstand mathematisch aus?"
+                            hint = "Verwenden Sie <tt>+</tt>, <tt>-</tt>, <tt>*</tt>, <tt>/</tt> als Rechenzeichen."
                         >
                             U = <lsx-gap answer="R * I" ignore-case ignore-spaces></lsx-gap>
                             I = <lsx-gap answer="U / R" ignore-case ignore-spaces></lsx-gap>
@@ -1032,126 +1047,431 @@
                         >
                             P = <lsx-gap answer="U * I" ignore-case ignore-spaces></lsx-gap>
                             I = <lsx-gap answer="P / U" ignore-case ignore-spaces></lsx-gap>
-                            R = <lsx-gap answer="P / I" ignore-case ignore-spaces></lsx-gap>
+                            U = <lsx-gap answer="P / I" ignore-case ignore-spaces></lsx-gap>
                         </lsx-question>
 
                         <lsx-question
                             type = "gap-text"
                             mode = "source-code"
                         >
-                            <lsx-question-text>
+                            <lsx-text>
                                 d) Das Typenschild eines USB-Schnellladegeräts weist folgende Werte für die Ausgangsseite aus:
                                 5&nbsp;V Spannung und 2.3&nbsp;A Stromstärke. Welche maximale Leistung in Watt kann das Ladegerät
                                 zur Verfügung stellen?
-                            </lsx-question-text>
-                            <lsx-question-hint>
-                                Geben Sie nur das auf zwei Nachkommastellen gerundete Ergebnis in das Eingabefeld ein.
-                            </lsx-question-hint>
+                            </lsx-text>
+                            <lsx-hint>
+                                Geben Sie das auf zwei Nachkommastellen gerundete Ergebnis in das Eingabefeld ein.
+                            </lsx-hint>
 
-                            Leistung = <lsx-gap answer="11,5" ignore-spaces ignore-case validate="validate_ohm1"></lsx-gap> Watt
+                            Leistung = <lsx-gap answer="11,5" ignore-spaces ignore-case validate="validate_ohm1"></lsx-gap>&nbsp;W
                         </lsx-question>
 
                         <lsx-question
                             type = "gap-text"
                             mode = "source-code"
                         >
-                            <lsx-question-text>
+                            <lsx-text>
                                 e) Ein Computernetzteil wird mit einer Leistung von 175 Watt angepriesen. Welcher Stromstärke
                                 entspricht dies auf der Eingangsseite bei einer Spannung von 240 Volt? Und welcher Stromstärke
                                 würde dies bei einer Ausgangsspannung von 12 Volt entsprechen?
-                            </lsx-question-text>
-                            <lsx-question-hint>
-                                Geben Sie nur das auf zwei Nachkommastellen gerundete Ergebnis in das Eingabefeld ein.
-                            </lsx-question-hint>
+                            </lsx-text>
+                            <lsx-hint>
+                                Geben Sie das auf zwei Nachkommastellen gerundete Ergebnis in das Eingabefeld ein.
+                            </lsx-hint>
 
-                            Eingangsstrom ≈ <lsx-gap answer="0,73" ignore-spaces ignore-case validate="validate_ohm2"></lsx-gap> Ampere
-                            Ausgangsstrom ≈ <lsx-gap answer="14,58" ignore-spaces ignore-case validate="validate_ohm3"></lsx-gap> Ampere
+                            Eingangsstrom ≈ <lsx-gap answer="0,73" length="4em" ignore-spaces ignore-case validate="validate_ohm2"></lsx-gap>&nbsp;A
+                            Ausgangsstrom ≈ <lsx-gap answer="14,58" length="4em" ignore-spaces ignore-case validate="validate_ohm3"></lsx-gap>&nbsp;A
                         </lsx-question>
 
                         <lsx-question
                             type = "gap-text"
                             mode = "source-code"
                         >
-                            <lsx-question-text>
+                            <lsx-text>
                                 f) Eine 9&nbsp;V Blockbatterie besitzt im nicht ganz vollen Zustand einen Innenwiderstand von 8&nbsp;Ω.
-                                Welche maximale Stromstärke würde bei einem Kurzschluss fließen, wenn wir den Leitungswiderstands des
+                                Welche maximale Stromstärke würde bei einem Kurzschluss fließen, wenn wir den Leitungswiderstand des
                                 verursachenden Kabels vernachlässigen?
-                            </lsx-question-text>
-                            <lsx-question-hint>
-                                Geben Sie nur das auf zwei Nachkommastellen gerundete Ergebnis in das Eingabefeld ein.
-                            </lsx-question-hint>
+                            </lsx-text>
+                            <lsx-hint>
+                                Geben Sie das auf zwei Nachkommastellen gerundete Ergebnis in das Eingabefeld ein.
+                            </lsx-hint>
 
-                            Kurzschlusstrom ≈ <lsx-gap answer="1,13" ignore-spaces ignore-case validate="validate_ohm4"></lsx-gap> Ampere
+                            Kurzschlusstrom ≈ <lsx-gap answer="1,13" ignore-spaces ignore-case validate="validate_ohm4"></lsx-gap>&nbsp;A
                         </lsx-question>
 
-                        <!-- R zu gezogener Stromstärke -->
                         <lsx-question
                             type = "gap-text"
                             mode = "source-code"
                         >
-                            <lsx-question-text>
+                            <lsx-text>
                                 g) Der in einem IoT-Device verbaute Raspberry Pi zieht bei 5&nbsp;V Versorgungsspannung einen
                                 Strom von 6&nbsp;A. Wie hoch ist der Ersatzwiderstand, mit dem der Raspberry Pi in einer
                                 Schaltplanskizze vereinfachend ersetzt werden kann?
-                            </lsx-question-text>
-                            <lsx-question-hint>
-                                Geben Sie nur das auf zwei Nachkommastellen gerundete Ergebnis in das Eingabefeld ein.
-                            </lsx-question-hint>
+                            </lsx-text>
+                            <lsx-hint>
+                                Geben Sie das auf zwei Nachkommastellen gerundete Ergebnis in das Eingabefeld ein.
+                            </lsx-hint>
 
-                            Ersatzwiderstand ≈ <lsx-gap answer="0,83" ignore-spaces ignore-case validate="validate_ohm5"></lsx-gap> Ohm
+                            Ersatzwiderstand ≈ <lsx-gap answer="0,83" ignore-spaces ignore-case validate="validate_ohm5"></lsx-gap>&nbsp;Ω
                         </lsx-question>
 
                         <lsx-question
                             type = "gap-text"
                             mode = "source-code"
                         >
-                            <lsx-question-text>
+                            <lsx-text>
                                 h) Die Stromstärke eines am Arduino Uno angeschlossenen Bauteils soll auf 10&nbsp;mA begrenzt werden.
                                 Welcher Vorwiderstand muss hierfür eingebaut werden, wenn der Arduino einen Logikpegel von 5&nbsp;
-                                besitzt und wir von einem linearen Bauteil (ohne nennenswerten Spannungsabfall wie z.B. bei einer
-                                LED oder einem Transistor) ausgehen?
-                            </lsx-question-text>
-                            <lsx-question-hint>
-                                Geben Sie nur das auf zwei Nachkommastellen gerundete Ergebnis in das Eingabefeld ein.
-                            </lsx-question-hint>
+                                besitzt und wir von einem linearen Bauteil (ohne festen Spannungsabfall wie z.B. bei einer LED oder
+                                einem Transistor) ausgehen?
+                            </lsx-text>
+                            <lsx-hint>
+                                Geben Sie das auf zwei Nachkommastellen gerundete Ergebnis in das Eingabefeld ein.
+                            </lsx-hint>
 
-                            Vorwiderstand ≈ <lsx-gap answer="500" ignore-spaces ignore-case validate="validate_ohm6"></lsx-gap> Ohm
+                            Vorwiderstand ≈ <lsx-gap answer="500" ignore-spaces ignore-case validate="validate_ohm6"></lsx-gap>&nbsp;Ω
                         </lsx-question>
 
                         <lsx-question
                             type = "gap-text"
                             mode = "source-code"
                         >
-                            <lsx-question-text>
+                            <lsx-text>
                                 i) Ein am Raspberry Pi angeschlossenes Bauteil besitzt einen Ersatzwiderstand von 1,5&nbsp;kΩ.
-                                Welche Stromstärke zieht das Bauteile aufgrund des Logikpegels von 3,3&nbsp;V des Pis?
-                            </lsx-question-text>
-                            <lsx-question-hint>
-                                Geben Sie nur das auf zwei Nachkommastellen gerundete Ergebnis in das Eingabefeld ein.
-                            </lsx-question-hint>
+                                Welche Stromstärke zieht das Bauteil aufgrund des Logikpegels von 3,3&nbsp;V des Raspberry Pi?
+                            </lsx-text>
+                            <lsx-hint>
+                                Geben Sie das auf zwei Nachkommastellen gerundete Ergebnis in das Eingabefeld ein.
+                            </lsx-hint>
 
-                            Stromstärke ≈ <lsx-gap answer="2,2" ignore-spaces ignore-case validate="validate_ohm7"></lsx-gap> Milliampere
+                            Stromstärke ≈ <lsx-gap answer="2,2" ignore-spaces ignore-case validate="validate_ohm7"></lsx-gap>&nbsp;mA
                         </lsx-question>
                     </lsx-exercise>
                 </lsx-quiz>
             </lsx-tab-page>
 
             <lsx-tab-page title="Aufgabe 3.4">
-                <h2>Die Kirchhoff-Regeln</h2>
-                <p>(In Arbeit)</p>
-                <!-- <lsx-quiz>
-                    <lsx-exercise title="Die Kirchhoff-Regeln">
+                <lsx-quiz>
+                    <lsx-exercise title="Berechnung von Spannungsteilern">
+                        <lsx-hint>
+                            <div class="mb-3">
+                                <img src="2-elektronik/formel_pui.svg" class="d-thumbnail" style="height: 6rem" alt="Dreieck mit P oben in der Spitze sowie darunter U und I">
+                                <img src="2-elektronik/formel_uri.svg" class="d-thumbnail" style="height: 6rem" alt="Dreieck mit U oben in der Spitze sowie darunter R und I">
+                            </div>
+                        </lsx-hint>
+
+                        <lsx-question
+                            type = "gap-text"
+                            mode = "split-lines"
+                        >
+                            <lsx-text>
+                                a) Mit den Kirchhoff-Regeln und dem Ohmschen Gesetz lässt sich das Verhalten von Spannungsteilern (in Reihe
+                                geschaltete Widerstände, die hier für beliebige Bauteile stehen), mathematisch herleiten. Dies wollen wir
+                                anhand der folgenden Zeichnung nachvollziehen.
+                            </lsx-text>
+                            <lsx-hint>
+                                Hinweis: Die Werte sind so gewählt, dass nur ganzzahlige Ergebnisse entstehen. Die runden Kreise stehen
+                                für Spannungsmesser, die sich nicht auf die Schaltung auswirken.
+
+                                <img src="2-elektronik/spannungsteiler-rechenaufgabe1.png" class="d-block img-thumbnail mw-100 mt-2" style="width: 33em;">
+                            </lsx-hint>
+
+                            Welchen Gesamtswiderstand besitzt die Schaltung und welche Stromstärke ergibt sich daraus?
+                            <tt>R<sub>Gesamt</sub> = <lsx-gap answer="1" length="3em" ignore-spaces ignore-case></lsx-gap>&nbsp;kΩ</tt>
+                            <tt>I<sub>Gesamt</sub> = <lsx-gap answer="5" length="3em" ignore-spaces ignore-case></lsx-gap>&nbsp;mA</tt>
+
+                            Welche Teilspannungen ergeben sich somit für die drei Widerstände?
+                            <tt>U<sub>1</sub> = <lsx-gap answer="1" length="3em" ignore-spaces ignore-case></lsx-gap></tt>&nbsp;V
+                            <tt>U<sub>2</sub> = <lsx-gap answer="2" length="3em" ignore-spaces ignore-case></lsx-gap></tt>&nbsp;V
+                            <tt>U<sub>3</sub> = <lsx-gap answer="2" length="3em" ignore-spaces ignore-case></lsx-gap></tt>&nbsp;V
+                        </lsx-question>
+
+                        <lsx-question type="multiple-choice">
+                            <lsx-text>
+                                b) Betrachten wir dieselbe Schaltung ohne die Spannungsmesser, um die Anwendung der Kirchhoff-Regeln besser
+                                nachvollziehen zu können. Welche Aussagen treffen hierbei zu?
+                            </lsx-text>
+                            <lsx-hint>
+                                <img src="2-elektronik/spannungsteiler-rechenaufgabe2.png" class="img-thumbnail mw-100" style="width: 34em;">
+                            </lsx-hint>
+
+                            <lsx-answer correct>Jedes Bauteil durchfließt dieselbe Stromstärke, da die Schaltung keine Verzweigungen bestizt.</lsx-answer>
+                            <lsx-answer>Jedes Bauteil erzeugt einen Teil der Spannung, die zwischen +5&nbsp;V und Masse/Ground anliegt.</lsx-answer>
+                            <lsx-answer correct>Die Eingangsspannung fällt entlang jedes Bauteils proportional zum Widerstand ab.</lsx-answer>
+                            <lsx-answer correct>Die Summe aller Teilspannungen entspricht der Eingangsspannung (bei positiv gemessenen Teilspannungen).</lsx-answer>
+                        </lsx-question>
+
+                        <lsx-question
+                            type = "single-choice"
+                            text = "c) Mit welcher Formel kann der Spannungsabfall am Widerstand R<sub>1</sub> ohne Umweg über die Stromstärke berechnet werden?"
+                        >
+                            <lsx-answer correct><tt>U<sub>1</sub> = (U<sub>Gesamt</sub> × R<sub>1</sub>) ÷ R<sub>Gesamt</sub></tt></lsx-answer>
+                            <lsx-answer><tt>U<sub>1</sub> = (R<sub>Gesamt</sub> ÷ U<sub>Gesamt</sub>) × R<sub>1</sub></tt></lsx-answer>
+                            <lsx-answer><tt>U<sub>1</sub> = (R<sub>Gesamt</sub> × U<sub>Gesamt</sub>) ÷ R<sub>1</sub></tt></lsx-answer>
+                        </lsx-question>
+
+                        <lsx-question
+                            type = "gap-text"
+                            mode = "split-lines"
+                        >
+                            <lsx-text>
+                                d) Mit zwei Widerständen soll ein Spannungsteiler aufgebaut werden, um einen Logikpegel von 3,3&nbsp;V auf 1,8&nbsp;V herabzusetzen.
+                                Wie groß muss R<sub>1</sub> sein, wenn R<sub>2</sub> 330&nbsp;Ω beträgt und die 1,8&nbsp;V an R<sub>2</sub> abfallen sollen?
+                            </lsx-text>
+                            <lsx-hint>
+                                Am einfachsten lässt sich der Wert ausrechnen, wenn Sie bedenken, dass das Verhältnis der beiden Widerstände dem Verhältnis der
+                                beiden Teilspannungen entspricht, die erste Teilspannung aber erst noch ausgerechnet werden muss. Alle Ergebnisse bis auf das
+                                letzte sind ganzzahlig. Den letzten Wert runden Sie auf zwei Nachkommastellen.
+
+                                <img src="2-elektronik/spannungsteiler-logikpegel-aufgabe.png" class="d-block mt-2 img-thumbnail mw-100" style="width: 22em;">
+                            </lsx-hint>
+
+                            <tt>R<sub>1</sub> = <lsx-gap answer="275" length="3em" ignore-spaces ignore-case></lsx-gap>&nbsp;Ω</tt>
+
+                            Schlagen Sie im Internet die Widerstandsreihe E12 nach. Welcher Widerstand kommt dem berechneten Wert am nähesten?
+
+                            <tt>R<sub>1<sub>E12</sub></sub> = <lsx-gap answer="270" length="3em" ignore-spaces ignore-case></lsx-gap>&nbsp;Ω</tt>
+
+                            Welche tatsächliche Spannung ergibt sich daraus für das Bauteil?
+
+                            <tt>U<sub>2<sub>E12</sub></sub> = <lsx-gap answer="1,81" length="3em" ignore-spaces ignore-case validate="validate_vdiv1"></lsx-gap>&nbsp;V</tt>
+                        </lsx-question>
+
+                        <lsx-question
+                            type = "gap-text"
+                            mode = "split-lines"
+                        >
+                            <lsx-text>
+                                e) Ein an einer Batterie hänger Verbraucher besitzt einen Ersatzwiderstand von 150&nbsp;Ω. Durch Messen stellen Sie fest,
+                                dass die Spannung hierdurch von 9&nbsp;V auf 6&nbsp;V einbricht. Wie groß ist der Innenwiderstand der Batterie?
+                            </lsx-text>
+                            <lsx-hint>
+                                Die Berechnung erfolgt auf dieselbe Weise wie davor. Das Ergebnis ist ganzzahlig und die Batterie tot … 🫤
+
+                                <img src="2-elektronik/spannungsteiler-innenwiderstand-aufgabe.png" class="d-block mt-2 img-thumbnail mw-100" style="width: 32em;">
+                            </lsx-hint>
+
+                            <tt>R<sub>Batterie</sub> = <lsx-gap answer="75" length="3em" ignore-spaces ignore-case></lsx-gap>&nbsp;Ω</tt>
+                        </lsx-question>
                     </lsx-exercise>
-                </lsx-quiz> -->
+                </lsx-quiz>
             </lsx-tab-page>
 
             <lsx-tab-page title="Aufgabe 3.5">
-                <h2>Einfache nicht-lineare Bauteile</h2>
-                <p>(In Arbeit)</p>
-                <!-- <lsx-quiz>
-                    <lsx-exercise title="Einfache nicht-lineare Bauteile">
+                <lsx-quiz>
+                    <lsx-exercise title="Berechnung von Stromteilern">
+                        <lsx-hint>
+                            <div class="mb-3">
+                                <img src="2-elektronik/formel_pui.svg" class="d-thumbnail" style="height: 6rem" alt="Dreieck mit P oben in der Spitze sowie darunter U und I">
+                                <img src="2-elektronik/formel_uri.svg" class="d-thumbnail" style="height: 6rem" alt="Dreieck mit U oben in der Spitze sowie darunter R und I">
+                            </div>
+                        </lsx-hint>
+
+                        <lsx-question
+                            type = "gap-text"
+                            mode = "split-lines"
+                        >
+                            <lsx-text>
+                                a) Mit den Kirchhoff-Regeln und dem Ohmschen Gesetz lässt sich auch das Verhalten von Stromteilern (parallel geschaltete
+                                Widerstände, die stellvertretend für unterschiedliche Bauteile stehen) herleiten. Dies wollen wir anhand der folgenden
+                                Schaltung versuchen.
+                            </lsx-text>
+                            <lsx-hint>
+                                Runden Sie alle Ergebnisse auf maximal zwei Nachkommastellen.
+
+                                <img src="2-elektronik/stromteiler-rechenaufgabe1.png" class="d-block mt-2 img-thumbnail mw-100" style="width: 32em;">
+                            </lsx-hint>
+
+                            Welche Ströme fließen durch die Bauteile und welcher Gesamtstrom ergibt sich daraus?
+                            <tt>I<sub>1</sub> ≈ <lsx-gap answer="19,15" ignore-spaces ignore-case validate="validate_cdiv1"></lsx-gap>&nbsp;mA</tt>
+                            <tt>I<sub>2</sub> ≈ <lsx-gap answer="16,07" ignore-spaces ignore-case validate="validate_cdiv2"></lsx-gap>&nbsp;mA</tt>
+                            <tt>I<sub>3</sub> ≈ <lsx-gap answer="13,24" ignore-spaces ignore-case validate="validate_cdiv3"></lsx-gap>&nbsp;mA</tt>
+                            <tt>I<sub>G</sub> ≈ <lsx-gap answer="48,45" ignore-spaces ignore-case validate="validate_cdiv4"></lsx-gap>&nbsp;mA</tt>
+
+                            Welcher auf ganze Zahlen gerundete Gesamtwiderstand ergibt sich somit für die Schaltung?
+                            <tt>R<sub>Gesamt</sub> ≈ <lsx-gap answer="186" ignore-spaces ignore-case validate="validate_cdiv5"></lsx-gap>&nbsp;Ω</tt>
+                        </lsx-question>
+
+                        <lsx-question
+                            type = "multiple-choice"
+                            text = "b) Welche Aussagen lassen sich aus den Kirchhoff-Regeln für obige Schaltung ableiten?"
+                        >
+                            <lsx-answer correct>Entlang jedes Bauteils liegt dieselbe Spannung an, da sie keinen Spannungsteiler bilden.</lsx-answer>
+                            <lsx-answer correct>Die Gesamtstromstärke teilt sich entlang der Bauteile proportional zum Widerstand auf.</lsx-answer>
+                            <lsx-answer>Durch die parallele Schaltung gleichen sich die realen Widerstände der Bauteile an.</lsx-answer>
+                            <lsx-answer correct>Die von den Bauteilen gezogenen Ströme addieren sich zum Gesamtstromverbrauch der Schaltung auf.</lsx-answer>
+                        </lsx-question>
+
+                        <lsx-question
+                            type = "single-choice"
+                            text = "c) Mit welcher Formel kann der Gesamtwiderstand ohne Umweg über die Stromstärke direkt berechnet werden?"
+                        >
+                            <lsx-hint>
+                                <tt>x<sup>-1</sup></tt> ist der Kehrwert von <tt>x</tt>, also <tt>1 ÷ x</tt>.
+                            </lsx-hint>
+                            <lsx-answer><tt>R<sub>Gesamt</sub> = 1 ÷ Σ<sub>1…n</sub>(R<sub>n</sub>)</tt></lsx-answer>
+                            <lsx-answer><tt>R<sub>Gesamt</sub> = 1 ÷ Σ<sub>1…n</sub>(R<sub>n</sub><sup>-1</sup>)</tt></lsx-answer>
+                            <lsx-answer><tt>R<sub>Gesamt</sub> = 1 ÷ Σ<sub>1…n</sub>(R<sub>n</sub> * R<sub>n</sub><sup>-1</sup>)</tt></lsx-answer>
+                        </lsx-question>
+
+                        <lsx-question
+                            type = "gap-text"
+                            mode = "split-lines"
+                        >
+                            <lsx-text>
+                                d) An einem Arduino Uno sollen zwei Bauteile mit demselben Ausgangspin geschaltet werden. Entsprechend dem Logiklevel des
+                                zugrunde liegenden Microcontrollers stellt der Pin hierfür eine Spannung von 5&nbsp;V zur Verfügung. Die Bauteile besitzen
+                                je einen Widerstand von 220&nbsp;Ω und sind parallel angeschlossen. Wie viel Strom ziehen sie?
+                            </lsx-text>
+                            <lsx-hint>
+                                Der zulässige Maximalwert von 20&nbsp;mA an einem Pin wird deutlich überschritten. Geben Sie das auf zwei Nachkommastellen gerundete Ergebnis ein.
+
+                                <img src="2-elektronik/stromteiler-arduino-aufgabe.png" class="d-block mt-2 img-thumbnail mw-100" style="width: 23em;">
+                            </lsx-hint>
+
+                            <tt>I<sub>Gesamt</sub> ≈ <lsx-gap answer="45,45" ignore-spaces ignore-case validate="validate_cdiv6"></lsx-gap>&nbsp;mA</tt>
+                        </lsx-question>
+
+                        <lsx-question
+                            type = "gap-text"
+                            mode = "split-lines"
+                        >
+                            <lsx-text>
+                                e) Angenommen dieselben Bauteile würden nicht vom Arduino sondern von einem 9&nbsp;V-Block mit einem Innenwiderstand von
+                                7&nbsp;Ω mit Strom versorgt werden. Welche Spannung stünde den Bauteilen tatsächlich zur Verfügung?
+                            </lsx-text>
+                            <lsx-hint>
+                                Hinweis: Die Bauteile bilden einen Spannungsteiler mit dem Innenwiderstand der Batterie.
+                                Geben Sie den auf zwei Nachkommastellen gerundeten Wert ein.
+                            </lsx-hint>
+
+                            <tt>U<sub>Real ≈ <lsx-gap answer="8,86" ignore-spaces ignore-case validate="validate_cdiv7"></lsx-gap>&nbsp;V</sub></tt>
+                        </lsx-question>
                     </lsx-exercise>
-                </lsx-quiz> -->
+                </lsx-quiz>
+            </lsx-tab-page>
+
+            <lsx-tab-page title="Aufgabe 3.5">
+                <lsx-quiz>
+                    <lsx-exercise title="Einfache nicht-lineare Bauteile">
+                        <lsx-hint>
+                            <div class="mb-3">
+                                <img src="2-elektronik/formel_pui.svg" class="d-thumbnail" style="height: 6rem" alt="Dreieck mit P oben in der Spitze sowie darunter U und I">
+                                <img src="2-elektronik/formel_uri.svg" class="d-thumbnail" style="height: 6rem" alt="Dreieck mit U oben in der Spitze sowie darunter R und I">
+                            </div>
+                        </lsx-hint>
+
+                        <lsx-question type="gap-text">
+                            <lsx-text>
+                                a) An einen Digitalausgang des Arduino Uno soll eine LED angeschlossen werden. Der Ausgang stellt eine Spannung von 5&nbsp;V
+                                zur Verfügung, wobei die maximal entnommene Stromstärke 20&nbsp;mA nicht überschreiten darf.
+                            </lsx-text>
+                            <lsx-hint>
+                                Nicht-glatte Rechenergebnisse müssen auf zwei Nachkommastellen gerundet werden.
+
+                                <img src="2-elektronik/nichtlinear-led-aufgabe.png" class="d-block mt-2 img-thumbnail mw-100" style="width: 23em;">
+                            </lsx-hint>
+
+                            <lsx-question-line>
+                                Die LED besitzt eine Vorwärtsspannung (festen Spannungsabfall) von 2,2&nbsp;V. Mit welcher Spannung muss der Vorwiderstand daher berechnet werden?
+                            </lsx-question-line>
+                            <lsx-question-line>
+                                <tt>U<sub>Diff</sub> = <lsx-gap answer="2,8" ignore-spaces ignore-case></lsx-gap>&nbsp;V</tt>
+                            </lsx-question-line>
+
+                            <lsx-question-line>
+                                Mit welchem Widerstand kann der Strom auf 5&nbsp;mA begrenzt werden?
+                            </lsx-question-line>
+                            <lsx-question-line>
+                                <tt>R<sub>Vor</sub> = <lsx-gap answer="560" ignore-spaces ignore-case></lsx-gap>&nbsp;Ω</tt>
+                            </lsx-question-line>
+
+                            <lsx-question-line>
+                                Schlagen Sie im Internet die Widerstandsreihe E6 nach. Welche beiden Werte kommen dem gesuchten Widerstand am nähesten
+                                und welche tatsächlichen Stromstärken würden sich jeweils ergeben?
+                            </lsx-question-line>
+                            <lsx-question-line>
+                                <tt>
+                                    R<sub>Min<sub>E6</sub></sub> = <lsx-gap answer="470" ignore-spaces ignore-case></lsx-gap>&nbsp;Ω
+                                    <span class="ms-4 me-4">→</span>
+                                    I<sub>Real<sub>1</sub></sub> ≈ <lsx-gap answer="5,96" ignore-spaces ignore-case validate="validate_led1"></lsx-gap>&nbsp;mA
+                                </tt>
+                            </lsx-question-line>
+                            <lsx-question-line>
+                                <tt>
+                                    R<sub>Max<sub>E6</sub></sub> = <lsx-gap answer="680" ignore-spaces ignore-case></lsx-gap>&nbsp;Ω
+                                    <span class="ms-4 me-4">→</span>
+                                    I<sub>Real<sub>2</sub></sub> ≈ <lsx-gap answer="4,12" ignore-spaces ignore-case validate="validate_led2"></lsx-gap>&nbsp;mA
+                                </tt>
+                            </lsx-question-line>
+                        </lsx-question>
+
+                        <lsx-question
+                            type = "multiple-choice"
+                            text = "b) Wie funktioniert ein typischer npn-Transistor?"
+                        >
+                            <lsx-hint>
+                                In der Vorlesung betrachten wir nur einfache npn-Bipolartransistoren. Auf Wikipedia findet sich eine sehr ausführliche
+                                Gegenüberstellung aller unterschiedlichen <a href="https://de.wikipedia.org/wiki/Transistor" target="_blank">Transistortypen</a>.
+
+                                <img src="2-elektronik/nichtlinear-transistor-aufgabe.png" class="d-block mt-2 img-thumbnail mw-100" style="width: 23em;">
+                            </lsx-hint>
+
+                            <lsx-answer correct>Ein an der Basis anliegender Strom steuert einen größeren am Collector anliegenden Strom.</lsx-answer>
+                            <lsx-answer>Eine an der Basis anliegende Spannung steuert eine beliebige am Collector anliegende Spannung.</lsx-answer>
+                            <lsx-answer correct>Strom kann nur von der Basis zum Emitter sowie vom Collector zum Emiter fließen.</lsx-answer>
+                            <lsx-answer correct>Am Emitter fließt die Summe aller eingehenden Ströme ab.</lsx-answer>
+                            <lsx-answer>Am Emittier liegt die Differenz aller eingehenden Spannungen an.</lsx-answer>
+                            <lsx-answer correct>Die am Collector anliegende Spannung muss größer als die Spannung an der Basis sein.</lsx-answer>
+                        </lsx-question>
+
+                        <lsx-question type="gap-text">
+                            <lsx-text>
+                                c) Angenommen ein mit 5&nbsp;V Steuerspannung arbeitender Arduino Uno soll, wie oben gezeigt, einen npn-Transistor verwenden,
+                                um ein Bauteil mit 1,24&nbsp;A Stromverbrauch zu schalten. Welcher Vorwiderstand muss hierfür eingebaut werden?
+                            </lsx-text>
+
+                            <lsx-question-line>
+                                Zunächst muss mit folgender Formel der minimal benötigte Steuerstrom berechnet werden.
+                            </lsx-question-line>
+                            <lsx-question-line>
+                                <tt>I<sub>Basis</sub> = I<sub>Collector</sub> ÷ β</tt> <i class="ms-4">(wobei für obigen Transistor <tt>β = 200</tt> gilt)</i>
+                            </lsx-question-line>
+                            <lsx-question-line>
+                                <tt>I<sub>Basis</sub> = <lsx-gap answer="6,2" ignore-spaces ignore-case></lsx-gap>&nbsp;mA</tt>
+                            </lsx-question-line>
+
+                            <lsx-question-line>
+                                Aufgrund des linearen Zusammenhangs von Steuer- und Arbeitsstrom, wird β auch Verstärkungsfaktor genannt.
+                            </lsx-question-line>
+
+                            <lsx-question-line>
+                                Zwischen Basis und Emitter fällt eine feste Vorwärtsspannung von 0,7&nbsp;V ab, ähnlich wie bei einer LED. Mit welcher Spannung
+                                muss der eingezeichnete Widerstand daher berechnet werden?
+                            </lsx-question-line>
+                            <lsx-question-line>
+                                <tt>U<sub>Basis</sub> = <lsx-gap answer="4,3" ignore-spaces ignore-case></lsx-gap>&nbsp;V</tt>
+                            </lsx-question-line>
+                            <lsx-question-line>
+                                Welcher auf ganze Zahlen gerundete Widerstand führt dementsprechend zum gesuchten Steuerstrom?
+                            </lsx-question-line>
+                            <lsx-question-line>
+                                R<sub>Basis</sub> ≈ <lsx-gap answer="694" ignore-spaces ignore-case validate="validate_npn1"></lsx-gap>&nbsp;Ω
+                            </lsx-question-line>
+
+                            <lsx-question-line>
+                                Der am nähesten liegende, tatsächlich verfügbare E12-Widerstandswert liegt bei 680&nbsp;Ω. Wie groß ist der Steuerstrom damit und
+                                welcher auf zwei Nachkommastellen gerundete Strom fließt am Emitter ab (auch wenn die Unterschiede meist vernachlässigbar sind)?
+                            </lsx-question-line>
+                            <lsx-question-line>
+                                <tt>I<sub>Basis<sub>Real</sub></sub> ≈ <lsx-gap answer="6,32" ignore-spaces ignore-case validate="validate_npn2"></lsx-gap>&nbsp;mA</tt>
+                            </lsx-question-line>
+                            <lsx-question-line>
+                                <tt>I<sub>Emitter</sub> ≈ <lsx-gap answer="1,25" ignore-spaces ignore-case></lsx-gap>&nbsp;A</tt>
+                            </lsx-question-line>
+                        </lsx-question>
+                    </lsx-exercise>
+                </lsx-quiz>
             </lsx-tab-page>
         </lsx-tab-pages>
     </article>
