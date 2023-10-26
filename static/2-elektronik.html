@@ -1494,17 +1494,228 @@
 </section>
 
 <section data-background-color="rgb(231, 221, 141)">
-    <h1>(Aufgabe 4: Was bewirkt die Schaltung?)</h1>
+    <h1>Aufgabe 4: Was bewirkt die Schaltung?</h1>
     <article>
-        <h2>(In Arbeit)</h2>
+        <lsx-github-edit
+            class    = "mb-3"
+            download = "Arduino/04 Lichtsensor mit LED-Matrix"
+        >
+        </lsx-github-edit>
+
+        <lsx-tab-pages>
+            <lsx-tab-page title="Hardwareschaltung">
+                <p>
+                    Versuchen Sie, die Hardwareskizze und das Foto ganz unten zu verstehen. Sie sollten relativ leicht erkennen,
+                    dass die Schaltung aus drei voneinander unabhängigen Teilen besteht:
+                </p>
+                <lsx-ul emoji="💡">
+                    <li>
+                        <b>Links:</b> KY-018 Helligkeitssensor
+                    </li>
+                    <li>
+                        <b>Mitte:</b> Drucktaster
+                    </li>
+                    <li>
+                        <b>Rechts:</b> LEDs, LEDs und nochmal LEDs
+                    </li>
+                </lsx-ul>
+                <p>
+                    Zu den ersten beiden gibt es nicht viel zu sagen. Der Helligkeitssensor ist in wirklichkeit ein Photoresistor
+                    bzw. ein lichtempfindlicher Widerstand. Er bildet zusammen mit einem festen Widerstand auf der Sensorplatine
+                    einen simplen Spannungsteiler. Wir können daher einfach 5&nbsp;V an seinen rechten beiden Pins anlegen und
+                    diese als analoge Spannung in Abhängigkeit von der Umgebungshelligkeit auslesen. Der Drucktaster hingegen
+                    verwebindet seinen Arduino-Eingangspin mit Masse/Ground, so lange er gedrückt wird.
+                </p>
+                <p>
+                    Spannend wird es bei den LEDs. Denn diese scheinen etwas kunstvoll mit dem Arduino verbunden zu sein. Und
+                    tatsächlich: Es handelt sich um eine so genannte Matrixschaltung, bei der die roten und lilanen Kabel die
+                    „Zeilen“ und die anderen Kabel die „Spalten“ bilden. Sie ermöglicht es uns, viele LEDs mit wenigen Ausgängen
+                    zu steuern. Doch wie funktioniert das? Versuchen Sie, die Schaltung im
+                    <a href="https://www.falstad.com/circuit/circuitjs.html" target="_blank">CircuitJS-Onlinesimulator</a>
+                    nachzubauen und ihre Funktionsweise zu verstehen. Wie müssen die Ausgänge des Arduino programmiert werden,
+                    um eine bestimmte LED zum Leuchten zu bringen?
+                </p>
+                <p>
+                    Am einfachsten lässt sich das Prinzip verstehen, indem Sie die Schaltung auf das absolute Minimum reduzieren.
+                    Hierfür benötigen Sie nur zwei Digitalausgänge, einen Widerstand und eine LED. Danach können Sie die komplette
+                    Matrix nachbauen.
+                </p>
+                <div class="d-flex gap-3 flex-column flex-md-row mb-4">
+                    <div class="img-thumbnail d-block mw-100 d-flex align-items-center" style="width: 25em;">
+                        <img src="2-elektronik/aufgabe-ledmatrix-circuitjs1.png" alt="" class="d-block w-100">
+                    </div>
+
+                    <div class="img-thumbnail mw-100 d-flex align-items-center" style="width: 30em;">
+                        <img src="2-elektronik/aufgabe-ledmatrix-circuitjs2.png" alt="" class="d-block w-100">
+                    </div>
+                </div>
+                <a
+                    href   = "https://www.falstad.com/circuit/circuitjs.html?ctz=CQAgjCAMB0l3BWcMBMcUHYMGZIA4UA2ATmIxAUgoqoQFMBaMMAKABkRC88QAWbFJ259ihKOIBmAQwA2AZzrVI7EBgSD+gtRtHiI0+YqTKOeMGM0gzF3VX2yFSldyqWXIsXZAHHxlQkIqbC4KFB5gni8fIygWACcKQJAIzl4gkKouZXNBQjTkkK5wkMEAEzppAFcZABcGGTpS8HEqGEhWHNVIXgKebV6QMoqparqGpohWqFgOwi0QlOsBoara+sbmqbbZwTwBAfcUlZG18c2WmZYAd1T0njyg4Nibh+SnjG63z2uunux3z4pZQ3DALEKg8JPYFWfaLWFQn4fP7vBYIkGosR7QT-b43Q4hdyWaFLRbmPj7aH9FL9Ik-IoDem0jgBVz7dQ8ImSBwxZQJFnk3L5TlZFidV6WRn7Y6jdYTFrTdqiua-AWqdSq6WnDaTC6KzoQ1VLSyasba+XbJW7fZuPCswQm2XnVqXF5C-biuDPW58T1In2tRGfNJUP209Ec-YG4NerGG62eylB30haOUlOe2OplgAIxEkPIAXIvDysVzxDAgnZiSLJeUAA8829KyhiG8kD0KyAAEoAeyuchYDYCYgQvB6hDAPFHRfAggAwj2ZJUALYAOwHQ-w4GwrbIdl4GkGPTYAFEACIMACyUhqcQAlnWADpyABeK+fAEF1zU6JU6HFV2fAA3O86AaOJn1PM8NwoMA7EIMQsHIcxWw7QQAAlQLiAAuZ88Eg885GfZc7xqZ9CGfM87wAc1I2QRjkaiABPV2ouhALkOQfz-ADB1giBJyQLAeEnDlZxAAB5coILkcwCOg4jSLwz9KkYli2I4rjf3-DjVKuaAWCAA"
+                    target = "_blank"
+                    class  = "btn btn-secondary"
+                    role   = "button"
+                >Musterlösung</a>
+            </lsx-tab-page>
+
+            <lsx-tab-page title="Programmierung">
+                <p>
+                    Für den folgenden Aufgabenteil müssen Sie die Schaltung auf dem Breadboard nachbauen. Achten Sie genau
+                    auf die Kabelverbindungen und denken Sie daran, wie der Strom fließt: Von der größeren Spannung zur
+                    kleineren, oben und unten auf dem Breadboard seitwärts ↔️ und in der Mitte des Breadboards senkrecht. ↕️
+                </p>
+                <lsx-info-box type="critical">
+                    Das in der Zeichnung geknickte Beinchen der LED ist das längere Beinchen. Es markiert die sog. „Anode“,
+                    bzw. die Seite mit der positiven Spannung, die „in die LED hinein fließt”. Das kürzere Beinchen markiert
+                    die „Kathode“, also die Seite, wo der „Strom wieder raus fließt“.
+                </lsx-info-box>
+                <lsx-info-box type="warning">
+                    Die genauen Widerstandswerte sind hier nicht entscheidend. Jeder Widerstand zwischen 200&nbsp;Ω und
+                    660&nbsp;Ω sollte problemlos funktionieren.
+                </lsx-info-box>
+                <p>
+                    Laden Sie anschließend den Quellcoder herunter und schauen Sie sich folgende Teile an:
+                </p>
+                <ul class="dhbw-list-spacious">
+                    <li>
+                        <b>Arduino/1-Analogsensor:</b> Zeigt, wie eine Analogespannung ausgelesen werden kann. Die gemessenen
+                        Werte können im „Serial Plotter“ der Arduino IDE betrachtet werden.
+                    </li>
+                    <li>
+                        <b>Arduino/2-LED-Matrix:</b> Zeigt, wie die LED-Matrix programmiert wird. Der Quellcode ist nicht sehr
+                        lang, dafür aber etwas trickreich. 🤯 Denn, damit die Matrix funktioniert, müssen möglichst alle Ausgänge
+                        einer Zeile gleichzeitig geschaltet werden, was nur per direktem Hardwarezugriff unter Umgehung der
+                        Arduino-Funktionen möglich ist. Hinzu kommt etwas Bit-Rechnerei.
+                    </li>
+                </ul>
+                <lsx-info-box>
+                    Der zweite Quellcode verwendet das Hardwareregister <tt>PORTB</tt>, um alle Pins am Port B des Atmega Microcontrollers
+                    gleichzeitig zu setzen. Es handelt sich um einen 8-Bit-Wert, bei dem jedes Bit für einen Ausgangspin steht. Auf dem
+                    Arduino Uno sind dies die Pins D0 bis D7, an denen die LEDs hängen.
+                </lsx-info-box>
+                <p>
+                    Versuchen Sie beide Quellcodes zu verstehen und auf dem Arduino auszuführen. Beim ersten Beispiel können Sie zusätzlich
+                    versuchen, den Helligkeitssensor gegen ein anderes, analoges Bauteil auszulesen. Ein Potentiometer (Drehknopf) funktioniert
+                    zum Beispiel sehr gut, da es auch als Spannungsteiler arbeitet.
+                </p>
+            </lsx-tab-page>
+
+            <lsx-tab-page title="Übungsaufgabe">
+                <p>
+                    Wechseln Sie nun in das Projekt <b>Arduino/3-Aufgabe</b>, behalten die anderen beiden aber im Hintergrund offen.
+                    Dieses sollen Sie anhand der Kommentare im Quellcode zu Ende programmieren. Folgende Funktionalität soll das Device
+                    hinterher bieten, wobei hier zwischen drei Betriebsmodi unterschieden wird:
+                </p>
+                <lsx-ul emoji="🛸">
+                    <li>
+                        <p>
+                            <b>Kurz nach dem Start:</b> Alle LEDs blinken für eine halbe Sekunde kurz auf, bevor das Device
+                            in den normalen Betriebsmodus wechselt.
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            <b>Normaler Modus:</b> Bei jedem Aufruf der <src-code language="c">loop()</src-code>-Funktion wird
+                            der aktuelle Wert des Sensors ermittelt und als LED-Bar angezeigt. Je größer der Wert ist, desto mehr
+                            aufeinanderfolgende LEDs sollen aufleuchten.
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            <b>Test-Modus:</b> Wird der Button einaml gedrückt, wechselt das Device in den Testmodus. In diesem
+                            werden alle LEDs der Reiche nach eingeschaltet und die jeweils anderen LEDs ausgeschaltet. Auf diese
+                            Weise soll man schnell erkennen können, ob sich alle LEDs korrekt und in der richtigen Reihenfolge
+                            ansprechen lassen. Anschließend wechselt das Device wieder in den normalen Modus.
+                        </p>
+                    </li>
+                </lsx-ul>
+                <lsx-info-box>
+                    Für jeden Modus ist bereits eine eigene Funktion vorgesehen, die in der <src-code language="C">loop()</src-code>-Funktion
+                    periodisch aufgerufen werden muss. Innerhalb der Funktionen muss dann geprüft werden, ob seit dem letzten Aufruf genügend
+                    Zeit vergangen ist, bevor die eigentliche, sich immer wiederholende Logik ausgeführt wird.
+                </lsx-info-box>
+                <lsx-info-box>
+                    Zur Vereinfachung des Quellcodes verwenden die Beispiele und Musterlösungen <src-code language="C">static</src-code>-Variablen.
+                    Diese verhalten sich ähnlich wie statische Variablen in einer Klasse, sind jedoch an die jeweilige Funktion gebunden. Das heißt,
+                    sie behalten ihren Wert zwischen zwei Funktionsaufrufen, ähnlich wie globale Variablen, können aber nur innerhalb der Funktion
+                    angesprochen werden, in der sie definiert wurden.
+                </lsx-info-box>
+            </lsx-tab-page>
+
+            <lsx-tab-page title="Verständnisfragen">
+                <p>
+                    Wenn Sie bis hierhin gekommen sind, sollten Sie den Hardwareaufbau und seine Programmierung ziemlich gut verstehen.
+                    Beantworten Sie deshalb abschließend noch folgende Verständnisfragen, bevor wir Sie im Kurs diskutieren:
+                </p>
+                <h3 class="mt-4">Digitale Ausgänge</h3>
+                <ol class="dhbw-list-spacious">
+                    <li>
+                        Warum leuchtet eine LED, wenn der Zeilenausgang auf HIGH und der Spaltenausgang auf LOW steht?
+                    </li>
+                    <li>
+                        Warum leuchtet sie nicht, wenn stattdessen der Spaltenausgang auf HIGH und der Zeilenausgang auf LOW steht?
+                    </li>
+                    <li>
+                        Wie kann es überhaupt sein, dass ein auf LOW geschalteter Ausgang Strom aufnehmen kann?
+                    </li>
+                </ol>
+
+                <h3 class="mt-4">Matrixschaltung</h3>
+                <ol class="dhbw-list-spacious">
+                    <li>
+                        Warum besitzt die LED-Matrix nur zwei Vorwiderstände für die LEDs, obwohl acht LEDs angesprochen werden?
+                    </li>
+                    <li>
+                        Würde die Schaltung auch funktionieren, wenn stattdessen vier die Widerstände vor die Spaltenausgänge eingesetzt wären?
+                    </li>
+                    <li>
+                        Wie viele Pins werden benötigt, um statt acht LEDs 12 oder 32 LEDs anzusteuern?
+                    </li>
+                    <li>
+                        Wie viele LEDs würden sich nach dieser Logik mit 10 Pins ansteuern lassen?
+                    </li>
+                </ol>
+            </lsx-tab-page>
+        </lsx-tab-pages>
+
+        <lsx-grid-fluid class="p-0">
+            <lsx-row>
+                <lsx-col size="md-5">
+                    <img src="2-elektronik/aufgabe-ledmatrix-skizze.png" class="img-thumbnail d-block w-100 h-100" />
+                    Skizze des Hardwareaufbaus
+                </lsx-col>
+                <lsx-col size="md">
+                    <img src="2-elektronik/aufgabe-ledmatrix-foto.jpg" class="img-thumbnail d-block w-100 h-100" />
+                    Tatsächlicher Hardwareaufbau
+                </lsx-col>
+            </lsx-row>
+        </lsx-grid-fluid>
     </article>
     <aside>
         <p>
-            Mit so einem guten Vorwissen können wir uns langsam an die Ausarbeitung eigener elektronischer Schaltungen wagen.
-            Zum Warmwerden wollen wir die hier gezeigte Schaltung im
-            <a href="https://www.falstad.com/circuit/circuitjs.html" target="_blank">CircuitJS-Onlinesimulator</a>
-            nachbauen und analysieren.
+            Egal, wie viel Geld man in die Hand nimmt: Hardwareschnittstellen sind bei Microcontrollern immer Mangelware
+            und werden früher oder später knapp. Glücklicherewise lässt sich dieses Problem lösen,  indem man beispielsweise
+            einen GPIO-Extender oder ein Shift Rigster in die Schaltung einbaut. Schaltung und Programmierung werden dadurch
+            nur unwesentlich aufwändiger, da die Bausteine als Mikrochips leicht integrierbar sind. Doch was soll man tun, wenn
+            man keinen solchen Baustein zur Hand hat oder das Problem auf andere Weise lösen will? Dann könnte zum Beispiel
+            Matrixschaltung, so wie hier gezeigt, zum Einsatz kommen. Sie benötigt keinerlei externe Bauteile und ermöglicht
+            es trotzdem, mit wenigen Signalen viele Bauteile anzusprechen.
         </p>
+        <p>
+            Diese wundersame Schaltung wollen wir zunächst im
+            <a href="https://www.falstad.com/circuit/circuitjs.html" target="_blank">CircuitJS-Onlinesimulator</a>
+            nachbauen und verstehen. Danach bauen wir sie mit echter Hardware auf und schauen uns die Programmierung an.
+            Dann funktioniert die Schaltung nur, wenn Hard- und Software hier Hand in Hand ineinander greifen.
+        </p>
+        <lsx-info-box>
+            Wir bauen eine LED-Matrix zur Ansteuerung mehrerer Leuchtdioden auf. Anstelle der Leuchtdioden könnten wir
+            aber auch jedes andere Bauteil verbinden, dass mit dem 5&nbsp;V Logikpegel des Arduino Uno angesteuert werden
+            könnte.
+        </lsx-info-box>
+        <lsx-info-box type="warning">
+            Die Schaltung funktioniert auch umgekehrt, um beispielsweise viele Schalter oder Taster mit dem Arduino zu
+            verbinden. In diesem Fall wird parallel zu jedem Bauteil aber noch eine Diode benötigt, um den Strom in die
+            richtigen Bahnen zu lenken. Computertastaturen sind zum Beispiel so aufgebaut.
+        </lsx-info-box>
         <img src="shared/github_atom.png" class="img-fluid d-block"/>
         <p>
             <small>
