@@ -1581,7 +1581,11 @@
                         Werte können im „Serial Plotter“ der Arduino IDE betrachtet werden.
                     </li>
                     <li>
-                        <b>Arduino/2-LED-Matrix:</b> Zeigt, wie die LED-Matrix programmiert wird. Der Quellcode ist nicht sehr
+                        <b>Arduino/2-LEDs-Debug:</b> Kann während dem Aufbau der Hardwareschaltung verwendet werden, um die
+                        LEDs zu testen. Bei richtigem Aufbau sollten alle LEDs durchgängig leuchten.
+                    </li>
+                    <li>
+                        <b>Arduino/3-LED-Matrix:</b> Zeigt, wie die LED-Matrix programmiert wird. Der Quellcode ist nicht sehr
                         lang, dafür aber etwas trickreich. 🤯 Denn, damit die Matrix funktioniert, müssen möglichst alle Ausgänge
                         einer Zeile gleichzeitig geschaltet werden, was nur per direktem Hardwarezugriff unter Umgehung der
                         Arduino-Funktionen möglich ist. Hinzu kommt etwas Bit-Rechnerei.
@@ -1644,7 +1648,7 @@
             <lsx-tab-page title="Verständnisfragen">
                 <p>
                     Wenn Sie bis hierhin gekommen sind, sollten Sie den Hardwareaufbau und seine Programmierung ziemlich gut verstehen.
-                    Beantworten Sie deshalb abschließend noch folgende Verständnisfragen, bevor wir Sie im Kurs diskutieren:
+                    Beantworten Sie deshalb abschließend noch folgende Verständnisfragen, bevor wir diese im Kurs besprechen:
                 </p>
                 <h3 class="mt-4">Digitale Ausgänge</h3>
                 <ol class="dhbw-list-spacious">
@@ -1731,25 +1735,388 @@
     SIGNALE ERZEUGEN UND VERARBEITEN
     ================================
 -->
-<!--
 <section data-use-template="teilkapitel" data-titel="Signale erzeugen und verarbeiten"></section>
 
 <section data-background-color="rgb(231, 221, 141)">
-    <h1>Aufgabe X: Ein kleines Arduino-Quiz</h1>
+    <h1>Aufgabe 5: Analoger Helligkeitsregler</h1>
+
     <article>
-        xxx
+        <lsx-github-edit download="Arduino/05 LED-Helligkeitsregler"></lsx-github-edit>
+
+        <h2 class="dhbw-lightblue mt-4">Hardwareschaltung</h2>
+        <lsx-grid-fluid class="p-0">
+            <lsx-row>
+                <lsx-col size="md">
+                    <p>
+                        Zunächst müssen Sie eine passende Hardwareschaltung für dieses Projekt entwerfen und auf dem
+                        Breadboard umsetzen. Die Schaltung ist dabei relativ leicht. Sie müssen lediglich zwei LEDs
+                        über passende Vorwiderstände sowie das <a href="https://sensorkit.joy-it.net/de/sensors/ky-023" target="_blank">KY-023 Joystickmodul</a>
+                        mit dem Arduino verbinden. Das Joystickmodul dient hierbei als Ersatz für zwei analoge Potentiometer,
+                        mit denen die Helligkeit der beiden LEDs eingestellt werden soll. Anstelle des Joystickmoduls können
+                        Sie daher tatsächlich auch zwei Potentiometer oder jede andere Art von Spannungsteiler anbinden.
+                    </p>
+                    <lsx-info-box>
+                        Das Joystickmodul besteht intern lediglich aus zwei rechtwinklig angeordneten Potentiometern
+                        und einem Taster, die über eine Platikkappe betätigt werden. Da es sich bei den Potentiometern
+                        um variable Spannungsteiler handelt, muss das Modul mit 5&nbsp;V Spannung versorgt werden.
+                    </lsx-info-box>
+                </lsx-col>
+                <lsx-col size="md-2" class="d-flex flex-justify-center align-items-center">
+                    <div>
+                        <img src="2-elektronik/ky-023-joystick.png" class="img-thumbnail d-block w-100 " alt="KY-023 Joystickmodul" />
+                        <p>
+                            <small>
+                                <small>
+                                    Bildnachweis:<br>
+                                    <a href="https://sensorkit.joy-it.net/de/sensors/ky-023" target="_blank">Sensorkit X40 Webseite</a>
+                                </small>
+                            </small>
+                        </p>
+                    </div>
+                </lsx-col>
+            </lsx-row>
+        </lsx-grid-fluid>
+
+        <h2 class="dhbw-lightblue mt-4">Programmierung</h2>
+        <p>
+            a) Schreiben Sie ein Arduino-Programm, das die Postion der beiden Joystickachsen als analaoge
+            Spannungen misst und zur Regulierung der beiden LEDs verwendet. Die X-Achse soll die Helligkeit
+            der ersten LED und die Y-Achse die Helligkeit der zweiten LED steuern.
+        </p>
+        <p>
+            b) Prüfen Sie zusätzlich auch den Joystick-Button ab. Solange er gedrück ist, sollen dei beiden
+            LEDs mit maximaler Helligkeit leuchten.
+        </p>
+        <lsx-info-box>
+            Die Position der Joystick-Achsen kann mit der Funktion <src-code language="C">analogRead()</src-code>
+            ermittelt werden. Ihr Gegenstück, die Funktion <src-code language="C">analogWrite()</src-code> kann
+            zur Pulsweitenmodulation der LEDs verwendet werden. <src-code language="C">analogRead()</src-code>
+            liefert jedoch einen 10-Bit Wert von 0…1023, wohingegen <src-code language="C">analogWrite()</src-code>
+            nur 8-Bit Werte von 0…255 (beide jeweils als vorzeichenlose Integer) verarbeiten kann.
+        </lsx-info-box>
     </article>
     <aside>
         <p>
-            xxx
-        </p>
-        <img src="shared/quiz.png" class="img-fluid d-block" style="max-width: 20em;"/>
+            Wer kennt sie nicht? Die eine LED, die einen viel zu hell anleuchtet und schier blendet.
+            Ist die LED beispielsweise in einen Computerbildschirm eingebaut, so dass man sie ständig
+            anschauen muss, kann das ganz schön anstregend sein oder gar Sehfehler verursachen. In
+            dieser Augabe wollen wir uns daher um die kleine Lampe kümmern und ihre Helligkeit mit
+            einem pulsweitenmodulierten Signal regulieren. Die gewünschte Helligkeit stellen wir dabei
+            mit einem Potentiometer ein, das als Helligkeitsregler einspringt und eine analoge Spannung
+            erzeugt, die wir mit dem Arduino messen können.
+        </p>        
+
+        <img src="shared/github_atom.png" class="img-fluid d-block"/>
         <p>
             <small>
                 Bildnachweis:
-                <a href="https://pixabay.com/illustrations/quiz-tiles-letters-red-game-test-2058883/" target="_blank">Pixabay: 905513</a>
+                <a href="https://atom.io/" target="_blank">Atom Webseite</a>
             </small>
         </p>
     </aside>
 </section>
--->
+
+<section data-background-color="rgb(231, 221, 141)">
+    <h1>Aufgabe 6: Tresor</h1>
+
+    <article>
+        <lsx-github-edit download="Arduino/06 Tresor" class="mb-4"></lsx-github-edit>
+
+        <lsx-tab-pages>
+            <lsx-tab-page title="Hardwareschaltung">
+                <p>
+                    In dieser Aufgabe lernen wir Drehimpulsgeber als Sensorelemente kennen. Sie dienen allgemein dazu,
+                    Drehbewegungen zu registrieren und dabei sowohl Richtung als auch Geschwindigkeit festzustellen.
+                    Im Sensorkit befindet sich hierfür der <a href="https://sensorkit.joy-it.net/de/sensors/ky-040" target="_blank">KY-040 Kodierter Drehschalter</a>,
+                    wie er als Eingabelement in unzähligen Geräten zum Einsatz kommt. Er besitzt folgende Anschlüsse:
+                </p>
+                <ul>
+                    <li>
+                        <b>+ und GND:</b> Stromquelle, die zur Generierung der Impulssignale benötigt wird
+                    </li>
+                    <li>
+                        <b>CLK (Clock):</b> Taktsignal, dessen Wechsel von HIGH nach LOW einen Drehschritt signalisiert
+                    </li>
+                    <li>
+                        <b>DT (Direction):</b> Zusatzsignal, anhand dessen die Drehrichtung bestimmt werden kann
+                    </li>
+                </ul>
+                <p>
+                    Die letzten beiden Signale werden häufig einfach nur <b>A</b> und <b>B</b> genannt, da es im Grunde
+                    genommen egal ist, welches als Takt- und welches als Richtungssignal verwendet wird. Vertauscht man
+                    die beiden Signale, wird lediglich die Drehrichtung verkehrtherum erkannt: Statt einer Linksdrehung
+                    registriert man eine Rechtsdrehung und umgekehrt.
+                </p>
+                <p>
+                    Wie in den Abbildungen unten dargestellt, handelt es sich beim KY-040 um einen mechanischen, inkrementellen
+                    Quadratur-Encoder. 🤯 Die Wirkungsweise ist im letzten Bild dargestellt: Ein sog. Schleifer fährt bei jedem
+                    Drehschritt über die zwei nebeneinanden liegenden Kontakte A und B und schließt diese abwechselnd gegen die
+                    Eingangsspannung und Masse/Ground kurz. Hierdurch entsteht an beiden Anschlüssen ein Rechtecksignal, bei dem
+                    sich HIGH- und LOW-Pegel abwechseln, so lange der Regler bewegt wird. Der Abstand zwischen den beiden Kontakten
+                    ist dabei so gewählt, dass diese um 90° phasenverschoben sind:
+                </p>
+                <ol>
+                    <li>
+                        Erst ändert sich das eine Signal und …
+                    </li>
+                    <li>
+                        nach einem Viertel der Zeit das zweite Signal.
+                    </li>
+                    <li>
+                        Zur Halbzeit springt das erste Signal zurück.
+                    </li>
+                    <li>
+                        Nach Dreiviertel der Zeit springt auch das zweite Signal zurück.
+                    </li>
+                </ol>
+                <p>
+                    Der Microcontroller muss nur auf den Flankenwechsel HIGH → LOW des CLK-Signals warten und dann das DT-Signal lesen.
+                    Der CLK-Impuls deutet an, dass eine Drehung stattgefunden hat und der aktuelle Zustand des DT-Signals zeigt die
+                    Richtung an. Einfach wie genial …
+                </p>
+                <p>
+                    Zum Nachvollziehen des Beispiels müssen Sie den KY-040 oder einen anderen Drehimpulsgeber mit dem
+                    Arduino verbinden. Vorwiderstände werden keine benötigt. Der Drucktaster des Sensors muss ebenfalls mit
+                    dem Arduino verbunden werden. Hinzu kommen zwei LEDS, die anzeigen, ob der Tresor geöffnet (grüne LED)
+                    oder verschlossen (rote LED) ist. Mit Ihrem derzeitigen Wissen sollten Sie diese Schaltung problemlos
+                    auf dem Breadboard aufbauen können.
+                </p>
+            </lsx-tab-page>
+
+            <lsx-tab-page title="Programmierung">
+                <p>
+                    Laden Sie nun den Quellcode herunter und versuchen Sie, folgende Teile auf dem Arduino laufen zu lassen:
+                </p>
+                <ul class="dhbw-list-spacious">
+                    <li>
+                        <b>Arduino/1-RotaryEncoder:</b> Zeigt, wie die beiden Signale des Drehreglers interpretiert werden müssen.
+                        Versuchen Sie die Funktionsweise des Quellcodes mit den vorstehenden Erklärungen zur Hardwareschaltung
+                        zusammenzubringen. Im „Serial Monitor“ der Arduino IDE können Sie sehen, ob eine Links- oder Rechtsdrehung
+                        erkannt wurde.
+                    </li>
+                    <li>
+                        <b>Arduino/3-Tresor-Loesung:</b> Zeigt die Musterlösung dieser Aufgabe. Versuchen Sie, die groben Zusammenhänge
+                        im Quellcode zu verstehen (wofür die beiden Klassen und welche Methode wird wann aufgerufen?) und testen Sie
+                        dabei Ihre Hardwareschaltung. Wenn alles klappt, sollten Sie den Tresor mit der Zahlenkombination 2&nbsp;rechts,
+                        4&nbsp;links, 1&nbsp;rechts, 2&nbsp;links (Stichwort „Weihnachten” 🎅) und einem anschließenden Knopfdruck öffnen
+                        können. Beobachten Sie dabei auch die Ausgaben im „Serial Monitor” der Arduino IDE.
+                    </li>
+                </ul>
+                <lsx-info-box type="warning">
+                    Ggf. müssen Sie die Konstanten am Anfang der Quellcodes anpassen oder Ihre Hardwareschaltung ändern, wenn Sie andere
+                    Arduino-Pins zum Anschluss der Bauteile gewählt haben.
+                </lsx-info-box>
+                <p>
+                    Jetzt können Sie sich an die Programmieraufgabe im Projekt <b>Arduino/2-Tresor-Aufgabe</b> heranwagen. Wie Sie sehen
+                    werden, handelt es sich um eine abgespeckte Version der Musterlösung, die Sie anhand der mit <tt>TODO</tt> gekennzeichneten
+                    Kommentare zu Ende programmieren sollen. Versuchen Sie dabei, nicht zu spicken.
+                </p>
+            </lsx-tab-page>
+
+            <lsx-tab-page title="Verständnisfragen">
+                <p>
+                    Zum Abschluss der Aufgabe versuchen Sie, die folgenden Verständnisfragen zu beantworten.
+                </p>
+
+                <h3 class="mt-4">Allgemeines zur Programmierung</h3>
+                <ol>
+                    <li>
+                        <p>
+                            Warum wurde die Programmlogik in die beiden Klassen <tt>RotaryEncoder</tt> und <tt>Vault</tt>
+                            aufgeteilt? Welche Vor- und Nachteile könnten sich daraus ergeben?
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            Was bewirken die folgenden Codezeilen und warum wurden sie eingefügt (Stichwort: Typsicherheit)?
+                        </p>
+                        <source-code language="c++">
+                            typedef uint8_t direction_t;
+                            static constexpr direction_t ROTATION_NONE  = 0;
+                            static constexpr direction_t ROTATION_LEFT  = 1;
+                            static constexpr direction_t ROTATION_RIGHT = 2;
+                        </source-code>
+                    </li>
+                    <li>
+                        <p>
+                            Wie müsste der Quellcode grob angepasst werden, wenn der Tresor zwei Drehregler zum Entsperren
+                            besitzen würde, unter der Annahme, dass beide denselben Entsperrcode nutzen, der mit einem
+                            der beiden Regler eingegeben werden muss?
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            Wie müsste der Quellcode grob angepasst werden, wenn anstatt des zweiten Drehreglers beispielsweise
+                            eine Folientastatur zur Nummerneingabe hinzugefügt werden sollte?
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            Wie müsste der Quellcode grob angepasst werden, wenn zusätzlich zu den beiden LEDs ein LCD-Display
+                            für Statusmeldungen hinzugefügt werden sollte?
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            Wie hätte der Programmcode auch ohne Klassen gestaltet werden können (Pseudocode)?
+                        </p>
+                    </li>
+                </ol>
+
+                <h3 class="mt-4">Auswertung des Drehimpulsgebers</h3>
+                <ol>
+                    <li>
+                        <p>
+                            Warum befindet sich in der Methode <src-code language="c">read_encoder()</src-code> eine
+                            Prüfung auf <src-code language="c">clk == LOW</src-code>, bevor die Logik zur Erkennung
+                            der Drehrichtung ausgeführt wird?
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            Warum entspricht <src-code language="c">dt == LOW</src-code> einer Linksdrehung und
+                            demnach <src-code language="c">dt == HIGH</src-code> einer Rechtsdrehung?
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            Welches Problem soll mit der Anweisung <src-code language="c">delay(this-&gt;DEBOUNCE_MS);</src-code>
+                            vermieden werden und wie kommt das Problem überhaupt zustande?
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            Warum könnte die Verwendung der Funktion <src-code language="c">delay()</src-code> in größeren Schaltungen
+                            mit mehr Bauteilen problematisch sein?
+                        </p>
+                    </li>
+                </ol>
+            </lsx-tab-page>
+        </lsx-tab-pages>
+
+        <lsx-grid-fluid class="p-0">
+            <lsx-row>
+                <lsx-col size="md-2">
+                    <img src="2-elektronik/ky-040-rotary-encoder.png" class="img-thumbnail d-block w-100 h-100" />
+                    KY-040 Drehregler
+                </lsx-col>
+                <lsx-col size="md-5">
+                    <img src="2-elektronik/rotary-encoders-classification.webp" class="img-thumbnail d-block w-100 h-100" />
+                    Klassifizierung von Drehreglern
+                </lsx-col>
+                <lsx-col size="md-5">
+                    <img src="2-elektronik/rotary-encoder-working-principle.webp" class="img-thumbnail d-block w-100 h-100" />
+                    Funktionsweise eines Drehreglers
+                </lsx-col>
+            </lsx-row>
+        </lsx-grid-fluid>
+        <p class="mt-4">
+            <small>
+                <small>
+                    Bildnachweise:
+                    <a href="https://sensorkit.joy-it.net/de/sensors/ky-040" target="_blank">Sensor Kit X40 Dokumentation</a>,
+                    <a href="https://howtomechatronics.com/tutorials/arduino/rotary-encoder-works-use-arduino/" target="_blank">howtomechatronics.com</a>
+                </small>
+            </small>
+        </p>
+    </article>
+    <aside>
+        <p>
+            Aus dem Urlaub oder von Geschäftsreisen kennen wir alle den (meistens viel zu kleinen) Hoteltresor,
+            der sich im Kleiderschrank jedes Hotelzimmers versteckt, um Wertsachen sicher zu verstauen. Einmal
+            verschlossen kann er nur mit einer zuvor einprogrammierten Pin-Nummer wieder geöffnet werden.
+            Heute besitzen die Tresore hierfür ein Nummerndisplay und eine Folientastatur. Tresore und den eng
+            damit verbundenen Karrierepfad des Panzerknackers gibt es jedoch schon sehr viel länger. Anders
+            als heute musste die Geheimzahl früher allerdings durch Drehen eines großen Schlüsslrads eingegeben
+            werden: Drei nach rechts, fünf nach links, … usw. Stimmte die Bewegungsfolge, setzte sich dadurch eine
+            innere Mechanik in Gang, welche die Tür entriegelte.
+        </p>
+        <p>
+            Leider liegt das Wahlmodul IoT im Semesterplan vor den Modulen „Analoge Sicherheitstechnik” und
+            „Feinmechanik für Wirtschaftsinformatiker“. Mit einem Arduino Uno, zwei LEDs und einem Drehimpulsgeber
+            (engl. „Rotary Encoder”) können wir aber dennoch unser eigenes Tresorschloss nachbauen.
+        </p>
+        <lsx-youtube video="-DJ6CEA0i9I" aspect-ratio="16by9"></lsx-youtube>
+    </aside>
+</section>
+
+<section data-background-color="rgb(231, 221, 141)">
+    <h1>Aufgabe 7: Atmega ohne Arduino</h1>
+
+    <article>
+        <lsx-github-edit download="Arduino/06 Tresor" class="mb-4"></lsx-github-edit>
+
+        <lsx-tab-pages>
+            <lsx-tab-page title="Umpflanzen des Microcontrollers">
+                <lsx-grid-fluid class="p-0">
+                    <lsx-row>
+                        <lsx-col size="md">
+                            <p>
+                                xxx
+                            </p>
+                        </lsx-col>
+                        <lsx-col size="md-5" class="d-flex flex-justify-center align-items-center">
+                            <div>
+                                <img src="2-elektronik/atmega328p-pinout.webp" class="img-thumbnail d-block w-100 " alt="Atmega 328p Pinout" />
+                                <p>
+                                    <small>
+                                        <small>
+                                            Bildnachweis:<br>
+                                            <a href="https://www.theengineeringprojects.com/2017/08/introduction-to-atmega328.html" target="_blank">www.theengineeringprojects.com</a>
+                                        </small>
+                                    </small>
+                                </p>
+                            </div>
+                        </lsx-col>
+                    </lsx-row>
+                </lsx-grid-fluid>
+            </lsx-tab-page>
+
+            <lsx-tab-page title="Neuen Microcontroller einsetzen">
+                ...
+            </lsx-tab-page>
+        </lsx-tab-pages>
+
+        <lsx-grid-fluid class="p-0 mb-5">
+            <lsx-row>
+                <lsx-col size="md-5">
+                    <img src="2-elektronik/atmega-breadboard-minimal.png" class="img-thumbnail d-block w-100 h-100" />
+                    Minimalbeschaltung des Atmega 328p¹
+                </lsx-col>
+                <lsx-col size="md-7">
+                    <img src="2-elektronik/atmega-breadboard-komplett.png" class="img-thumbnail d-block w-100 h-100" />
+                    Reguläre Beschaltung des Atmega 328p
+                </lsx-col>
+            </lsx-row>
+        </lsx-grid-fluid>
+
+        <p>
+            ¹
+            <small>
+                Theoretisch kann der Atmega328p auch so konfiguriert werden, dass er ohne den externen Quarzkristall
+                als Taktgeber auskommt und stattdessen mit einem internen 8&nbsp;MHz Takt läuft. Dies ist aber nicht
+                mit der Hardwaredefinition in der Arduino IDE kompatibel und würde eine manuelle Anpassung der
+                Hardare-Kompatibilitätsschicht erforderlich machen. Mit Kristall ist es daher tatsächlich leichter
+                und performanter. Zumal der Kristall mit Kosten von ein paar Cent nicht ins Gewicht fällt.
+            </small>
+        </p>
+    </article>
+    <aside>
+        <p>
+            Schaut man sich den Arduino Uno genauer an (bei der Variante mit gesockeltem Microcontroller ist es am
+            leichtesten zu erkennen), stellt man fest, dass dieser im Kern nur aus einem Atmega 328p Microcontroller
+            mit ein paar Hilfsschaltungen für Stromversorgung und Programmierung besteht. Soll ein Projekt daher
+            über den Prototypstatus hinauswachsen und als dauerhafte Installation realisiert werden, lohnen sich die
+            Kosten für einen neuen Arduino Uno (im Original immerhin um die 30&nbsp;€ als Klon rund die Hälfte) nicht.
+            Der Atmega 328p kann problemlos auch direkt in einer Schaltung verbaut werden. Wie das geht, sehen wir hier.
+        </p>
+        
+        <img src="shared/github_atom.png" class="img-fluid d-block"/>
+        <p>
+            <small>
+                Bildnachweis:
+                <a href="https://atom.io/" target="_blank">Atom Webseite</a>
+            </small>
+        </p>
+    </aside>
+</section>
