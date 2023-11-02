@@ -2048,28 +2048,58 @@
 
         <lsx-tab-pages>
             <lsx-tab-page title="Umpflanzen des Microcontrollers">
-                <lsx-grid-fluid class="p-0">
-                    <lsx-row>
-                        <lsx-col size="md">
-                            <p>
-                                xxx
-                            </p>
-                        </lsx-col>
-                        <lsx-col size="md-5" class="d-flex flex-justify-center align-items-center">
-                            <div>
-                                <img src="2-elektronik/atmega328p-pinout.webp" class="img-thumbnail d-block w-100 " alt="Atmega 328p Pinout" />
-                                <p>
-                                    <small>
-                                        <small>
-                                            Bildnachweis:<br>
-                                            <a href="https://www.theengineeringprojects.com/2017/08/introduction-to-atmega328.html" target="_blank">www.theengineeringprojects.com</a>
-                                        </small>
-                                    </small>
-                                </p>
-                            </div>
-                        </lsx-col>
-                    </lsx-row>
-                </lsx-grid-fluid>
+                <div class="ms-4 mb-4" style="float: right;">
+                    <img src="2-elektronik/atmega328p-pinout.webp" class="img-thumbnail d-block mw-100" style="width: 30em;" alt="Atmega 328p Pinout" />
+                    <p>
+                        <small>
+                            <small>
+                                Bildnachweis:<br>
+                                <a href="https://www.theengineeringprojects.com/2017/08/introduction-to-atmega328.html" target="_blank">www.theengineeringprojects.com</a>
+                            </small>
+                        </small>
+                    </p>
+                </div>
+
+                <p>
+                    In dieser Übung wollen wir schauen, ob das Herzstück des Ardunio Uno tatsächlich nur der Microcontroller
+                    ist oder ob das Arduino-Board doch noch mehr macht.
+                </p>
+                <ol class="dhbw-list-spacious fs-6">
+                    <li>
+                        Nachdem Sie eines der vorherigen Beispiele auf dem Arduino zum Laufen gebracht haben, hebeln Sie den
+                        Atmega-Microcontroller vorsichtig aus seinem Sockel aus. Auch wenn der Chip fest sitzt, gehen Sie dabei
+                        behutsam vor, um seine Pins nicht zu beschädigen. Am besten verwenden Sie eine speziell dafür gemachte
+                        IC-Zange. Ein flacher Schraubenzieher tut es zur Not aber auch. Versuchen Sie, den Chip beim Aushelben
+                        immer wieder leicht in alle vier Richtungen zu bewegen, um ihn schrittweise aus der Fassung zu bekommen.
+                    </li>
+                    <li>
+                        Setzen Sie den Chip nun, wie in den unteren Bildern gezeigt, mittig auf ein Breadboard. Achten Sie darauf,
+                        dass kein Beinchen verbogen und die beiden Pin-Reihen nicht kurzgeschlossen werden.
+                    </li>
+                    <li>
+                        Vervollständigen Sie nun die Minimalbeschaltung mit Stromversorgung und 16&nbsp;MHz Quarzkristall. Die
+                        restlichen Bauteile für eine vollständige Beschaltung können Sie für den Moment weg lassen. Nur, falls
+                        der Microcontrller öfters abstürzt (neustartet), sollten Sie evtl. den Pull-Down-Widerstand für die
+                        RESET-Leitung hinzufügen.
+                    </li>
+                    <li>
+                        Studieren Sie das nebenstehende Pinout des Atmega 328p und kabeln Sie die restlichen Bauteile an.
+                    </li>
+                    <li>
+                        <span class="text-danger">Prüfen Sie nochmal alle Verbindungen.</span>
+                    </li>
+                    <li>
+                        <span class="text-danger">Prüfen Sie die Verbindungen nochmal.</span> Der Microchip reagiert sehr empfindlich
+                        darauf, wenn die Versorgungsspannung an einem falschen Pin anliegt. Sehr wahrscheinlich können Sie den Chip dann
+                        nur noch das Deko-Objekt nutzen. 💐
+                    </li>
+                    <li>
+                        Versorgen Sie das Breadboard über die Pins <b>VIN</b> und <b>GND</b> ausgeschlachteten Arduino mit Strom.
+                        Ihre Schaltung sollte weiterhin funktionieren. 😀
+                    </li>
+                </ol>
+
+                <div class="clear: both;"></div>
             </lsx-tab-page>
 
             <lsx-tab-page title="Neuen Microcontroller einsetzen">
