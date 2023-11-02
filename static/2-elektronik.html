@@ -2054,7 +2054,7 @@
                         <small>
                             <small>
                                 Bildnachweis:<br>
-                                <a href="https://www.theengineeringprojects.com/2017/08/introduction-to-atmega328.html" target="_blank">www.theengineeringprojects.com</a>
+                                <a href="https://www.theengineeringprojects.com/2017/08/introduction-to-atmega328.html" target="_blank">theengineeringprojects.com</a>
                             </small>
                         </small>
                     </p>
@@ -2103,8 +2103,86 @@
             </lsx-tab-page>
 
             <lsx-tab-page title="Neuen Microcontroller einsetzen">
-                ...
-            </lsx-tab-page>
+                <p>
+                    Natürlich ist es nicht sinnvoll, einfach den Atmega-Microcontroller aus dem Arduino zu entfernen, ohne für
+                    Ersatz zu sorgen. Schließlich soll der Arduino ja weiterhin benutzber bleiben. Da der alte Chip im zweifelsfall
+                    aber in einer anderen Schaltung verbaut wurde, muss ein neuer Microcontroller eingesetzt werden. Aktuell zumindest
+                    (November 2023) ist das auch gar kein Problem. Auch wenn der Atmega328p vom Hersteller inzwischen abgekündigt wurde
+                    und der Hersteller den größeren (und deshalb auch nicht Pin-kompatiblen) Atmega4809 als Nachfolger empfielt, können
+                    neue Atmega 328p schon ab 2,50&nbsp;€ neu gekauft werden.
+                </p>
+                <p>
+                    Doch geht das in diese Richtung auch so einfach? Können wir einfach einen neuen Atmega 328p einsetzen, um den
+                    Arduino Uno wiederzubeleben? Die Antwort darauf ist ein klares Jain. 🤔 Denn eigentlich muss tatsächlich nur
+                    der Chip ersetzt werden. Allerdings lässt sich dieser nur vom Arduino programmieren (gemeint ist, per USB neuen
+                    Code aufzuspielen), wenn zuvor der „Arduino Bootloader” eingebrannt wurde. Dabei handelt es sich um ein kleines
+                    Stückchen Code, das nach dem Einschalten ausgeführt wird und prüft, ob per USB neuer Code hochgeladen werden soll
+                    und dementsprechend entweder die Uploadprozedur oder den Anwedercode startet.
+                </p>
+                <p>
+                    „Arduino-kompatible” Atmega 328p kosten in der Regel 5&nbsp;€ aufwärts, unterscheiden sich von den normalen
+                    Chips aber tatsächlich nur durch den eingebrannten Bootloader. Wesentlich günstiger und auch lehrreicher ist
+                    es daher, den Bootloader binnen weniger Sekunden einfach selbst zu brennen.
+                </p>
+
+                <div class="ms-4 mb-4" style="float: right;">
+                    <img src="2-elektronik/arduino-isp-shield.png" class="img-thumbnail d-block mw-100" style="width: 30em;" alt="Arduino ISP Shield" />
+                </div>
+
+                <ol class="dhbw-list-spacious fs-6">
+                    <li>
+                        Öffnen Sie in der Arduino IDE mit <kbd>File</kbd> → <kbd>Examples</kbd> → <kbd>ArduinoISP</kbd> → <kbd>ArduinoISP</kbd>
+                        den Quellcode des Ardunio ISP (In System Programmer) Projekts.
+                    </li>
+                    <li>
+                        Laden Sie den Code auf einen funktionierenden Arduino hoch und trennen den Arduino anschließend vom Strom.
+                    </li>
+                    <li>
+                        Verbinden Sie nun den Arduino entweder <a href="https://www.instructables.com/Turn-Your-Arduino-Into-an-ISP/" target="_blank">wie hier erklärt</a>
+                        mit dem zu brennenden Atmega-Chip. Oder stecken Sie das hier abgebildete „Arduino ISP Shield” auf den Arduino und setzen dort den zu
+                        programmierenden Chip ein. <span class="text-danger">Achten Sie darauf, den Chip entsprechend der Markierung richtig herum einzusetzen.</span>
+                    </li>
+                    <li>
+                        Wählen Sie nun in der Arduino IDE folgenden Menüpunkt aus: <kbd>Tools</kbd> → <kbd>Programmer</kbd> → <kbd>Arduino as ISP</kbd>.
+                    </li>
+                    <li>
+                        Brennen Sie anschließend den Bootloader auf den Chip mit dem Menübefehlt <kbd>Tools</kbd> → <kbd>Burn Bootloader</kbd>.
+                    </li>
+                    <li>
+                        Fertig! Wenn keine Fehlermeldung erscheint, kann der Chip nun in den ausgeschlachteten Arduino Uno eingesetzt werden.
+                        Sie können den Chip nun wie gewohnt mit dem Arduino programmieren und testen, bevor Sie ihn in einer neuen Schaltung verbauen.
+                        Den Arduino statten Sie dann einfach wieder mit einem neuen Chip aus.
+                    </li>
+                </ol>
+
+                <div style="clear: both;"></div>
+
+                <h3 class="mt-4">Hinweis zur Verfügbarkeit des Atmega 328p</h3>
+
+                <div class="me-4 mb-4" style="float: left;">
+                    <img src="2-elektronik/atmega4809pf.webp" class="img-thumbnail d-block mw-100" style="width: 10em;" alt="Atmega 4809pf" />
+                    <p>
+                        <small>
+                            <small>
+                                Bildnachweis:<br>
+                                <a href="https://www.robotics.org.za/ATMEGA4809-PF" target="_blank">robotics.org.za</a>
+                            </small>
+                        </small>
+                    </p>
+                </div>
+
+                <p>
+                    Leider wurde der Atmega 328p inzwischen vom Hersteller abgekündigt und durch neuere Microcontroller ersetzt. Stand November 2023
+                    gibt es noch genügend Bestände, dass die Neubeschaffung weiterhin problemlos möglich ist. Der einzige aktuelle Atmega, der
+                    als THT (Through-Hole) Baustein im DIP-Gehäuse verfügbar ist, ist der Atmega 4809pf, der sowohl leistungsstärker ist, als auch
+                    mehr I/Os und damit mehr Pins besitzt. Er ist daher zwar software-kompatibel aber nicht hardware-kompatibel mit dem Atmega 328p.
+                    Auch wird er anders programmiert, wodurch künftig das Einsetzen des Chips in ein Arduino-Boeard entfällt. Er kann stattdessen
+                    mit einem einfachen USB-to-Serial-Adapter programmiert werden. Leider wird der Chip von den Arduino-Werkzeugen aber noch nicht
+                    so gut unterstützt wie der gute alte 328p.
+                </p>
+
+                <div style="clear: both;"></div>
+            </lsx-tab-page> 
         </lsx-tab-pages>
 
         <lsx-grid-fluid class="p-0 mb-5">
@@ -2123,7 +2201,7 @@
         <p>
             ¹
             <small>
-                Theoretisch kann der Atmega328p auch so konfiguriert werden, dass er ohne den externen Quarzkristall
+                Theoretisch kann der Atmega 328p auch so konfiguriert werden, dass er ohne den externen Quarzkristall
                 als Taktgeber auskommt und stattdessen mit einem internen 8&nbsp;MHz Takt läuft. Dies ist aber nicht
                 mit der Hardwaredefinition in der Arduino IDE kompatibel und würde eine manuelle Anpassung der
                 Hardare-Kompatibilitätsschicht erforderlich machen. Mit Kristall ist es daher tatsächlich leichter
@@ -2137,7 +2215,7 @@
             leichtesten zu erkennen), stellt man fest, dass dieser im Kern nur aus einem Atmega 328p Microcontroller
             mit ein paar Hilfsschaltungen für Stromversorgung und Programmierung besteht. Soll ein Projekt daher
             über den Prototypstatus hinauswachsen und als dauerhafte Installation realisiert werden, lohnen sich die
-            Kosten für einen neuen Arduino Uno (im Original immerhin um die 30&nbsp;€ als Klon rund die Hälfte) nicht.
+            Kosten für einen neuen Arduino Uno (im Original immerhin um die 30&nbsp;€, als Klon rund die Hälfte) nicht.
             Der Atmega 328p kann problemlos auch direkt in einer Schaltung verbaut werden. Wie das geht, sehen wir hier.
         </p>
         
