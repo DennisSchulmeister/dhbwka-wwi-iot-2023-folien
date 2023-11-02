@@ -2092,7 +2092,7 @@
                         Sehr wahrscheinlich können Sie den Chip dann nur noch das Deko-Objekt nutzen. 💐
                     </li>
                     <li>
-                        Versorgen Sie das Breadboard über die Pins <b>VIN</b> und <b>GND</b> ausgeschlachteten Arduino mit Strom.
+                        Versorgen Sie das Breadboard über die Pins <b>VIN</b> und <b>GND</b> des ausgeschlachteten Arduino mit Strom.
                         Ihre Schaltung sollte weiterhin funktionieren. 😀
                     </li>
                 </ol>
@@ -2105,8 +2105,8 @@
                     Natürlich ist es nicht sinnvoll, einfach den Atmega-Microcontroller aus dem Arduino zu entfernen, ohne für
                     Ersatz zu sorgen. Schließlich soll der Arduino ja weiterhin benutzber bleiben. Da der alte Chip im zweifelsfall
                     aber in einer anderen Schaltung verbaut wurde, muss ein neuer Microcontroller eingesetzt werden. Aktuell zumindest
-                    (November 2023) ist das auch gar kein Problem. Auch wenn der Atmega328p vom Hersteller inzwischen abgekündigt wurde
-                    und der Hersteller den größeren (und deshalb auch nicht Pin-kompatiblen) Atmega4809 als Nachfolger empfielt, können
+                    (November 2023) ist das auch gar kein Problem. Auch wenn der Atmega 328p vom Hersteller inzwischen abgekündigt wurde
+                    und der Hersteller den größeren (und deshalb auch nicht Pin-kompatiblen) Atmega 4809pf als Nachfolger empfielt, können
                     neue Atmega 328p schon ab 2,50&nbsp;€ neu gekauft werden.
                 </p>
                 <p>
@@ -2114,8 +2114,8 @@
                     Arduino Uno wiederzubeleben? Die Antwort darauf ist ein klares Jain. 🤔 Denn eigentlich muss tatsächlich nur
                     der Chip ersetzt werden. Allerdings lässt sich dieser nur vom Arduino programmieren (gemeint ist, per USB neuen
                     Code aufzuspielen), wenn zuvor der „Arduino Bootloader” eingebrannt wurde. Dabei handelt es sich um ein kleines
-                    Stückchen Code, das nach dem Einschalten ausgeführt wird und prüft, ob per USB neuer Code hochgeladen werden soll
-                    und dementsprechend entweder die Uploadprozedur oder den Anwedercode startet.
+                    Stückchen Code, das nach dem Einschalten ausgeführt wird und prüft, ob neuer Code hochgeladen werden soll und
+                    dementsprechend entweder die Uploadprozedur oder den Anwedungscode startet.
                 </p>
                 <p>
                     „Arduino-kompatible” Atmega 328p kosten in der Regel 5&nbsp;€ aufwärts, unterscheiden sich von den normalen
@@ -2130,10 +2130,10 @@
                 <ol class="dhbw-list-spacious fs-6">
                     <li>
                         Öffnen Sie in der Arduino IDE mit <kbd>File</kbd> → <kbd>Examples</kbd> → <kbd>ArduinoISP</kbd> → <kbd>ArduinoISP</kbd>
-                        den Quellcode des Ardunio ISP (In System Programmer) Projekts.
+                        den Quellcode des Ardunio ISP (In-System Programmer) Projekts.
                     </li>
                     <li>
-                        Laden Sie den Code auf einen funktionierenden Arduino hoch und trennen den Arduino anschließend vom Strom.
+                        Spielen Sie den Code auf einen funktionierenden Arduino und trennen den Arduino anschließend vom Strom.
                     </li>
                     <li>
                         Verbinden Sie nun den Arduino entweder <a href="https://www.instructables.com/Turn-Your-Arduino-Into-an-ISP/" target="_blank">wie hier erklärt</a>
@@ -2144,7 +2144,7 @@
                         Wählen Sie nun in der Arduino IDE folgenden Menüpunkt aus: <kbd>Tools</kbd> → <kbd>Programmer</kbd> → <kbd>Arduino as ISP</kbd>.
                     </li>
                     <li>
-                        Brennen Sie anschließend den Bootloader auf den Chip mit dem Menübefehlt <kbd>Tools</kbd> → <kbd>Burn Bootloader</kbd>.
+                        Starten Sie anschließen den Brennvorgang mit <kbd>Tools</kbd> → <kbd>Burn Bootloader</kbd>.
                     </li>
                     <li>
                         Fertig! Wenn keine Fehlermeldung erscheint, kann der Chip nun in den ausgeschlachteten Arduino Uno eingesetzt werden.
@@ -2172,11 +2172,11 @@
                 <p>
                     Leider wurde der Atmega 328p inzwischen vom Hersteller abgekündigt und durch neuere Microcontroller ersetzt. Stand November 2023
                     gibt es noch genügend Bestände, dass die Neubeschaffung weiterhin problemlos möglich ist. Der einzige aktuelle Atmega, der
-                    als THT (Through-Hole) Baustein im DIP-Gehäuse verfügbar ist, ist der Atmega 4809pf, der sowohl leistungsstärker ist, als auch
-                    mehr I/Os und damit mehr Pins besitzt. Er ist daher zwar software-kompatibel aber nicht hardware-kompatibel mit dem Atmega 328p.
-                    Auch wird er anders programmiert, wodurch künftig das Einsetzen des Chips in ein Arduino-Boeard entfällt. Er kann stattdessen
-                    mit einem einfachen USB-to-Serial-Adapter programmiert werden. Leider wird der Chip von den Arduino-Werkzeugen aber noch nicht
-                    so gut unterstützt wie der gute alte 328p.
+                    als THT (Through-Hole) Baustein im DIP-Gehäuse verfügbar ist, ist allerdings der Atmega 4809pf, der sowohl leistungsstärker ist,
+                    als auch mehr I/Os und damit mehr Pins besitzt. Er ist daher zwar software-kompatibel aber nicht hardware-kompatibel mit dem
+                    Atmega 328p. Auch wird er anders programmiert, wodurch künftig das Einsetzen in ein Arduino-Boeard entfällt. Er kann stattdessen
+                    mit einem einfachen USB-to-Serial-Adapter programmiert werden. Leider wird der Chip von den Arduino-Werkzeugen aber noch nicht so
+                    gut unterstützt wie der gute alte 328p.
                 </p>
 
                 <div style="clear: both;"></div>
