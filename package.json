@@ -34,9 +34,9 @@
         "replace_variables_extensions": ".htm; .html"
     },
     "devDependencies": {
-        "@dschulmeis/lecture-slides.js": "^4.3.0",
-        "@dschulmeis/ls-plugin-extra-tags": "^3.1.0",
-        "@dschulmeis/ls-plugin-highlight.js": "^2.0.4",
+        "@dschulmeis/lecture-slides.js": "^4.5.0",
+        "@dschulmeis/ls-plugin-extra-tags": "^3.2.4",
+        "@dschulmeis/ls-plugin-highlight.js": "^2.0.5",
         "email-link.js": "^1.0.1",
         "esbuild": "^0.19.2",
         "esbuild-plugin-less": "^1.2.4",
